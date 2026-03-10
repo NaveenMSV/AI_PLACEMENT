@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Placement Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f8faff;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .sidebar-active {
+            background-color: #2563eb;
+            color: white;
+            border-radius: 0.5rem;
+        }
+    </style>
+</head>
+
+<body class="flex min-h-screen">
+
+    <aside class="w-64 bg-white border-r border-gray-200 p-6 flex flex-col justify-between">
+        <div>
+            <div class="flex items-center gap-2 mb-10 text-blue-600 font-bold text-xl">
+                <div class="bg-blue-600 text-white p-1 rounded shadow-sm">
+                    <i class="fas fa- wand-magic-sparkles"></i>
+                </div>
+                AI Placement
+            </div>
+            <nav class="space-y-4">
+                <a href="#" class="flex items-center gap-3 p-3 sidebar-active"><i class="fas fa-th-large"></i>
+                    Dashboard</a>
+                <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-blue-600"><i
+                        class="fas fa- briefcase"></i> My Tracks</a>
+                <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-blue-600"><i
+                        class="fas fa-graduation-cap"></i> Practice Rounds</a>
+                <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-blue-600"><i
+                        class="fas fa-chart-bar"></i> Analytics</a>
+                <a href="#" class="flex items-center gap-3 p-3 text-gray-500 hover:text-blue-600"><i
+                        class="fas fa-cog"></i> Settings</a>
+            </nav>
+        </div>
+
+        <div class="bg-blue-50 p-4 rounded-xl border border-blue-100">
+            <p class="text-xs text-blue-600 font-semibold mb-1 uppercase">Current Plan</p>
+            <p class="text-sm font-bold mb-3">Free Tier</p>
+            <button class="w-full bg-blue-600 text-white py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Upgrade
+                to Pro</button>
+        </div>
+    </aside>
+
+    <main class="flex-1 p-8">
+        <header class="flex justify-between items-center mb-8">
+            <div class="relative w-1/2">
+                <i class="fas fa-search absolute left-4 top-3 text-gray-400"></i>
+                <input type="text" placeholder="Search companies, tracks, or lessons..."
+                    class="w-full pl-12 pr-4 py-2 bg-white border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500">
+            </div>
+            <div class="flex items-center gap-4">
+                <i class="far fa-bell text-gray-400 text-xl cursor-pointer"></i>
+                <div class="flex items-center gap-3 text-right">
+                    <div>
+                        <p class="text-sm font-bold">Alex Johnson</p>
+                        <p class="text-xs text-gray-500">CS Senior</p>
+                    </div>
+                    <div class="w-10 h-10 bg-gray-300 rounded-full border-2 border-white shadow-sm overflow-hidden">
+                        <img src="https://ui-avatars.com/api/?name=Alex+Johnson&background=random" alt="User">
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <div class="grid grid-cols-3 gap-8">
+            <div class="col-span-2 space-y-8">
+
+                <section
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 flex justify-between items-center">
+                    <div class="max-w-md">
+                        <h1 class="text-3xl font-bold mb-2">Welcome back, Alex!</h1>
+                        <p class="text-gray-500 mb-6 leading-relaxed">You're making incredible progress. Your
+                            consistency puts you in the top 15% of candidates this month.</p>
+                        <div class="flex gap-4">
+                            <button
+                                class="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium flex items-center gap-2">
+                                <i class="fas fa-play-circle"></i> Continue Learning
+                            </button>
+                            <button class="bg-gray-100 text-gray-700 px-6 py-2 rounded-lg font-medium">View
+                                Analytics</button>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest mb-4">Placement
+                            Readiness</p>
+                        <div class="relative inline-flex items-center justify-center">
+                            <svg class="w-24 h-24 transform -rotate-90">
+                                <circle cx="48" cy="48" r="40" stroke="#f3f4f6" stroke-width="8" fill="transparent" />
+                                <circle cx="48" cy="48" r="40" stroke="#2563eb" stroke-width="8" fill="transparent"
+                                    stroke-dasharray="251" stroke-dashoffset="45" />
+                            </svg>
+                            <span class="absolute text-2xl font-bold">82%</span>
+                        </div>
+                        <p class="text-blue-600 text-xs font-bold mt-2">82nd Percentile</p>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="flex items-center gap-2 mb-4 font-bold text-gray-800">
+                        <i class="fas fa-book-open text-blue-500"></i> Continue Preparation
+                    </div>
+                    <div class="bg-blue-50 border border-blue-100 p-6 rounded-2xl flex justify-between items-center">
+                        <div class="flex items-center gap-4">
+                            <div
+                                class="w-12 h-12 bg-black rounded flex items-center justify-center text-white text-xs font-bold">
+                                GO</div>
+                            <div>
+                                <p class="text-[10px] font-bold text-blue-600 uppercase">Up Next</p>
+                                <h3 class="font-bold">Google: Technical Interview Round 2</h3>
+                                <p class="text-xs text-gray-500">Topic: Data Structures & Algorithms (Trees/Graphs)</p>
+                            </div>
+                        </div>
+                        <button
+                            class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold shadow-lg shadow-blue-200">Start
+                            Session</button>
+                    </div>
+                </section>
+
+                <section>
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="font-bold text-gray-800">Company Tracks</h2>
+                        <a href="#" class="text-blue-600 text-xs font-bold">View all tracks &rarr;</a>
+                    </div>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
+                            <div class="flex justify-between items-start mb-4">
+                                <div
+                                    class="w-10 h-10 bg-orange-50 rounded flex items-center justify-center text-orange-600">
+                                    <i class="fab fa-amazon"></i>
+                                </div>
+                                <span
+                                    class="text-[10px] px-2 py-1 bg-orange-100 text-orange-600 font-bold rounded">HARD</span>
+                            </div>
+                            <h4 class="font-bold mb-1">Amazon</h4>
+                            <p class="text-[11px] text-gray-400 mb-4 leading-tight">Operations & System Design focus</p>
+                            <div class="flex justify-between text-[10px] font-bold text-gray-400 mb-2">
+                                <span>5 Rounds</span>
+                                <span>12.4k Students</span>
+                            </div>
+                            <div class="w-full bg-gray-100 h-1 rounded-full overflow-hidden">
+                                <div class="bg-blue-600 h-full w-2/5"></div>
+                            </div>
+                            <p class="text-[10px] mt-2 font-bold text-blue-600 uppercase">2/5 Rounds Completed</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
+                            <div class="flex justify-between items-start mb-4">
+                                <div
+                                    class="w-10 h-10 bg-blue-50 rounded flex items-center justify-center text-blue-600">
+                                    <i class="fab fa-microsoft"></i>
+                                </div>
+                                <span
+                                    class="text-[10px] px-2 py-1 bg-blue-100 text-blue-600 font-bold rounded">MEDIUM</span>
+                            </div>
+                            <h4 class="font-bold mb-1">Microsoft</h4>
+                            <p class="text-[11px] text-gray-400 mb-4 leading-tight">Problem Solving & Logic focus</p>
+                            <div class="flex justify-between text-[10px] font-bold text-gray-400 mb-2">
+                                <span>4 Rounds</span>
+                                <span>8.1k Students</span>
+                            </div>
+                            <div class="w-full bg-gray-100 h-1 rounded-full"></div>
+                            <p class="text-[10px] mt-2 font-bold text-gray-300 uppercase">Not Started</p>
+                        </div>
+                        <div class="bg-white p-5 rounded-2xl border border-gray-100 shadow-sm">
+                            <div class="flex justify-between items-start mb-4">
+                                <div
+                                    class="w-10 h-10 bg-green-50 rounded flex items-center justify-center text-green-600">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <span
+                                    class="text-[10px] px-2 py-1 bg-green-100 text-green-600 font-bold rounded">EASY</span>
+                            </div>
+                            <h4 class="font-bold mb-1 text-gray-400">TCS Digital</h4>
+                            <p class="text-[11px] text-gray-400 mb-4 leading-tight">Aptitude & Basic Coding focus</p>
+                            <div class="flex justify-between text-[10px] font-bold text-gray-400 mb-2">
+                                <span>3 Rounds</span>
+                                <span>25.4k Students</span>
+                            </div>
+                            <div class="w-full bg-green-500 h-1 rounded-full"></div>
+                            <p class="text-[10px] mt-2 font-bold text-green-600 uppercase">Completed</p>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <div class="space-y-8">
+                <div class="bg-orange-50/50 p-6 rounded-2xl border border-orange-100">
+                    <div class="flex items-center gap-2 mb-4 text-orange-500 font-bold">
+                        <i class="far fa-lightbulb"></i> Daily Tip
+                    </div>
+                    <blockquote class="italic text-gray-600 text-sm leading-relaxed">
+                        "When solving graph problems, always clarify if the graph is directed or undirected before
+                        choosing your traversal algorithm."
+                    </blockquote>
+                </div>
+
+                <div class="bg-white p-6 rounded-2xl border border-gray-100 shadow-sm">
+                    <h2 class="font-bold mb-6">Placement News</h2>
+                    <div class="space-y-6">
+                        <div class="flex gap-3">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex-shrink-0"></div>
+                            <div>
+                                <h5 class="text-xs font-bold leading-tight">Google shifts to Hybrid Technical Rounds for
+                                    2024</h5>
+                                <p class="text-[10px] text-gray-400 mt-1">2 hours ago</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="w-12 h-12 bg-purple-100 rounded-lg flex-shrink-0"></div>
+                            <div>
+                                <h5 class="text-xs font-bold leading-tight">Mass hiring drive announced by Fintech
+                                    majors</h5>
+                                <p class="text-[10px] text-gray-400 mt-1">5 hours ago</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-3">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex-shrink-0"></div>
+                            <div>
+                                <h5 class="text-xs font-bold leading-tight">Top 10 most asked React interview questions
+                                    this season</h5>
+                                <p class="text-[10px] text-gray-400 mt-1">Yesterday</p>
+                            </div>
+                        </div>
+                    </div>
+                    <button
+                        class="w-full mt-6 py-2 border border-gray-100 text-gray-500 text-xs font-bold rounded-lg">Read
+                        More News</button>
+                </div>
+
+                <div class="bg-blue-600 p-6 rounded-2xl text-white">
+                    <div class="flex items-center gap-2 mb-6 font-bold">
+                        <i class="far fa-calendar-alt"></i> Upcoming Events
+                    </div>
+                    <div class="space-y-6">
+                        <div>
+                            <p class="text-[10px] font-bold opacity-75 uppercase">Tomorrow, 10:00 AM</p>
+                            <p class="text-sm font-bold">Mock HR Round with Lead AI</p>
+                        </div>
+                        <div>
+                            <p class="text-[10px] font-bold opacity-75 uppercase">Oct 24, 02:00 PM</p>
+                            <p class="text-sm font-bold">Live Webinar: Cracking FAANG</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

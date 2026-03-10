@@ -1,0 +1,227 @@
+﻿=== QUESTIONS ===
+ID: 69ad98e09ccc302514dbcf32
+  Question: Which OOPS concept wraps data and methods into a single unit?
+  RoundType: APTITUDE
+  QuestionType: MCQ
+  Options: ["Inheritance","Encapsulation","Polymorphism","Abstraction"]
+  CorrectAnswer: "B"
+---
+ID: 69ad98e09ccc302514dbcf33
+  Question: What is the time complexity to search an element in a balanced Binary Search Tree?
+  RoundType: APTITUDE
+  QuestionType: MCQ
+  Options: ["O(n)","O(1)","O(log n)","O(n^2)"]
+  CorrectAnswer: "C"
+---
+ID: 69ad98e09ccc302514dbcf34
+  Question: Which SQL command is used to permanently delete all records from a table?
+  RoundType: APTITUDE
+  QuestionType: MCQ
+  Options: ["DELETE","REMOVE","DROP","TRUNCATE"]
+  CorrectAnswer: "D"
+---
+ID: 69ad98e09ccc302514dbcf35
+  Question: In Java; which keyword is used to refer to the current class instance variable?
+  RoundType: APTITUDE
+  QuestionType: MCQ
+  Options: ["super","this","self","parent"]
+  CorrectAnswer: "B"
+---
+ID: 69ad98e09ccc302514dbcf36
+  Question: Which data structure follows the Last-In-First-Out (LIFO) principle?
+  RoundType: APTITUDE
+  QuestionType: MCQ
+  Options: ["Queue","Array","Stack","Linked List"]
+  CorrectAnswer: "C"
+---
+ID: 69ad98e09ccc302514dbcf37
+  Question: A train travels 360 km in 5 hours. What is its speed in km/h?
+  RoundType: APTITUDE
+  QuestionType: MCQ
+  Options: ["60 km/h","72 km/h","80 km/h","90 km/h"]
+  CorrectAnswer: "B"
+---
+ID: 69ad98e09ccc302514dbcf38
+  Question: If the ratio of boys to girls is 1:1 and class average height is 160cm; what is the boys average height?
+  RoundType: APTITUDE
+  QuestionType: MCQ
+  Options: ["150cm","155cm","160cm","165cm"]
+  CorrectAnswer: "C"
+---
+ID: 69ad98e09ccc302514dbcf39
+  Question: What is the primary difference between AI and Machine Learning?
+  RoundType: APTITUDE
+  QuestionType: MCQ
+  Options: ["AI is a subset of ML","ML is a subset of AI","They are the same","AI is hardware only"]
+  CorrectAnswer: "B"
+---
+ID: 69ad98e09ccc302514dbcf3a
+  Question: Which cloud model is a combination of private and public clouds?
+  RoundType: APTITUDE
+  QuestionType: MCQ
+  Options: ["Multi-Cloud","Hybrid Cloud","Distributed Cloud","Community Cloud"]
+  CorrectAnswer: "B"
+---
+ID: 69ad98e09ccc302514dbcf3b
+  Question: What is the primary benefit of Serverless Computing?
+  RoundType: APTITUDE
+  QuestionType: MCQ
+  Options: ["No code needed","No infrastructure management","It is free","Works offline"]
+  CorrectAnswer: "B"
+---
+ID: 69ad99673d4a7e655cc9697f
+  Question: Which OOPS concept focuses on wrapping data and methods into a single unit?
+  RoundType: TECHNICAL_INTERVIEW
+  QuestionType: MCQ
+  Options: ["Inheritance","Encapsulation","Polymorphism","Abstraction"]
+  CorrectAnswer: "Encapsulation"
+---
+ID: 69ad99673d4a7e655cc96980
+  Question: What is the time complexity to search an element in a balanced Binary Search Tree?
+  RoundType: TECHNICAL_INTERVIEW
+  QuestionType: MCQ
+  Options: ["O(n)","O(1)","O(log n)","O(n^2)"]
+  CorrectAnswer: "O(log n)"
+---
+ID: 69ad99673d4a7e655cc96981
+  Question: Which SQL command is used to permanently delete all records from a table?
+  RoundType: SQL
+  QuestionType: SQL
+  Options: ["DELETE","REMOVE","DROP","TRUNCATE"]
+  CorrectAnswer: "TRUNCATE"
+---
+ID: 69ad99673d4a7e655cc96982
+  Question: In Java; which keyword is used to refer to the current class instance variable?
+  RoundType: TECHNICAL_INTERVIEW
+  QuestionType: MCQ
+  Options: ["super","this","self","parent"]
+  CorrectAnswer: "this"
+---
+ID: 69ad99673d4a7e655cc96983
+  Question: Which data structure follows the Last-In-First-Out (LIFO) principle?
+  RoundType: TECHNICAL_INTERVIEW
+  QuestionType: MCQ
+  Options: ["Queue","Array","Stack","Linked List"]
+  CorrectAnswer: "Stack"
+---
+ID: 69ad99673d4a7e655cc96984
+  Question: A train travels 360 km in 5 hours. What is its speed in km/h?
+  RoundType: APTITUDE
+  QuestionType: MCQ
+  Options: ["60 km/h","72 km/h","80 km/h","90 km/h"]
+  CorrectAnswer: "72 km/h"
+---
+ID: 69ad99673d4a7e655cc96985
+  Question: If the ratio of boys to girls is 1:1 and class average height is 160cm; what is the boys average height?
+  RoundType: APTITUDE
+  QuestionType: MCQ
+  Options: ["150cm","155cm","160cm","165cm"]
+  CorrectAnswer: "160cm"
+---
+ID: 69ad99673d4a7e655cc96986
+  Question: What is the primary difference between AI and Machine Learning?
+  RoundType: TECHNICAL_INTERVIEW
+  QuestionType: MCQ
+  Options: ["AI is a subset of ML","ML is a subset of AI","They are the same","AI is hardware only"]
+  CorrectAnswer: "ML is a subset of AI"
+---
+ID: 69ad99673d4a7e655cc96987
+  Question: Which cloud model is a combination of private and public clouds?
+  RoundType: TECHNICAL_INTERVIEW
+  QuestionType: MCQ
+  Options: ["Multi-Cloud","Hybrid Cloud","Distributed Cloud","Community Cloud"]
+  CorrectAnswer: "Hybrid Cloud"
+---
+ID: 69ad99673d4a7e655cc96988
+  Question: What is the primary benefit of Serverless Computing?
+  RoundType: TECHNICAL_INTERVIEW
+  QuestionType: MCQ
+  Options: ["No code needed","No infrastructure management","It is free","Works offline"]
+  CorrectAnswer: "No infrastructure management"
+---
+ID: 69ad9ae03d4a7e655cc96a12
+  Question: Which OOPS concept focuses on wrapping data and methods into a single unit?
+  RoundType: TECHNICAL_INTERVIEW
+  QuestionType: MCQ
+  Options: ["Inheritance","Encapsulation","Polymorphism","Abstraction"]
+  CorrectAnswer: "Encapsulation"
+---
+ID: 69ad9ae03d4a7e655cc96a13
+  Question: What is the time complexity to search an element in a balanced Binary Search Tree?
+  RoundType: TECHNICAL_INTERVIEW
+  QuestionType: MCQ
+  Options: ["O(n)","O(1)","O(log n)","O(n^2)"]
+  CorrectAnswer: "O(log n)"
+---
+ID: 69ad9ae03d4a7e655cc96a14
+  Question: Which SQL command is used to permanently delete all records from a table?
+  RoundType: SQL
+  QuestionType: SQL
+  Options: ["DELETE","REMOVE","DROP","TRUNCATE"]
+  CorrectAnswer: "TRUNCATE"
+---
+ID: 69ad9ae03d4a7e655cc96a15
+  Question: In Java; which keyword is used to refer to the current class instance variable?
+  RoundType: TECHNICAL_INTERVIEW
+  QuestionType: MCQ
+  Options: ["super","this","self","parent"]
+  CorrectAnswer: "this"
+---
+ID: 69ad9ae03d4a7e655cc96a16
+  Question: Which data structure follows the Last-In-First-Out (LIFO) principle?
+  RoundType: TECHNICAL_INTERVIEW
+  QuestionType: MCQ
+  Options: ["Queue","Array","Stack","Linked List"]
+  CorrectAnswer: "Stack"
+---
+ID: 69ad9ae03d4a7e655cc96a17
+  Question: A train travels 360 km in 5 hours. What is its speed in km/h?
+  RoundType: APTITUDE
+  QuestionType: MCQ
+  Options: ["60 km/h","72 km/h","80 km/h","90 km/h"]
+  CorrectAnswer: "72 km/h"
+---
+ID: 69ad9ae03d4a7e655cc96a18
+  Question: If the ratio of boys to girls is 1:1 and class average height is 160cm; what is the boys average height?
+  RoundType: APTITUDE
+  QuestionType: MCQ
+  Options: ["150cm","155cm","160cm","165cm"]
+  CorrectAnswer: "160cm"
+---
+ID: 69ad9ae03d4a7e655cc96a19
+  Question: What is the primary difference between AI and Machine Learning?
+  RoundType: TECHNICAL_INTERVIEW
+  QuestionType: MCQ
+  Options: ["AI is a subset of ML","ML is a subset of AI","They are the same","AI is hardware only"]
+  CorrectAnswer: "ML is a subset of AI"
+---
+ID: 69ad9ae03d4a7e655cc96a1a
+  Question: Which cloud model is a combination of private and public clouds?
+  RoundType: TECHNICAL_INTERVIEW
+  QuestionType: MCQ
+  Options: ["Multi-Cloud","Hybrid Cloud","Distributed Cloud","Community Cloud"]
+  CorrectAnswer: "Hybrid Cloud"
+---
+ID: 69ad9ae03d4a7e655cc96a1b
+  Question: What is the primary benefit of Serverless Computing?
+  RoundType: TECHNICAL_INTERVIEW
+  QuestionType: MCQ
+  Options: ["No code needed","No infrastructure management","It is free","Works offline"]
+  CorrectAnswer: "No infrastructure management"
+---
+
+=== ROUND ATTEMPTS (with answers) ===
+ID: 69ada1a46c1d6bf105874d29
+  AttemptId: 69ada1a46c1d6bf105874d20
+  RoundType: APTITUDE
+  Score: 0
+  Completed: true
+  Answers: {"69ad9ae03d4a7e655cc96a17":"60 km/h","69ad9ae03d4a7e655cc96a18":"155cm"}
+---
+ID: 69ada2ef6c1d6bf105876ef0
+  AttemptId: 69ada2ef6c1d6bf105876ee7
+  RoundType: APTITUDE
+  Score: 0
+  Completed: true
+  Answers: {"69ad98e09ccc302514dbcf32":"Inheritance","69ad98e09ccc302514dbcf33":"O(n^2)","69ad98e09ccc302514dbcf34":"DROP","69ad98e09ccc302514dbcf35":"parent","69ad98e09ccc302514dbcf36":"Linked List","69ad98e09ccc302514dbcf37":"90 km/h","69ad98e09ccc302514dbcf38":"165cm","69ad98e09ccc302514dbcf39":"AI is hardware only","69ad98e09ccc302514dbcf3a":"Community Cloud","69ad98e09ccc302514dbcf3b":"Works offline","69ad99673d4a7e655cc96984":"90 km/h","69ad99673d4a7e655cc96985":"165cm"}
+---

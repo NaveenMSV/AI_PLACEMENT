@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: #f8faff;
+  font-family: 'Inter', sans-serif;
+}
+
+.sidebar-active {
+  background-color: #2563eb;
+  color: white;
+  border-radius: 0.5rem;
+}

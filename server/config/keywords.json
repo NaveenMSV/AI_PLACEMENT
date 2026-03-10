@@ -1,0 +1,50 @@
+{
+    "technicalSkills": [
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Express",
+        "JavaScript",
+        "Python",
+        "Java",
+        "SQL",
+        "AWS",
+        "Docker",
+        "Kubernetes",
+        "Git",
+        "C++",
+        "TypeScript",
+        "Tailwind",
+        "CSS",
+        "HTML",
+        "Next.js",
+        "Redux",
+        "GraphQL",
+        "PostgreSQL",
+        "Firebase",
+        "Unit Testing",
+        "Linux",
+        "CI/CD",
+        "REST API",
+        "Microservices"
+    ],
+    "concepts": [
+        "Problem Solving",
+        "Data Structures",
+        "Algorithms",
+        "Machine Learning",
+        "System Design",
+        "Agile",
+        "DevOps",
+        "Cybersecurity",
+        "Object Oriented Programming"
+    ],
+    "softSkills": [
+        "Communication",
+        "Teamwork",
+        "Leadership",
+        "Management",
+        "Analytic",
+        "Collaborat"
+    ]
+}
