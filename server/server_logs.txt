@@ -14906,3 +14906,13 @@ TypeError: Cannot destructure property 'attemptId' of 'req.body' as it is undefi
 2026-03-13T09:26:49.911Z - GET /profile - 304
 2026-03-13T09:26:52.016Z - PUT /api/auth/profile
 2026-03-13T09:26:52.027Z - PUT /profile - 200
+2026-03-13T09:32:32.332Z - POST /api/auth/admin-login
+2026-03-13T09:32:32.338Z - POST /admin-login - 200
+2026-03-13T09:32:32.388Z - GET /api/admin/dashboard
+2026-03-13T09:32:32.391Z - GET /api/admin/companies
+2026-03-13T09:32:32.404Z - GET /dashboard - 200
+2026-03-13T09:32:32.409Z - GET /api/admin/dashboard
+2026-03-13T09:32:32.413Z - GET /companies - 200
+2026-03-13T09:32:32.420Z - GET /api/admin/companies
+2026-03-13T09:32:32.425Z - GET /dashboard - 304
+2026-03-13T09:32:32.427Z - GET /companies - 304
