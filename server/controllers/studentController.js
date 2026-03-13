@@ -476,16 +476,28 @@ const getAttemptStatus = async (req, res) => {
         // AUTO-FINALIZE: If all rounds are completed but test is still IN_PROGRESS, finalize it now
         if (attempt.status === 'IN_PROGRESS' && currentRound > totalRounds) {
             console.log(`getAttemptStatus: Auto-finalizing attempt ${attempt._id} (all ${totalRounds} rounds completed)`);
-            const models = { TestAttempt, RoundAttempt };
+            const models = { TestAttempt: require('../models/TestAttempt'), RoundAttempt: require('../models/RoundAttempt') };
             const finalized = await finalizeTestAttempt(attempt._id, models);
 
             return res.json({
-                status: finalized ? finalized.status : 'COMPLETED',
+                status: 'COMPLETED',
                 attemptId: attempt._id,
                 completedRounds,
                 currentRound: null,
                 totalRounds,
                 score: finalized ? finalized.score : attempt.score
+            });
+        }
+
+        // Lock completed logic
+        if (['COMPLETED', 'DISQUALIFIED', 'MALPRACTICE'].includes(attempt.status)) {
+            return res.json({
+                status: attempt.status,
+                attemptId: attempt._id,
+                completedRounds,
+                currentRound: null, // Ensure button does not render 'Continue'
+                totalRounds,
+                score: attempt.score
             });
         }
 

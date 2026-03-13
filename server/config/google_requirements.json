@@ -1,0 +1,36 @@
+{
+  "technicalSkills": [
+    "Python",
+    "Go",
+    "C++",
+    "Java",
+    "TensorFlow",
+    "PyTorch",
+    "Google Cloud Platform",
+    "Firebase",
+    "Angular",
+    "Flutter",
+    "Kubernetes",
+    "Docker",
+    "NoSQL",
+    "Bigtable",
+    "Spanner",
+    "MapReduce",
+    "Distributed Systems"
+  ],
+  "concepts": [
+    "Advanced Data Structures",
+    "Dynamic Programming",
+    "System Design",
+    "Machine Learning",
+    "Artificial Intelligence",
+    "Operating Systems Architecture"
+  ],
+  "softSkills": [
+    "Googleness",
+    "Leadership",
+    "Inclusive Design",
+    "Communication",
+    "Problem Solving at Scale"
+  ]
+}

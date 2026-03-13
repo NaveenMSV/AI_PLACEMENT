@@ -1,5 +1,6 @@
 const Company = require('../models/Company');
 const InterviewBlueprint = require('../models/InterviewBlueprint');
+const Question = require('../models/Question');
 
 const getCompaniesPublic = async (req, res) => {
     try {
@@ -34,8 +35,18 @@ const getCompanyPreview = async (req, res) => {
     }
 };
 
+const checkCompanyQuestions = async (req, res) => {
+    try {
+        const count = await Question.countDocuments({ companyId: req.params.id });
+        res.json({ hasQuestions: count > 0 });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
 module.exports = {
     getCompaniesPublic,
     getCompanyByIdPublic,
-    getCompanyPreview
+    getCompanyPreview,
+    checkCompanyQuestions
 };

@@ -160,12 +160,40 @@ export default function LoginPage() {
                                     type="email"
                                     placeholder="your@email.com"
                                     icon={ProfileIcon}
+                                    id="forgot-email"
+                                    required
                                 />
                             </div>
-                            <Button className="w-full h-11" onClick={() => {
-                                alert("Password reset link has been sent to your email!");
-                                setShowForgotModal(false);
-                            }}>
+                            <Button 
+                                className="w-full h-11" 
+                                isLoading={isLoading}
+                                onClick={async () => {
+                                    const emailInput = document.getElementById('forgot-email');
+                                    if (!emailInput.value) {
+                                        setError('Please enter your email address');
+                                        return;
+                                    }
+                                    setIsLoading(true);
+                                    try {
+                                        const res = await fetch('/api/auth/forgotpassword', {
+                                            method: 'POST',
+                                            headers: { 'Content-Type': 'application/json' },
+                                            body: JSON.stringify({ email: emailInput.value })
+                                        });
+                                        const data = await res.json();
+                                        if (res.ok) {
+                                            alert("Password reset link has been sent to your email!");
+                                            setShowForgotModal(false);
+                                        } else {
+                                            alert(data.message || 'Something went wrong');
+                                        }
+                                    } catch (err) {
+                                        alert('Network error. Please try again.');
+                                    } finally {
+                                        setIsLoading(false);
+                                    }
+                                }}
+                            >
                                 Send Reset Link
                             </Button>
                             <button

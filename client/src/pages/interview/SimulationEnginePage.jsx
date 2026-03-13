@@ -7,6 +7,33 @@ import AiRound from './AiRound';
 import { AlertCircle, Camera, ShieldAlert, XCircle } from 'lucide-react';
 import { cn } from '../../lib/utils';
 
+// ── Global cleanup helper (works even after React unmount) ──
+function killAllMediaStreams() {
+    try {
+        // Stop ALL active media tracks on the page
+        if (window.__proctorStream) {
+            window.__proctorStream.getTracks().forEach(t => { t.stop(); });
+            window.__proctorStream = null;
+        }
+    } catch (e) { console.error('killAllMediaStreams error:', e); }
+}
+
+function exitFullscreenSync() {
+    try {
+        if (document.fullscreenElement) {
+            document.exitFullscreen().catch(() => {});
+        }
+    } catch (e) {}
+}
+
+// Hard redirect that guarantees camera off + fullscreen exit + page change
+function hardRedirect(path) {
+    killAllMediaStreams();
+    exitFullscreenSync();
+    // Use window.location for a HARD navigation - kills all JS context
+    window.location.href = path;
+}
+
 export default function SimulationEnginePage() {
     const { attemptId } = useParams();
     const [searchParams] = useSearchParams();
@@ -19,7 +46,7 @@ export default function SimulationEnginePage() {
 
     // Proctoring State
     const [isMalpractice, setIsMalpractice] = useState(false);
-    const [malpracticeType, setMalpracticeType] = useState(''); // Tracking terminal violation type
+    const [malpracticeType, setMalpracticeType] = useState('');
     const [malpracticeCountdown, setMalpracticeCountdown] = useState(5);
     const [showEndConfirm, setShowEndConfirm] = useState(false);
     const [violationCount, setViolationCount] = useState(0);
@@ -28,8 +55,9 @@ export default function SimulationEnginePage() {
     const [isBlurred, setIsBlurred] = useState(false);
     const videoRef = useRef(null);
     const proctorCleanup = useRef(null);
-    const violationTypeCounts = useRef({}); // Track counts per type (BACK_BUTTON, SCREENSHOT, etc.)
+    const violationTypeCounts = useRef({});
     const hasTriggeredMalpractice = useRef(false);
+    const isExiting = useRef(false); // Guards all exit flows
 
     // ─── LIFECYCLE ──────────────────────────────────────────
     useEffect(() => {
@@ -38,7 +66,10 @@ export default function SimulationEnginePage() {
         enterFullScreen();
         setupProctoring();
 
-        return () => { cleanupProctoring(); };
+        return () => { 
+            cleanupProctoring(); 
+            killAllMediaStreams();
+        };
     }, [attemptId, currentRoundNumber]);
 
     // ─── FULLSCREEN ─────────────────────────────────────────
@@ -55,8 +86,10 @@ export default function SimulationEnginePage() {
     const setupProctoring = () => {
         cleanupProctoring();
 
-        // 1. FULLSCREEN EXIT → IMMEDIATE MALPRACTICE (ONE CHANCE)
+        // 1. FULLSCREEN EXIT → IMMEDIATE MALPRACTICE
         const handleFSChange = () => {
+            // CRITICAL: Skip if we are intentionally exiting
+            if (isExiting.current) return;
             if (!document.fullscreenElement && !hasTriggeredMalpractice.current) {
                 triggerViolation('FULLSCREEN_EXIT', true);
             }
@@ -64,6 +97,7 @@ export default function SimulationEnginePage() {
 
         // 2. TAB SWITCH / VISIBILITY
         const handleVisibility = () => {
+            if (isExiting.current) return;
             if (document.visibilityState === 'hidden' && !hasTriggeredMalpractice.current) {
                 setIsBlurred(true);
                 triggerViolation('TAB_SWITCH');
@@ -72,21 +106,16 @@ export default function SimulationEnginePage() {
 
         // 3. SCREENSHOT KEY & SHORTCUTS
         const handleKeyDown = (e) => {
-            if (hasTriggeredMalpractice.current) return;
+            if (hasTriggeredMalpractice.current || isExiting.current) return;
 
-            // F12 or Ctrl+Shift+I or Ctrl+Shift+J or Ctrl+Shift+C (DevTools)
             const isDevTools = e.key === 'F12' || (e.ctrlKey && e.shiftKey && ['i', 'j', 'c'].includes(e.key.toLowerCase()));
 
-            // PrintScreen (Keydown/Keyup)
             if (e.key === 'PrintScreen' || isDevTools) {
                 e.preventDefault();
                 setIsBlurred(true);
                 triggerViolation(isDevTools ? 'DEVTOOLS_ACCESS' : 'SCREENSHOT');
             }
 
-            // Shortcuts: 
-            // Mac: Cmd+Shift+3/4 (Meta+Shift+3/4)
-            // Windows: Win+Shift+S (Meta+Shift+S)
             const isMacScreenshot = e.metaKey && e.shiftKey && (e.key === '3' || e.key === '4');
             const isWinScreenshot = e.metaKey && e.shiftKey && e.key.toLowerCase() === 's';
 
@@ -96,7 +125,6 @@ export default function SimulationEnginePage() {
                 triggerViolation('SCREENSHOT_SHORTCUT');
             }
 
-            // Block common shortcuts
             if (
                 (e.ctrlKey && ['c', 'v', 't', 'r'].includes(e.key.toLowerCase())) ||
                 (e.altKey && e.key === 'Tab')
@@ -109,7 +137,6 @@ export default function SimulationEnginePage() {
             if (e.key === 'PrintScreen') {
                 e.preventDefault();
                 setIsBlurred(true);
-                // Screenshots have only 1 warning (2nd time is malpractice)
                 triggerViolation('SCREENSHOT');
             }
         };
@@ -117,14 +144,14 @@ export default function SimulationEnginePage() {
         // 4. BACK BUTTON BLOCK & VIOLATION
         window.history.pushState(null, null, window.location.href);
         const handlePopState = (e) => {
-            console.log('Popstate detected, trapping user and logging violation...');
+            if (isExiting.current) return;
             window.history.pushState(null, null, window.location.href);
-            // Give 3 chances for back button (4th time is malpractice)
             triggerViolation('BACK_BUTTON');
         };
 
         // 5. BEFOREUNLOAD
         const handleBeforeUnload = (e) => {
+            if (isExiting.current) return; // Allow exit when intentional
             e.preventDefault();
             e.returnValue = 'You are in a proctored test. Leaving will disqualify you.';
             return e.returnValue;
@@ -133,7 +160,12 @@ export default function SimulationEnginePage() {
         // 6. Context menu / copy-paste
         const preventContextMenu = (e) => e.preventDefault();
         const preventCopyPaste = (e) => {
-            if (['copy', 'cut', 'paste'].includes(e.type)) e.preventDefault();
+            if (isExiting.current) return;
+            if (['copy', 'cut', 'paste'].includes(e.type)) {
+                e.preventDefault();
+                setIsBlurred(true);
+                triggerViolation('COPY_PASTE');
+            }
         };
 
         document.addEventListener('fullscreenchange', handleFSChange);
@@ -172,24 +204,23 @@ export default function SimulationEnginePage() {
     const startWebcam = async () => {
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ video: true });
+            // Store on window so it survives React unmount
+            window.__proctorStream = stream;
             if (videoRef.current) videoRef.current.srcObject = stream;
         } catch (err) { console.error('Webcam failed:', err); }
     };
 
     // ─── VIOLATION HIERARCHY ───────────────────────────────
     const triggerViolation = async (type, forceCritical = false) => {
-        if (hasTriggeredMalpractice.current) return;
+        if (hasTriggeredMalpractice.current || isExiting.current) return;
 
-        // Update local per-type count
         violationTypeCounts.current[type] = (violationTypeCounts.current[type] || 0) + 1;
         const currentTypeCount = violationTypeCounts.current[type];
 
-        // GLOBAL TERMINAL RULE: 2nd violation (any type) is terminal
-        // (Except Fullscreen Exit which is always terminal)
         let isCritical = forceCritical;
 
-        if (['SCREENSHOT', 'SCREENSHOT_SHORTCUT', 'DEVTOOLS_ACCESS', 'TAB_SWITCH', 'BACK_BUTTON'].includes(type)) {
-            if (violationCount >= 1) isCritical = true; // 1st is warning, 2nd is terminal
+        if (['SCREENSHOT', 'SCREENSHOT_SHORTCUT', 'DEVTOOLS_ACCESS', 'TAB_SWITCH', 'BACK_BUTTON', 'COPY_PASTE'].includes(type)) {
+            if (violationCount >= 1) isCritical = true;
         }
 
         console.log(`Violation[${type}] count: ${currentTypeCount}, isCritical: ${isCritical}`);
@@ -199,7 +230,7 @@ export default function SimulationEnginePage() {
             const res = await fetch('/api/simulation/increment-violation', {
                 method: 'PATCH',
                 headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${token}` },
-                body: JSON.stringify({ attemptId, type, isCritical }) // Notify backend if we hit threshold
+                body: JSON.stringify({ attemptId, type, isCritical })
             });
             const data = await res.json();
 
@@ -214,7 +245,6 @@ export default function SimulationEnginePage() {
             }
         } catch (e) {
             console.error('Violation log error:', e);
-            // Fallback for network issues
             const newCount = violationCount + 1;
             setViolationCount(newCount);
             if (isCritical || newCount >= 3) triggerMalpractice(type);
@@ -226,9 +256,10 @@ export default function SimulationEnginePage() {
     const triggerMalpractice = async (type) => {
         if (hasTriggeredMalpractice.current) return;
         hasTriggeredMalpractice.current = true;
+        isExiting.current = true; // Prevent further violations
         setMalpracticeType(type);
         setIsMalpractice(true);
-        setIsBlurred(false); // Remove blur to show malpractice screen clearly
+        setIsBlurred(false);
         cleanupProctoring();
 
         try {
@@ -240,7 +271,7 @@ export default function SimulationEnginePage() {
             });
         } catch (e) { console.error('Malpractice log error:', e); }
 
-        // Start countdown
+        // Start countdown then HARD redirect
         let count = 5;
         setMalpracticeCountdown(count);
         const timer = setInterval(() => {
@@ -248,13 +279,7 @@ export default function SimulationEnginePage() {
             setMalpracticeCountdown(count);
             if (count <= 0) {
                 clearInterval(timer);
-                navigate('/dashboard');
-                // Exit fullscreen ONLY after navigation/redirect has started/completed
-                setTimeout(() => {
-                    if (document.fullscreenElement) {
-                        document.exitFullscreen().catch(() => { });
-                    }
-                }, 100);
+                hardRedirect('/dashboard');
             }
         }, 1000);
     };
@@ -279,26 +304,36 @@ export default function SimulationEnginePage() {
                         setCurrentRoundNumber(nextRound);
                         return;
                     } else {
+                        // All rounds done — finalize and leave
                         await fetch(`/api/student/test/${attemptId}/finish`, {
                             method: 'POST', headers: { 'Authorization': `Bearer ${token}` }
                         });
-                        exitAndNavigate(`/results/${attemptId}`);
+                        isExiting.current = true;
+                        cleanupProctoring();
+                        hardRedirect(`/results/${attemptId}`);
                         return;
                     }
                 }
                 setRoundData(data.roundAttempt);
                 setQuestions(data.questions || []);
             } else if (res.status === 400 && data.status) {
-                exitAndNavigate(`/results/${attemptId}`);
+                // Test already completed/malpractice — redirect to results
+                isExiting.current = true;
+                cleanupProctoring();
+                hardRedirect(`/results/${attemptId}`);
                 return;
             } else if (res.status === 404) {
                 await fetch(`/api/student/test/${attemptId}/finish`, {
                     method: 'POST', headers: { 'Authorization': `Bearer ${token}` }
                 });
-                exitAndNavigate(`/results/${attemptId}`);
+                isExiting.current = true;
+                cleanupProctoring();
+                hardRedirect(`/results/${attemptId}`);
                 return;
             } else {
-                exitAndNavigate('/dashboard');
+                isExiting.current = true;
+                cleanupProctoring();
+                hardRedirect('/dashboard');
             }
         } catch (error) {
             console.error('Error fetching round info:', error);
@@ -307,30 +342,28 @@ export default function SimulationEnginePage() {
         }
     };
 
-    const exitAndNavigate = (path) => {
-        cleanupProctoring();
-        if (document.fullscreenElement) {
-            document.exitFullscreen().then(() => navigate(path)).catch(() => navigate(path));
-        } else {
-            navigate(path);
-        }
-    };
-
     // ─── END TEST / FINISH ROUND ────────────────────────────
     const handleEndTestConfirm = () => setShowEndConfirm(true);
 
     const handleEndTestYes = async () => {
+        // IMMEDIATELY set exit flag to prevent any proctoring interference
+        isExiting.current = true;
         setShowEndConfirm(false);
+        setLoading(true);
+
         try {
-            setLoading(true);
             const token = localStorage.getItem('token');
             await fetch(`/api/student/test/${attemptId}/finish`, {
                 method: 'POST', headers: { 'Authorization': `Bearer ${token}` }
             });
-            exitAndNavigate(`/results/${attemptId}`);
         } catch (error) {
-            exitAndNavigate('/dashboard');
+            console.error('Finish test error:', error);
         }
+
+        // Clean up proctoring listeners
+        cleanupProctoring();
+        // HARD redirect — this kills ALL JS, stops camera, exits fullscreen
+        hardRedirect(`/results/${attemptId}`);
     };
 
     const handleFinishRound = async () => {
@@ -344,13 +377,18 @@ export default function SimulationEnginePage() {
             if (res.ok) {
                 setCurrentRoundNumber(nextRound);
             } else {
+                // No more rounds — finalize
+                isExiting.current = true;
                 await fetch(`/api/student/test/${attemptId}/finish`, {
                     method: 'POST', headers: { 'Authorization': `Bearer ${token}` }
                 });
-                exitAndNavigate(`/results/${attemptId}`);
+                cleanupProctoring();
+                hardRedirect(`/results/${attemptId}`);
             }
         } catch (error) {
-            exitAndNavigate('/dashboard');
+            isExiting.current = true;
+            cleanupProctoring();
+            hardRedirect('/dashboard');
         }
     };
 
@@ -441,6 +479,7 @@ export default function SimulationEnginePage() {
                             {warningType === 'SCREENSHOT_SHORTCUT' && "Screenshot shortcut detected. This is strictly prohibited."}
                             {warningType === 'BACK_BUTTON' && "Back button navigation attempt detected. Use the on-screen controls only."}
                             {warningType === 'DEVTOOLS_ACCESS' && "Developer Tools detected. This is strictly prohibited."}
+                            {warningType === 'COPY_PASTE' && "Copy/Paste actions are strictly prohibited during the simulation."}
                         </div>
 
                         <p className="text-slate-500 mb-8 leading-relaxed text-sm">

@@ -15,11 +15,37 @@ export default function CompanyProfilePage() {
     const [isLoading, setIsLoading] = useState(true);
     const [isEnrolled, setIsEnrolled] = useState(false);
     const [attemptStatus, setAttemptStatus] = useState(null); // { status, attemptId }
+    const [hasQuestions, setHasQuestions] = useState(false);
 
     useEffect(() => {
         if (id) {
             fetchCompanyData();
         }
+    }, [id]);
+
+    useEffect(() => {
+        if (!id) return;
+        
+        let isMounted = true;
+        const checkQuestions = async () => {
+            try {
+                const res = await fetch(`/api/public/companies/${id}/has-questions`);
+                if (res.ok) {
+                    const data = await res.json();
+                    if (isMounted) setHasQuestions(data.hasQuestions);
+                }
+            } catch (err) {
+                console.error('Error checking questions:', err);
+            }
+        };
+
+        checkQuestions();
+        const interval = setInterval(checkQuestions, 5000); // 5-second polling
+
+        return () => {
+            isMounted = false;
+            clearInterval(interval);
+        };
     }, [id]);
 
     const fetchCompanyData = async () => {
@@ -69,6 +95,11 @@ export default function CompanyProfilePage() {
     };
 
     const handleStartTest = async () => {
+        if (!hasQuestions) {
+            alert('No questions added by admin yet.');
+            return;
+        }
+
         try {
             const token = localStorage.getItem('token');
             const res = await fetch(`/api/student/test/start/${id}`, {
@@ -148,7 +179,7 @@ export default function CompanyProfilePage() {
                                         : `Continue Round ${attemptStatus.currentRound}`}
                                 </Button>
                             ) : (
-                                <Button size="lg" className="w-48 shadow-md" onClick={handleStartTest}>Start Simulation</Button>
+                                <Button size="lg" className={cn("w-48 shadow-md", !hasQuestions && "opacity-60")} onClick={handleStartTest}>Start Simulation</Button>
                             )}
                         </div>
                     </div>

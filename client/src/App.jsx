@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import LandingPage from './pages/public/LandingPage';
 import LoginPage from './pages/auth/LoginPage';
 import RegisterPage from './pages/auth/RegisterPage';
+import ResetPasswordPage from './pages/auth/ResetPasswordPage';
 import DashboardPage from './pages/student/DashboardPage';
 import AdminDashboardPage from './pages/admin/AdminDashboardPage';
 import StudentsPage from './pages/admin/StudentsPage';
@@ -35,6 +36,7 @@ function App() {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/admin-login" element={<LoginPage />} />
             <Route path="/register" element={<RegisterPage />} />
+            <Route path="/resetpassword/:token" element={<ResetPasswordPage />} />
 
             {/* Student Routes */}
             <Route path="/dashboard" element={<DashboardPage />} />

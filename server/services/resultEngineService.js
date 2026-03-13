@@ -98,6 +98,19 @@ const finalizeTestAttempt = async (attemptId, models) => {
     const { TestAttempt, RoundAttempt } = models;
 
     try {
+        // Check current status first
+        const currentAttempt = await TestAttempt.findById(attemptId);
+        if (!currentAttempt) {
+            console.error(`finalizeTestAttempt: Attempt ${attemptId} not found.`);
+            return null;
+        }
+
+        // If already completed, just return it
+        if (currentAttempt.status === 'COMPLETED') {
+            console.log(`finalizeTestAttempt: Attempt ${attemptId} already COMPLETED.`);
+            return currentAttempt;
+        }
+
         const roundAttempts = await RoundAttempt.find({ attemptId });
 
         let totalScore = 0;
@@ -116,10 +129,11 @@ const finalizeTestAttempt = async (attemptId, models) => {
         const maxPoints = totalQuestions > 0 ? totalQuestions * 5 : 1;
         const scorePercent = totalQuestions > 0 ? Math.round((totalScore / maxPoints) * 100) : totalScore;
 
-        console.log(`Finalizing attempt ${attemptId}. Raw Score: ${totalScore}. Questions: ${totalQuestions}. Percentage: ${scorePercent}%. Rounds: ${roundAttempts.length}`);
+        console.log(`Finalizing attempt ${attemptId}. Raw Score: ${totalScore}. Questions: ${totalQuestions}. Percentage: ${scorePercent}%. Rounds: ${roundAttempts.length}. Current Status: ${currentAttempt.status}`);
 
-        const updatedAttempt = await TestAttempt.findOneAndUpdate(
-            { _id: attemptId, status: 'IN_PROGRESS' },
+        // Force update to COMPLETED regardless of current status (IN_PROGRESS, MALPRACTICE, etc.)
+        const updatedAttempt = await TestAttempt.findByIdAndUpdate(
+            attemptId,
             {
                 status: 'COMPLETED',
                 endTime: new Date(),
@@ -129,12 +143,15 @@ const finalizeTestAttempt = async (attemptId, models) => {
         ).populate('companyId', 'name');
 
         if (!updatedAttempt) {
-            console.error(`Attempt ${attemptId} not found during finalization.`);
+            console.error(`Attempt ${attemptId} update failed during finalization.`);
+        } else {
+            console.log(`finalizeTestAttempt: SUCCESS - ${attemptId} now COMPLETED with score ${scorePercent}%`);
         }
 
         return updatedAttempt;
     } catch (error) {
         console.error(`Error in finalizeTestAttempt for ${attemptId}:`, error);
+        // Last resort fallback
         return await TestAttempt.findByIdAndUpdate(attemptId, { status: 'COMPLETED', endTime: new Date() }, { new: true });
     }
 };

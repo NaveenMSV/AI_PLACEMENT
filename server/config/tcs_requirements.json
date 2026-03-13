@@ -1,0 +1,43 @@
+{
+  "technicalSkills": [
+    "Java",
+    "Python",
+    "C++",
+    "C#",
+    "SQL",
+    "JavaScript",
+    "React",
+    "Node.js",
+    "Spring Boot",
+    "Microservices",
+    "Cloud Computing",
+    "AWS",
+    "Azure",
+    "DevOps",
+    "Docker",
+    "Kubernetes",
+    "Machine Learning",
+    "Data Science",
+    "Cybersecurity",
+    "Agile",
+    "Scrum"
+  ],
+  "concepts": [
+    "Data Structures",
+    "Algorithms",
+    "Object Oriented Programming",
+    "Database Management Systems",
+    "Operating Systems",
+    "Computer Networks",
+    "Software Engineering"
+  ],
+  "softSkills": [
+    "Communication",
+    "Problem Solving",
+    "Analytical Thinking",
+    "Teamwork",
+    "Leadership",
+    "Adaptability",
+    "Time Management"
+  ]
+}

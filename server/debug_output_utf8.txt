@@ -1,0 +1,18 @@
+﻿Connected to DB
+Total Questions: 70
+Question Distribution by Company ID:
+ID: 69b24508fe4a48e646c467b7 | Name: GOOGLE | Count: 10
+ID: 69b24537fe4a48e646c46801 | Name: AMAZON | Count: 10
+ID: 69b24566fe4a48e646c46844 | Name: META | Count: 5
+ID: 69b250422f6355e676a507f3 | Name: udemy | Count: 5
+ID: 69b24ff72f6355e676a507b9 | Name: indium | Count: 5
+ID: 69b250062f6355e676a507be | Name: mr.cooper | Count: 5
+ID: 69b250272f6355e676a507d1 | Name: tcs | Count: 10
+ID: 69b2563cb3237207c9d25ed9 | Name: logitec | Count: 10
+ID: 69b25631b3237207c9d25ec8 | Name: nav | Count: 5
+ID: 69b25c9518aa72ddd794571a | Name: logiii | Count: 5
+
+--- logiii Details ---
+ID: new ObjectId('69b25c9518aa72ddd794571a')
+Questions found for logiii: 5
+Blueprint found: false

@@ -114,8 +114,8 @@ export default function AdminDashboardPage() {
                             <CardTitle className="text-xl">Company Blueprints</CardTitle>
                             <CardDescription>Manage interview processes and simulation tracks</CardDescription>
                         </div>
-                        <Button onClick={() => navigate('/admin/companies/new')} size="sm">
-                            Add Company
+                        <Button onClick={() => navigate('/admin/companies')} size="sm">
+                            Manage Companies
                         </Button>
                     </div>
                 </CardHeader>

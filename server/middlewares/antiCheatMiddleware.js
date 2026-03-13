@@ -20,17 +20,28 @@ const enforceAntiCheat = async (req, res, next) => {
             return res.status(404).json({ message: 'Test attempt not found' });
         }
 
-        if (attempt.status === 'DISQUALIFIED') {
+        // Allow the 'finish' endpoint through even for terminal statuses
+        // so finalization can clean up properly
+        const isFinishRoute = req.originalUrl && req.originalUrl.includes('/finish');
+
+        if (attempt.status === 'DISQUALIFIED' && !isFinishRoute) {
             return res.status(403).json({
                 message: 'This test attempt has been disqualified due to multiple anti-cheat violations.',
                 status: 'DISQUALIFIED'
             });
         }
 
-        if (attempt.status === 'COMPLETED') {
+        if (attempt.status === 'COMPLETED' && !isFinishRoute) {
             return res.status(400).json({
                 message: 'This test attempt is already completed.',
                 status: 'COMPLETED'
+            });
+        }
+
+        if (attempt.status === 'MALPRACTICE' && !isFinishRoute) {
+            return res.status(403).json({
+                message: 'This test attempt was terminated due to malpractice.',
+                status: 'MALPRACTICE'
             });
         }
 
