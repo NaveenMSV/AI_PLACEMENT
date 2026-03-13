@@ -56,7 +56,11 @@ export default function LoginPage() {
                 setError(data.message || 'Login failed');
             }
         } catch (err) {
-            setError('Something went wrong. Please try again.');
+            if (err.message && err.message.includes('Unexpected token')) {
+                 setError('Server returned invalid data. Is the backend server running?');
+            } else {
+                 setError('Network Error: Cannot connect to server. Please ensure the backend is running.');
+            }
             console.error(err);
         } finally {
             setIsLoading(false);
