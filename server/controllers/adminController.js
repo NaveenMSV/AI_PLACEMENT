@@ -3,7 +3,10 @@ const InterviewBlueprint = require('../models/InterviewBlueprint');
 const User = require('../models/User');
 const TestAttempt = require('../models/TestAttempt');
 const { generateTemplate } = require('../utils/csvTemplateGenerator');
-const { parseAndSeedCsv } = require('../services/csvParserService');
+const { parseAndSeedCsv, parseSplitSqlCsv } = require('../services/csvParserService');
+const Question = require('../models/Question');
+const DailyChallenge = require('../models/DailyChallenge');
+const { syncBlueprintWithRound } = require('../services/interviewEngineService');
 
 // @desc    Get all dashboard stats
 // @route   GET /admin/dashboard
@@ -65,6 +68,12 @@ const createBlueprint = async (req, res) => {
             { new: true, upsert: true }
         );
 
+        // Synchronize company numberOfRounds if they differ
+        if (companyExists.numberOfRounds !== rounds.length) {
+            companyExists.numberOfRounds = rounds.length;
+            await companyExists.save();
+        }
+
         res.status(201).json(blueprint);
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -101,20 +110,116 @@ const uploadQuestionsCsv = async (req, res) => {
 
         const companyId = req.body.companyId;
         const roundNumber = req.body.roundNumber || null;
-        fs.appendFileSync(logFile, `Target Company ID: ${companyId}, Round: ${roundNumber}\n`);
+        const roundType = req.body.roundType || null;
+        fs.appendFileSync(logFile, `Target Company ID: ${companyId}, Round: ${roundNumber}, Type: ${roundType}\n`);
 
         if (!companyId) {
             fs.appendFileSync(logFile, `Error: Missing Company ID\n`);
             return res.status(400).json({ message: 'Company ID is required' });
         }
 
-        const count = await parseAndSeedCsv(req.file.path, companyId, roundNumber);
-        fs.appendFileSync(logFile, `CSV Upload Success. Seeded count: ${count}\n`);
+        console.log(`ADMIN: Uploading questions for Company: ${companyId}, Round: ${roundNumber}, Type: ${roundType}`);
+        const count = await parseAndSeedCsv(req.file.path, companyId, roundNumber, roundType);
+        console.log(`ADMIN: Seeded ${count} questions successfully.`);
+        
+        // Synchronize blueprint if roundType was provided
+        if (roundType && roundNumber) {
+            const { syncBlueprintWithRound } = require('../services/interviewEngineService');
+            await syncBlueprintWithRound(companyId, roundNumber, roundType);
+        }
 
-        res.status(201).json({ message: `Successfully seeded ${count} questions` });
+        fs.appendFileSync(logFile, `CSV Upload Success. Seeded count: ${count.count}\n`);
+
+        // If set as today's challenge is checked
+        if (req.body.setAsDailyChallenge === 'true' && count.firstId) {
+            const q = await Question.findById(count.firstId);
+            if (q) {
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                await DailyChallenge.findOneAndUpdate(
+                    { date: today, type: q.questionType },
+                    { 
+                        questionId: q._id, 
+                        date: today, 
+                        difficulty: q.difficulty || 'Medium', 
+                        type: q.questionType 
+                    },
+                    { upsert: true }
+                );
+            }
+        }
+
+        res.status(201).json({ message: `Successfully seeded ${count.count} questions` });
     } catch (error) {
         fs.appendFileSync(logFile, `CSV Upload Error: ${error.message}\n`);
         console.error(error);
+        res.status(500).json({ message: error.message });
+    }
+};
+
+const uploadSplitSqlCsv = async (req, res) => {
+    const fs = require('fs');
+    const path = require('path');
+    const logFile = path.join(__dirname, '../server_logs.txt');
+
+    try {
+        if (!req.files || !req.files['tables'] || !req.files['questions']) {
+            return res.status(400).json({ message: 'Both tables and questions CSV files are required' });
+        }
+
+        const companyId = req.body.companyId;
+        const roundNumber = req.body.roundNumber || null;
+
+        if (!companyId) {
+            return res.status(400).json({ message: 'Company ID is required' });
+        }
+
+        const tablesFiles = req.files['tables'].map(f => ({
+            path: f.path,
+            originalname: f.originalname
+        }));
+        const questionsFile = req.files['questions'][0];
+
+        if (!questionsFile) {
+            return res.status(400).json({ message: 'Questions CSV file is required' });
+        }
+
+        console.log(`ADMIN: Uploading SPLIT SQL questions for Company: ${companyId}, Round: ${roundNumber} (${tablesFiles.length} tables)`);
+        fs.appendFileSync(logFile, `Split SQL Upload Start: Company ${companyId}, Tables: ${tablesFiles.length}\n`);
+
+        const result = await parseSplitSqlCsv(tablesFiles, questionsFile.path, companyId, roundNumber);
+
+        // Synchronize blueprint if roundNumber was provided
+        if (roundNumber) {
+            await syncBlueprintWithRound(companyId, roundNumber, 'SQL');
+        }
+
+        // If set as today's challenge is checked
+        if (req.body.setAsDailyChallenge === 'true' && result.firstId) {
+            const q = await Question.findById(result.firstId);
+            if (q) {
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+                await DailyChallenge.findOneAndUpdate(
+                    { date: today, type: q.questionType },
+                    { 
+                        questionId: q._id, 
+                        date: today, 
+                        difficulty: q.difficulty || 'Medium', 
+                        type: q.questionType 
+                    },
+                    { upsert: true }
+                );
+            }
+        }
+        
+        res.status(201).json({ 
+            message: `Successfully seeded ${result.count} SQL questions with associated tables`,
+            count: result.count
+        });
+    } catch (error) {
+        fs.appendFileSync(logFile, `Split CSV Upload Error: ${error.message}\n`);
+        console.error('Split Upload Error:', error);
         res.status(500).json({ message: error.message });
     }
 };
@@ -195,6 +300,50 @@ const updateCompany = async (req, res) => {
         company.numberOfRounds = numberOfRounds || company.numberOfRounds;
 
         const updatedCompany = await company.save();
+
+        // Synchronize blueprint to match number of rounds
+        if (numberOfRounds) {
+            let blueprint = await InterviewBlueprint.findOne({ companyId: req.params.id });
+            if (!blueprint) {
+                blueprint = await InterviewBlueprint.create({
+                    companyId: req.params.id,
+                    rounds: Array.from({ length: numberOfRounds }, (_, i) => ({
+                        roundNumber: i + 1,
+                        roundType: 'APTITUDE',
+                        duration: 30,
+                        totalQuestions: 10,
+                        weight: Math.floor(100 / numberOfRounds)
+                    }))
+                });
+            } else {
+                const currentRounds = blueprint.rounds.length;
+                if (numberOfRounds > currentRounds) {
+                    // Add missing rounds
+                    for (let i = currentRounds + 1; i <= numberOfRounds; i++) {
+                        blueprint.rounds.push({
+                            roundNumber: i,
+                            roundType: 'APTITUDE',
+                            duration: 30,
+                            totalQuestions: 10,
+                            weight: 0
+                        });
+                    }
+                } else if (numberOfRounds < currentRounds) {
+                    // Trim rounds
+                    blueprint.rounds = blueprint.rounds.filter(r => r.roundNumber <= numberOfRounds);
+                }
+                
+                // Recalculate weights if they were default (all equal)
+                const totalWeight = blueprint.rounds.reduce((sum, r) => sum + (r.weight || 0), 0);
+                if (totalWeight === 0 || numberOfRounds !== currentRounds) {
+                    const avgWeight = Math.floor(100 / numberOfRounds);
+                    blueprint.rounds.forEach(r => r.weight = avgWeight);
+                }
+                
+                await blueprint.save();
+            }
+        }
+
         res.json(updatedCompany);
     } catch (error) {
         res.status(400).json({ message: error.message });
@@ -257,6 +406,69 @@ const getStudentsTracking = async (req, res) => {
     }
 };
 
+// @desc    Create manual question
+// @route   POST /api/admin/question/create
+// @access  Private/Admin
+const createManualQuestion = async (req, res) => {
+    try {
+        const Question = require('../models/Question');
+        const question = await Question.create({
+            ...req.body,
+            createdByAdmin: req.user._id
+        });
+
+        // Synchronize blueprint if roundNumber and roundType were provided
+        if (question.roundNumber && question.roundType) {
+            await syncBlueprintWithRound(question.companyId, question.roundNumber, question.roundType);
+        }
+
+        res.status(201).json(question);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+};
+
+// @desc    Update question
+// @route   PUT /api/admin/question/:id
+// @access  Private/Admin
+const updateQuestion = async (req, res) => {
+    try {
+        const Question = require('../models/Question');
+        const question = await Question.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        if (!question) return res.status(404).json({ message: 'Question not found' });
+        res.json(question);
+    } catch (error) {
+        res.status(400).json({ message: error.message });
+    }
+};
+
+// @desc    Delete question
+// @route   DELETE /api/admin/question/:id
+// @access  Private/Admin
+const deleteQuestion = async (req, res) => {
+    try {
+        const Question = require('../models/Question');
+        const question = await Question.findByIdAndDelete(req.params.id);
+        if (!question) return res.status(404).json({ message: 'Question not found' });
+        res.json({ message: 'Question deleted successfully' });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+// @desc    Get questions by company
+// @route   GET /api/admin/company/:companyId/questions
+// @access  Private/Admin
+const getQuestionsByCompany = async (req, res) => {
+    try {
+        const Question = require('../models/Question');
+        const questions = await Question.find({ companyId: req.params.companyId });
+        res.json(questions);
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
 module.exports = {
     getAdminDashboard,
     createCompany,
@@ -269,5 +481,11 @@ module.exports = {
     getStudentsTracking,
     getCompanyById,
     updateCompany,
-    deleteCompany
+    deleteCompany,
+    createManualQuestion,
+    updateQuestion,
+    deleteQuestion,
+    getQuestionsByCompany,
+    uploadSplitSqlCsv
 };
+

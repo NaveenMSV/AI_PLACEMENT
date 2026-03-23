@@ -1,67 +1,74 @@
 const mongoose = require('mongoose');
+const path = require('path');
+require('dotenv').config();
 
-mongoose.connect('mongodb://127.0.0.1:27017/placement_simulator').then(async () => {
-    const db = mongoose.connection.db;
+const Company = require('./models/Company');
+const Question = require('./models/Question');
+const TestAttempt = require('./models/TestAttempt');
+const RoundAttempt = require('./models/RoundAttempt');
+const Leaderboard = require('./models/Leaderboard');
+const WarningLog = require('./models/WarningLog');
+const User = require('./models/User');
 
-    // Step 1: Get all attempts grouped by companyId
-    const attempts = await db.collection('testattempts').find({}).sort({ createdAt: -1 }).toArray();
+async function cleanup() {
+    try {
+        const uri = process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/placement_simulator';
+        await mongoose.connect(uri);
+        console.log('Connected to MongoDB');
 
-    // Group by companyId
-    const groups = {};
-    for (const a of attempts) {
-        const key = String(a.companyId);
-        if (!groups[key]) groups[key] = [];
-        groups[key].push(a);
+        // 1. Delete Collections
+        console.log('Deleting Company records...');
+        await Company.deleteMany({});
+
+        console.log('Deleting Question records...');
+        await Question.deleteMany({});
+
+        console.log('Deleting TestAttempt records...');
+        await TestAttempt.deleteMany({});
+
+        console.log('Deleting RoundAttempt records...');
+        await RoundAttempt.deleteMany({});
+
+        console.log('Deleting Leaderboard records...');
+        await Leaderboard.deleteMany({});
+
+        console.log('Deleting WarningLog records...');
+        await WarningLog.deleteMany({});
+
+        // 2. Reset Student Progress
+        console.log('Resetting student progress flags...');
+        await User.updateMany(
+            { role: 'student' },
+            {
+                $set: {
+                    enrolledCompanies: [],
+                    totalAttempts: 0,
+                    averageScore: 0,
+                    currentStreak: 0,
+                    longestStreak: 0,
+                    lastChallengeDate: null,
+                    currentChallengeId: null,
+                    isCurrentChallengePassed: false,
+                    currentSqlChallengeId: null,
+                    isCurrentSqlChallengePassed: false
+                }
+            }
+        );
+
+        console.log('\n--- CLEANUP COMPLETE ---');
+        const companyCount = await Company.countDocuments({});
+        const questionCount = await Question.countDocuments({});
+        const attemptCount = await TestAttempt.countDocuments({});
+        
+        console.log(`Companies: ${companyCount}`);
+        console.log(`Questions: ${questionCount}`);
+        console.log(`Test Attempts: ${attemptCount}`);
+
+        process.exit(0);
+    } catch (err) {
+        console.error('FAIL:', err.message);
+        process.exit(1);
     }
+}
 
-    console.log('Company groups found:', Object.keys(groups).length);
-
-    for (const [companyId, atts] of Object.entries(groups)) {
-        console.log(`\nCompany ${companyId}: ${atts.length} attempts`);
-
-        // Keep the latest attempt (first one since sorted desc)
-        const keepAttempt = atts[0];
-        const deleteIds = atts.slice(1).map(a => a._id);
-
-        console.log(`  Keeping: ${keepAttempt._id} (status=${keepAttempt.status})`);
-        console.log(`  Deleting: ${deleteIds.length} stale attempts`);
-
-        // Delete stale attempts and their round attempts
-        if (deleteIds.length > 0) {
-            await db.collection('testattempts').deleteMany({ _id: { $in: deleteIds } });
-            await db.collection('roundattempts').deleteMany({ attemptId: { $in: deleteIds } });
-        }
-
-        // Check if the kept attempt has completed round attempts
-        const completedRounds = await db.collection('roundattempts').find({
-            attemptId: keepAttempt._id,
-            completed: true
-        }).toArray();
-
-        if (completedRounds.length > 0 && keepAttempt.status === 'IN_PROGRESS') {
-            // This attempt has completed rounds - mark it as COMPLETED
-            let totalScore = 0;
-            completedRounds.forEach(r => totalScore += (r.score || 0));
-
-            await db.collection('testattempts').updateOne(
-                { _id: keepAttempt._id },
-                { $set: { status: 'COMPLETED', endTime: new Date(), score: totalScore } }
-            );
-            console.log(`  Updated ${keepAttempt._id} to COMPLETED, score=${totalScore}`);
-        } else if (completedRounds.length === 0 && keepAttempt.status === 'IN_PROGRESS') {
-            // No completed rounds, just a stale attempt - delete it too
-            await db.collection('testattempts').deleteOne({ _id: keepAttempt._id });
-            await db.collection('roundattempts').deleteMany({ attemptId: keepAttempt._id });
-            console.log(`  Deleted stale attempt ${keepAttempt._id} (no completed rounds)`);
-        }
-    }
-
-    // Verify
-    console.log('\n=== FINAL STATE ===');
-    const remaining = await db.collection('testattempts').find({}).toArray();
-    for (const a of remaining) {
-        console.log(`${a._id}: status=${a.status}, score=${a.score}`);
-    }
-
-    process.exit(0);
-}).catch(e => { console.error(e); process.exit(1); });
+cleanup();

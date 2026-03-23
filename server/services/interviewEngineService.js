@@ -92,4 +92,33 @@ const getRoundQuestions = async (companyId, roundType, roundNumber) => {
     return questions;
 };
 
-module.exports = { startTest, getNextRound, getRoundQuestions };
+const syncBlueprintWithRound = async (companyId, roundNumber, roundType) => {
+    const num = Number(roundNumber);
+    let blueprint = await InterviewBlueprint.findOne({ companyId });
+
+    const roundData = {
+        roundNumber: num,
+        roundType: roundType.toUpperCase(),
+        duration: 30, // Default
+        totalQuestions: 10 // Default
+    };
+
+    if (!blueprint) {
+        blueprint = await InterviewBlueprint.create({
+            companyId,
+            rounds: [roundData]
+        });
+    } else {
+        const roundIndex = blueprint.rounds.findIndex(r => r.roundNumber === num);
+        if (roundIndex !== -1) {
+            blueprint.rounds[roundIndex].roundType = roundType.toUpperCase();
+        } else {
+            blueprint.rounds.push(roundData);
+            blueprint.rounds.sort((a, b) => a.roundNumber - b.roundNumber);
+        }
+        await blueprint.save();
+    }
+    return blueprint;
+};
+
+module.exports = { startTest, getNextRound, getRoundQuestions, syncBlueprintWithRound };

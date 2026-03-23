@@ -53,6 +53,37 @@ const userSchema = new mongoose.Schema({
         type: Number,
         default: 0
     },
+    // Streak and Daily Challenge tracking
+    currentStreak: {
+        type: Number,
+        default: 0
+    },
+    longestStreak: {
+        type: Number,
+        default: 0
+    },
+    lastChallengeDate: {
+        type: Date,
+        default: null
+    },
+    currentChallengeId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Question',
+        default: null
+    },
+    isCurrentChallengePassed: {
+        type: Boolean,
+        default: false
+    },
+    currentSqlChallengeId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Question',
+        default: null
+    },
+    isCurrentSqlChallengePassed: {
+        type: Boolean,
+        default: false
+    },
     resetPasswordToken: String,
     resetPasswordExpire: Date
 }, { timestamps: true });

@@ -6,7 +6,7 @@ import { Progress } from '../../components/ui/Progress';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/Table';
 import { Badge } from '../../components/ui/Badge';
 import { Button } from '../../components/ui/Button';
-import { ArrowRight, RefreshCw, Trophy, Target, CheckCircle, Clock } from 'lucide-react';
+import { ArrowRight, RefreshCw, Trophy, Target, CheckCircle, Clock, Flame, Database } from 'lucide-react';
 import { cn } from '../../lib/utils';
 import { SearchContext } from '../../context/SearchContext';
 
@@ -18,14 +18,45 @@ export default function DashboardPage() {
         rank: '--',
         interviewsGiven: 0,
         readiness: '0%',
-        hoursPracticed: '0h'
+        hoursPracticed: '0h',
+        streak: 0
     });
     const [tracks, setTracks] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [dailyChallenge, setDailyChallenge] = useState(null);
 
     useEffect(() => {
         fetchDashboardData();
+        fetchDailyChallenge();
     }, []);
+
+    const fetchDailyChallenge = async () => {
+        try {
+            const token = localStorage.getItem('token');
+            const res = await fetch(`/api/challenge/today?type=CODING`, {
+                headers: { 'Authorization': `Bearer ${token}` }
+            });
+            if (res.ok) {
+                const data = await res.json();
+                setDailyChallenge({ ...data.questionId, challengeType: 'CODING' });
+            } else {
+                // Try SQL if no coding challenge
+                const sqlRes = await fetch(`/api/challenge/today?type=SQL`, {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                if (sqlRes.ok) {
+                    const sqlData = await sqlRes.json();
+                    setDailyChallenge({ ...sqlData.questionId, challengeType: 'SQL' });
+                } else {
+                    setDailyChallenge(false);
+                }
+            }
+        } catch (e) {
+            console.error('Error fetching daily challenge:', e);
+            setDailyChallenge(false);
+        }
+    };
+
 
     const fetchDashboardData = async () => {
         try {
@@ -39,11 +70,17 @@ export default function DashboardPage() {
 
             if (statsRes.ok) {
                 const statsData = await statsRes.json();
-                setStats(statsData);
+                setStats(prev => ({ ...prev, ...statsData }));
             }
             if (tracksRes.ok) {
                 const tracksData = await tracksRes.json();
                 setTracks(tracksData);
+            }
+            
+            const streakRes = await fetch('/api/challenge/streak', { headers });
+            if (streakRes.ok) {
+                const streakData = await streakRes.json();
+                setStats(prev => ({ ...prev, streak: streakData.currentStreak }));
             }
         } catch (error) {
             console.error('Error fetching dashboard data:', error);
@@ -105,7 +142,7 @@ export default function DashboardPage() {
             </div>
 
             {/* Stats Grid */}
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-8">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-5 mb-8">
                 <Card>
                     <CardContent className="p-6">
                         <div className="flex items-center justify-between">
@@ -163,6 +200,23 @@ export default function DashboardPage() {
                             </div>
                         </div>
                         <p className="mt-4 text-sm text-slate-500">Total time spent</p>
+                    </CardContent>
+                </Card>
+
+                <Card className="bg-gradient-to-br from-orange-500 to-red-600 border-none text-white shadow-lg shadow-orange-200">
+                    <CardContent className="p-6">
+                        <div className="flex items-center justify-between">
+                            <div>
+                                <p className="text-sm font-medium text-orange-100 uppercase tracking-wider">Current Streak</p>
+                                <p className="text-4xl font-black mt-1 flex items-baseline gap-1">
+                                    {stats.streak} <span className="text-lg font-bold">Days</span>
+                                </p>
+                            </div>
+                            <div className="h-12 w-12 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center">
+                                <Flame size={28} className="fill-white" />
+                            </div>
+                        </div>
+                        <p className="mt-4 text-xs font-bold text-orange-100 uppercase">Keep it up! 🔥</p>
                     </CardContent>
                 </Card>
             </div>
@@ -243,6 +297,39 @@ export default function DashboardPage() {
 
                 {/* Sidebar widgets */}
                 <div className="space-y-8">
+                    <Card className="bg-slate-900 border-none text-white relative overflow-hidden group">
+                        <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/20 rounded-full blur-3xl -mr-16 -mt-16 group-hover:bg-blue-600/30 transition-all"></div>
+                        <CardHeader>
+                            <div className="flex items-center justify-between">
+                                <CardTitle className="text-white flex items-center gap-2">
+                                    <Target size={18} className="text-blue-400" /> {dailyChallenge?.challengeType === 'SQL' ? 'Daily SQL Challenge' : 'Daily Coding Challenge'}
+                                </CardTitle>
+                                <Badge variant="secondary" className="bg-blue-500/20 text-blue-300 border-blue-500/30">
+                                    +50 XP
+                                </Badge>
+                            </div>
+                            <CardDescription className="text-slate-400">
+                                {dailyChallenge?.challengeType === 'SQL' ? "Solve today's database query" : "Solve today's coding puzzle"}
+                            </CardDescription>
+                        </CardHeader>
+                        <CardContent>
+                            <div className="p-4 bg-white/5 rounded-2xl border border-white/10 mb-6 min-h-[80px] flex items-center">
+                                <p className="text-sm font-bold text-slate-300 line-clamp-3 italic">
+                                    {dailyChallenge === null ? "Loading your daily coding puzzle..." : 
+                                     dailyChallenge === false ? "No challenge available for today. Please check back later!" :
+                                     `"${dailyChallenge.question.substring(0, 150)}${dailyChallenge.question.length > 150 ? '...' : ''}"`}
+                                </p>
+                            </div>
+                             <Button 
+                                className="w-full bg-blue-600 hover:bg-blue-700 shadow-lg shadow-blue-500/20 font-bold py-6 rounded-2xl" 
+                                onClick={() => navigate(dailyChallenge?.challengeType === 'SQL' ? '/practice/sql' : '/practice/coding')}
+                            >
+                                Solve Now <ArrowRight size={18} className="ml-2" />
+                            </Button>
+                        </CardContent>
+
+                    </Card>
+
                     <Card>
                         <CardHeader>
                             <div>

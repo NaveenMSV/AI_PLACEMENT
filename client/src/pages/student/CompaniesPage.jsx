@@ -33,10 +33,14 @@ export default function CompaniesPage() {
         }
     };
 
-    const filteredCompanies = companies.filter(c =>
-        c.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        c.description.toLowerCase().includes(searchTerm.toLowerCase())
-    );
+    const filteredCompanies = companies.filter(c => {
+        // Hide system-level practice tracks from the main discovery list
+        const isPracticeTrack = ['Coding Practice', 'SQL Practice'].includes(c.name);
+        if (isPracticeTrack) return false;
+
+        return c.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+               c.description.toLowerCase().includes(searchTerm.toLowerCase());
+    });
 
     return (
         <DashboardLayout>

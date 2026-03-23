@@ -7,6 +7,7 @@ const RoundAttempt = require('../models/RoundAttempt');
 const { startTest, getNextRound, getRoundQuestions } = require('../services/interviewEngineService');
 const { calculateScore, finalizeTestAttempt } = require('../services/resultEngineService');
 const { updateLeaderboard } = require('../services/leaderboardService');
+const { runCode } = require('../services/codeExecutionService');
 
 const {
     getDashboardStats,
@@ -244,32 +245,42 @@ const markMalpractice = async (req, res) => {
     }
 };
 
-// @desc    Stub to run Code in coding round
+// @desc    Run Code in coding round
 // @route   POST /student/code/run
 // @access  Private/Student
 const runCodeStub = async (req, res) => {
-    const { language, code, testCases } = req.body;
-    // Stub returning pre-structured output
-    res.json({
-        output: "Successfully executed in simulated boundary",
-        passed: true,
-        executionTime: "12ms"
-    });
+    try {
+        const { language, code, testCases } = req.body;
+        
+        if (!code) {
+            return res.status(400).json({ message: 'Code is required' });
+        }
+
+        const result = await runCode(language, code, testCases);
+        res.json(result);
+    } catch (error) {
+        console.error('Code Run Error:', error);
+        res.status(500).json({ message: 'Failed to execute code', error: error.message });
+    }
 };
 
-// @desc    Stub to run SQL in SQL round
+// @desc    Run SQL in SQL round
 // @route   POST /student/sql/run
 // @access  Private/Student
 const runSqlStub = async (req, res) => {
-    const { query } = req.body;
-    res.json({
-        columns: ["item_id", "item_name", "revenue"],
-        rows: [
-            [104, "Premium Headphones", 12500.50],
-            [201, "Mechanical Keyboard", 8400.00]
-        ]
-    });
+    try {
+        const { query, testCases } = req.body;
+        if (!query) return res.status(400).json({ message: 'Query is required' });
+
+        const { runSql } = require('../services/sqlExecutionService');
+        const result = await runSql(query, testCases || []);
+        res.json(result);
+    } catch (error) {
+        console.error('SQL Run Error:', error);
+        res.status(500).json({ message: 'Failed to execute SQL', error: error.message });
+    }
 };
+
 
 // @desc    Finish the test and generate score
 // @route   POST /student/test/:attemptId/finish
@@ -377,6 +388,7 @@ const getRoundData = async (req, res) => {
         }
 
         const questions = await getRoundQuestions(attempt.companyId, roundAttempt.roundType, Number(roundNumber));
+        console.log(`SERVER: getRoundData for ${attemptId} - Company: ${attempt.companyId}, Round: ${roundNumber}, Type: ${roundAttempt.roundType}, Found questions: ${questions.length}`);
 
         res.json({
             roundAttempt,
@@ -387,7 +399,7 @@ const getRoundData = async (req, res) => {
                 options: q.options,
                 questionType: q.questionType,
                 difficulty: q.difficulty,
-                testCases: q.questionType === 'CODING' ? q.testCases.filter(tc => !tc.isHidden) : []
+                testCases: ['CODING', 'SQL', 'AI'].includes(q.questionType) ? q.testCases.filter(tc => !tc.isHidden || q.questionType !== 'CODING') : []
             }))
         });
     } catch (error) {
@@ -415,7 +427,7 @@ const submitRoundData = async (req, res) => {
 
         // Calculate score for the round
         const questions = await getRoundQuestions(attempt.companyId, roundAttempt.roundType, Number(roundNumber));
-        const { score, correct, total } = calculateScore(answers, questions);
+        const { score, correct, total } = await calculateScore(answers, questions);
 
         roundAttempt.answers = answers;
         roundAttempt.timeTaken = timeTaken;

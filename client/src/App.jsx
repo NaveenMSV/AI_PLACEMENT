@@ -18,6 +18,8 @@ import CompaniesPage from './pages/student/CompaniesPage';
 import ResultsPage from './pages/student/ResultsPage';
 import ResumePage from './pages/student/ResumePage';
 import ProfilePage from './pages/student/ProfilePage';
+import CodingPracticePage from './pages/student/CodingPracticePage';
+import SqlPracticePage from './pages/student/SqlPracticePage';
 
 import { SearchContext } from './context/SearchContext';
 
@@ -44,6 +46,8 @@ function App() {
             <Route path="/results/:attemptId" element={<ResultsPage />} />
             <Route path="/resume" element={<ResumePage />} />
             <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/practice/coding" element={<CodingPracticePage />} />
+            <Route path="/practice/sql" element={<SqlPracticePage />} />
             <Route path="/company/:id" element={<CompanyProfilePage />} />
             <Route path="/interviews/:id" element={<CompanyProfilePage />} />
             <Route path="/interview/session/:attemptId" element={<SimulationEnginePage />} />

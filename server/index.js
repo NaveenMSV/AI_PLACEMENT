@@ -19,6 +19,7 @@ const studentRoutes = require('./routes/studentRoutes');
 const adminRoutes = require('./routes/adminRoutes');
 const simulationRoutes = require('./routes/simulationRoutes');
 const resumeRoutes = require('./routes/resumeRoutes');
+const challengeRoutes = require('./routes/challengeRoutes');
 
 const app = express();
 
@@ -33,10 +34,19 @@ app.use(express.urlencoded({ extended: true }));
 const fs = require('fs');
 app.use((req, res, next) => {
   const log = `${new Date().toISOString()} - ${req.method} ${req.url}\n`;
-  fs.appendFileSync(path.join(__dirname, 'server_logs.txt'), log);
+  if (process.env.NODE_ENV !== 'development') {
+    fs.appendFileSync(path.join(__dirname, 'server_logs.txt'), log);
+  } else {
+    console.log(log.trim());
+  }
+  
   res.on('finish', () => {
     const endLog = `${new Date().toISOString()} - ${req.method} ${req.url} - ${res.statusCode}\n`;
-    fs.appendFileSync(path.join(__dirname, 'server_logs.txt'), endLog);
+    if (process.env.NODE_ENV !== 'development') {
+      fs.appendFileSync(path.join(__dirname, 'server_logs.txt'), endLog);
+    } else {
+      console.log(endLog.trim());
+    }
   });
   next();
 });
@@ -51,6 +61,7 @@ app.use('/api/student', studentRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/simulation', simulationRoutes);
 app.use('/api/resume', resumeRoutes);
+app.use('/api/challenge', challengeRoutes);
 
 // Base Route
 app.get('/', (req, res) => {
@@ -61,7 +72,9 @@ app.get('/', (req, res) => {
 app.use((err, req, res, next) => {
   const errorMsg = `${new Date().toISOString()} - ERROR: ${err.message}\n${err.stack}\n`;
   console.error(errorMsg);
-  fs.appendFileSync(path.join(__dirname, 'server_logs.txt'), errorMsg);
+  if (process.env.NODE_ENV !== 'development') {
+    fs.appendFileSync(path.join(__dirname, 'server_logs.txt'), errorMsg);
+  }
   res.status(500).json({
     message: 'Internal Server Error',
     error: process.env.NODE_ENV === 'development' ? err.message : undefined

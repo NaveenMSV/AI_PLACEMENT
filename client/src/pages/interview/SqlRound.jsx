@@ -1,11 +1,13 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { Database, Play, Send, ChevronLeft, ChevronRight, CheckCircle, Timer, AlertTriangle } from 'lucide-react';
+import { SQL_DUMMY_DATA } from '../../lib/sqlDummyData';
 
 export default function SqlRound({ questions = [], onFinish, attemptId, roundNumber = 1 }) {
     const [currentIndex, setCurrentIndex] = useState(0);
     const [answers, setAnswers] = useState({});
     const [queryResults, setQueryResults] = useState(null);
     const [queryError, setQueryError] = useState('');
+    const [tableSamples, setTableSamples] = useState({});
     const [isRunning, setIsRunning] = useState(false);
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [isSqlReady, setIsSqlReady] = useState(false);
@@ -61,6 +63,9 @@ export default function SqlRound({ questions = [], onFinish, attemptId, roundNum
 
         try {
             const db = new SQLObject.current.Database();
+            
+            // Seed dummy tables IF NO OTHER SCHEMA IS PROVIDED (handled later)
+            // db.run(SQL_DUMMY_DATA);
 
             // Parse schema and seed data from question
             const schema = currentQuestion.testCases || [];
@@ -81,6 +86,13 @@ export default function SqlRound({ questions = [], onFinish, attemptId, roundNum
                     }
                 });
             } else {
+                // Seed standard dummy data set as fallback
+                try {
+                    db.run(SQL_DUMMY_DATA);
+                } catch (e) {
+                    console.warn('DUMMY data error:', e.message);
+                }
+
                 // Default: Create sample tables from the question context
                 try {
                     db.run(`
@@ -106,6 +118,24 @@ export default function SqlRound({ questions = [], onFinish, attemptId, roundNum
                     console.warn('Default schema error:', e.message);
                 }
             }
+
+            // Fetch sample data for each table
+            const samples = {};
+            const schemaTables = parseSchema();
+            schemaTables.forEach(table => {
+                try {
+                    const res = db.exec(`SELECT * FROM "${table.name}" LIMIT 5`);
+                    if (res.length > 0) {
+                        samples[table.name] = {
+                            columns: res[0].columns,
+                            rows: res[0].values
+                        };
+                    }
+                } catch (e) {
+                    console.warn(`Failed to fetch sample for ${table.name}:`, e.message);
+                }
+            });
+            setTableSamples(samples);
 
             return db;
         } catch (err) {
@@ -199,14 +229,20 @@ export default function SqlRound({ questions = [], onFinish, attemptId, roundNum
             if (tc.input) {
                 const createMatches = tc.input.match(/CREATE TABLE[^;]+/gi) || [];
                 createMatches.forEach(stmt => {
-                    const nameMatch = stmt.match(/CREATE TABLE\s+(?:IF NOT EXISTS\s+)?(\w+)/i);
-                    const colMatches = [...stmt.matchAll(/(\w+)\s+(INTEGER|TEXT|REAL|FLOAT|VARCHAR|INT|DATE|BOOLEAN|BLOB)(?:\s+PRIMARY\s+KEY)?/gi)];
+                    // Match table name (handle optional quotes)
+                    const nameMatch = stmt.match(/CREATE TABLE\s+(?:IF NOT EXISTS\s+)?["']?(\w+)["']?/i);
+                    // Match column definitions: name type
+                    const colMatches = [...stmt.matchAll(/["']?(\w+)["']?\s+([A-Z]+)/gi)];
+                    
                     if (nameMatch) {
-                        tables.push({
-                            name: nameMatch[1],
-                            columns: colMatches.map(m => ({ name: m[1], type: m[2].toUpperCase() }))
-                                .filter(c => c.name.toUpperCase() !== 'TABLE' && c.name.toUpperCase() !== 'CREATE' && c.name.toUpperCase() !== 'NOT' && c.name.toUpperCase() !== 'IF')
-                        });
+                        const tableName = nameMatch[1];
+                        const columns = colMatches
+                            .map(m => ({ name: m[1], type: m[2].toUpperCase() }))
+                            .filter(c => !['CREATE', 'TABLE', 'IF', 'NOT', 'EXISTS'].includes(c.name.toUpperCase()));
+
+                        if (columns.length > 0) {
+                            tables.push({ name: tableName, columns });
+                        }
                     }
                 });
             }
@@ -267,7 +303,7 @@ export default function SqlRound({ questions = [], onFinish, attemptId, roundNum
                         {schema.length > 0 && (
                             <>
                                 <h3 className="font-semibold flex items-center gap-2 mb-3 text-slate-700">
-                                    <Database size={16} className="text-blue-500" /> Database Schema
+                                    <Database size={16} className="text-blue-500" /> Database Schema ({schema.length} table{schema.length !== 1 ? 's' : ''})
                                 </h3>
                                 <div className="space-y-4">
                                     {schema.map((table, i) => (
@@ -283,6 +319,32 @@ export default function SqlRound({ questions = [], onFinish, attemptId, roundNum
                                                     </div>
                                                 ))}
                                             </div>
+                                            
+                                            {tableSamples[table.name] && (
+                                                <div className="border-t border-slate-100 p-2">
+                                                    <div className="text-[10px] uppercase tracking-wider text-slate-400 font-bold mb-1 ml-1">Sample Data</div>
+                                                    <div className="overflow-x-auto max-h-40">
+                                                        <table className="min-w-full text-[10px] border-collapse">
+                                                            <thead>
+                                                                <tr className="bg-slate-50">
+                                                                    {tableSamples[table.name].columns.map((col, k) => (
+                                                                        <th key={k} className="px-2 py-1 text-left border border-slate-100">{col}</th>
+                                                                    ))}
+                                                                </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                                {tableSamples[table.name].rows.slice(0, 3).map((row, k) => (
+                                                                    <tr key={k}>
+                                                                        {row.map((cell, l) => (
+                                                                            <td key={l} className="px-2 py-1 border border-slate-100 truncate max-w-[80px]">{cell}</td>
+                                                                        ))}
+                                                                    </tr>
+                                                                ))}
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+                                            )}
                                         </div>
                                     ))}
                                 </div>
@@ -345,6 +407,11 @@ export default function SqlRound({ questions = [], onFinish, attemptId, roundNum
                             placeholder="-- Write your SQL query here..."
                             value={answers[currentQuestion?._id] || ''}
                             onChange={(e) => setAnswers(prev => ({ ...prev, [currentQuestion._id]: e.target.value }))}
+                            onKeyDown={(e) => {
+                                if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                                    handleRunQuery();
+                                }
+                            }}
                             spellCheck={false}
                         />
                     </div>

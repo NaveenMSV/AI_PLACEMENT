@@ -4,7 +4,7 @@ import { DashboardLayout } from '../../components/layout/DashboardLayout';
 import { Card, CardHeader, CardTitle, CardContent } from '../../components/ui/Card';
 import { Button } from '../../components/ui/Button';
 import { Badge } from '../../components/ui/Badge';
-import { Trophy, CheckCircle, Clock, BarChart2, ArrowLeft } from 'lucide-react';
+import { Trophy, CheckCircle, Clock, BarChart2, ArrowLeft, AlertCircle } from 'lucide-react';
 
 export default function ResultsPage() {
     const { attemptId } = useParams();
@@ -111,20 +111,47 @@ export default function ResultsPage() {
                     <div className="grid gap-4">
                         {result?.roundAttempts && result.roundAttempts.length > 0 ? (
                             result.roundAttempts.map((round) => (
-                                <Card key={round?._id || Math.random()} className="border-slate-200 hover:shadow-md transition-shadow">
-                                    <CardContent className="p-6 flex items-center justify-between">
-                                        <div className="flex items-center gap-4">
-                                            <div className="h-12 w-12 rounded-xl bg-slate-100 flex items-center justify-center text-slate-500 font-bold">
-                                                {round?.roundNumber || '?'}
+                                <Card key={round?._id || Math.random()} className="border-slate-200 hover:shadow-md transition-shadow group overflow-hidden">
+                                    <CardContent className="p-6">
+                                        <div className="flex items-center justify-between mb-4">
+                                            <div className="flex items-center gap-4">
+                                                <div className="h-12 w-12 rounded-xl bg-slate-100 flex items-center justify-center text-slate-500 font-bold group-hover:bg-blue-600 group-hover:text-white transition-colors">
+                                                    {round?.roundNumber || '?'}
+                                                </div>
+                                                <div>
+                                                    <h3 className="font-bold text-slate-900 uppercase text-sm tracking-tight">{round?.roundType?.replace('_', ' ') || 'Round'}</h3>
+                                                    <p className="text-xs text-slate-500 font-medium">{round?.timeTaken || 0} seconds taken</p>
+                                                </div>
                                             </div>
-                                            <div>
-                                                <h3 className="font-bold text-slate-900 uppercase text-sm tracking-tight">{round?.roundType?.replace('_', ' ') || 'Round'}</h3>
-                                                <p className="text-xs text-slate-500 font-medium">{round?.timeTaken || 0} seconds taken</p>
+                                            <div className="text-right flex flex-col items-end">
+                                                <div className="flex items-baseline gap-1">
+                                                    <p className="text-2xl font-black text-slate-900">{round?.score || 0}</p>
+                                                    <p className="text-xs font-bold text-slate-400">/ { (round?.totalQuestions || 0) * 5 }</p>
+                                                </div>
+                                                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter mb-1">Total Points</p>
+                                                <Badge variant="secondary" className="text-[10px] py-0 px-1.5 h-4 font-bold bg-slate-100 text-slate-600 border-none">
+                                                    {round?.correctCount || 0} / {round?.totalQuestions || 0} Correct
+                                                </Badge>
                                             </div>
                                         </div>
-                                        <div className="text-right">
-                                            <p className="text-2xl font-black text-slate-900">{round?.score || 0}</p>
-                                            <p className="text-[10px] font-bold text-slate-400 uppercase tracking-tighter">Points Earned</p>
+                                        
+                                        {/* Feedback Section */}
+                                        <div className="pt-4 border-t border-slate-100">
+                                            <div className="bg-slate-50 rounded-xl p-4 flex items-start gap-3">
+                                                <div className="h-6 w-6 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center shrink-0 mt-0.5">
+                                                    {round?.score > 70 ? <CheckCircle size={14} /> : <AlertCircle size={14} />}
+                                                </div>
+                                                <div>
+                                                    <p className="text-xs font-bold text-slate-700 uppercase tracking-widest mb-1">Feedback & Suggestion</p>
+                                                    <p className="text-sm text-slate-600 leading-relaxed font-medium">
+                                                        {round?.roundType === 'APTITUDE' && (round.score > 70 ? 'Strong logic skills. Focus on time management for faster solving.' : 'Needs improvement in logical reasoning. Practice quantitative series and pattern recognition.')}
+                                                        {round?.roundType === 'CODING' && (round.score > 70 ? 'Good optimization. Continue practicing specialized DSA topics like Graphs/DP.' : 'Logic is on track but needs better optimization. Focus on space and time complexity.')}
+                                                        {round?.roundType === 'SQL' && (round.score > 70 ? 'Mastery of basic queries. Explore advanced JOINs and Window functions.' : 'Review database normalization and complex JOIN operations.')}
+                                                        {round?.roundType === 'AI_INTERVIEW' && (round.score > 70 ? 'Excellent communication and confidence. Maintain this articulation.' : 'Work on clarity of thought and behavioral structure. Try standard STAR method.')}
+                                                        {(!round.roundType || !['APTITUDE', 'CODING', 'SQL', 'AI_INTERVIEW'].includes(round.roundType)) && 'Complete more rounds to see specific feedback.'}
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </CardContent>
                                 </Card>

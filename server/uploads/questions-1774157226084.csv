@@ -1,0 +1,5 @@
+Section,ID,Name/Question,Answer
+Question,Q1,Total spent by each customer,"SELECT customer_id, SUM(amount) FROM orders GROUP BY customer_id;"
+Question,Q2,Customers with no orders,SELECT c.customer_name FROM customers c LEFT JOIN orders o ON c.customer_id = o.customer_id WHERE o.order_id IS NULL;
+Question,Q3,City with highest revenue,"SELECT c.city, SUM(o.amount) AS revenue FROM customers c JOIN orders o ON c.customer_id = o.customer_id GROUP BY c.city ORDER BY revenue DESC LIMIT 1;"
+Question,Q4,Count 'Completed' in March,SELECT COUNT(*) FROM orders WHERE status = 'Completed' AND order_date BETWEEN '2026-03-01' AND '2026-03-31';

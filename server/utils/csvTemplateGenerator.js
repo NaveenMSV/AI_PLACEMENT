@@ -14,28 +14,37 @@ const generateTemplate = async () => {
         path: filePath,
         header: [
             { id: 'question', title: 'question' },
-            { id: 'optionA', title: 'optionA' },
-            { id: 'optionB', title: 'optionB' },
-            { id: 'optionC', title: 'optionC' },
-            { id: 'optionD', title: 'optionD' },
-            { id: 'correctAnswer', title: 'correctAnswer' },
             { id: 'difficulty', title: 'difficulty' },
-            { id: 'roundType', title: 'roundType' }
+            { id: 'roundType', title: 'roundType' },
+            { id: 'schema', title: 'schema' },
+            { id: 'sample_data', title: 'sample_data' },
+            { id: 'expected_output', title: 'expected_output' },
+            { id: 'test_cases', title: 'test_cases' }
         ]
+
     });
 
     const records = [
         {
-            question: 'What is the sum of 2+2?',
-            optionA: '3',
-            optionB: '4',
-            optionC: '5',
-            optionD: '6',
-            correctAnswer: '4',
+            question: 'Select all columns from employees where salary is greater than 80000',
             difficulty: 'Easy',
-            roundType: 'APTITUDE'
+            roundType: 'SQL',
+            schema: 'CREATE TABLE employees (id INTEGER, name TEXT, salary REAL);',
+            sample_data: "INSERT INTO employees VALUES (1, 'Alice', 95000); INSERT INTO employees VALUES (2, 'Bob', 70000);",
+            expected_output: '[[1,"Alice",95000]]',
+            test_cases: ''
+        },
+        {
+            question: 'Find the maximum value in an array',
+            difficulty: 'Medium',
+            roundType: 'CODING',
+            schema: '',
+            sample_data: '',
+            expected_output: '',
+            test_cases: '[1,2,3,4,5]:5 | [10,2,8]:10'
         }
     ];
+
 
     await csvWriter.writeRecords(records);
     return filePath;

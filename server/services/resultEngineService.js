@@ -1,4 +1,5 @@
 const initSqlJs = require('sql.js');
+const { runCode } = require('./codeExecutionService');
 
 /**
  * Execute a SQL query against a schema and return results
@@ -57,24 +58,65 @@ const calculateScore = async (submittedAnswers, actualQuestions) => {
 
                 const isMatch = compareSqlResults(studentRes, correctRes);
 
-                console.log(`  Q[${qId}] (SQL): studentMatch=${isMatch}`);
-                if (isMatch) {
+                // Fallback: If execution fails or returns no results, try normalized string comparison
+                let fallbackMatch = false;
+                if (!isMatch) {
+                    const normalizeSql = (sql) => sql.toLowerCase().replace(/;/g, '').replace(/\s+/g, ' ').trim();
+                    if (normalizeSql(studentAnswer) === normalizeSql(q.correctAnswer)) {
+                        fallbackMatch = true;
+                    }
+                }
+
+                console.log(`  Q[${qId}] (SQL): studentMatch=${isMatch} (fallback=${fallbackMatch})`);
+                if (isMatch || fallbackMatch) {
                     score += 5;
                     correct++;
+                }
+            } else if (q.questionType === 'CODING') {
+                // REAL CODING EVALUATION
+                const result = await runCode(submittedAnswers.language || 'JavaScript', studentAnswer, q.testCases || []);
+                
+                console.log(`  Q[${qId}] (CODING): passed=${result.passedCount}/${result.totalTests}`);
+                
+                // Score based on percentage of test cases passed
+                if (result.totalTests > 0) {
+                    const passRatio = result.passedCount / result.totalTests;
+                    score += 5 * passRatio;
+                    if (passRatio === 1) correct++;
                 }
             } else {
                 // Standard logic for MCQ
                 let studentStr = String(studentAnswer).trim().toLowerCase();
                 let correctStr = String(q.correctAnswer).trim().toLowerCase();
 
-                if (/^[a-z]$/i.test(q.correctAnswer.trim()) && q.options && q.options.length > 0) {
-                    const letterIndex = q.correctAnswer.trim().toUpperCase().charCodeAt(0) - 65;
+                // If q.correctAnswer is just a letter (A, B, C, D) but q.options exists, map it
+                const letterMatch = q.correctAnswer.trim().match(/^([A-Da-d])$/);
+                if (letterMatch && q.options && q.options.length > 0) {
+                    const letterIndex = letterMatch[1].toUpperCase().charCodeAt(0) - 65;
                     if (letterIndex >= 0 && letterIndex < q.options.length) {
                         correctStr = q.options[letterIndex].trim().toLowerCase();
                     }
                 }
+                
+                // Also check if the student SUBMITTED a letter but the correct answer is the full text
+                const studentLetterMatch = studentStr.match(/^([a-d])$/);
+                if (studentLetterMatch && q.options && q.options.length > 0) {
+                    const studentIndex = studentLetterMatch[1].toUpperCase().charCodeAt(0) - 65;
+                    if (studentIndex >= 0 && studentIndex < q.options.length) {
+                        studentStr = q.options[studentIndex].trim().toLowerCase();
+                    }
+                }
 
-                const normalize = (str) => str.replace(/;/g, '').replace(/\s+/g, ' ').trim();
+                const normalize = (str) => {
+                    if (!str) return "";
+                    return str.toString()
+                        .replace(/;/g, '') // Remove semicolons
+                        .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g, "") // Remove punctuation
+                        .replace(/\s+/g, ' ') // Collapse multiple spaces
+                        .trim()
+                        .toLowerCase();
+                };
+
                 const normalizedStudent = normalize(studentStr);
                 const normalizedCorrect = normalize(correctStr);
 

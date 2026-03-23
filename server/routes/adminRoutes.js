@@ -12,7 +12,12 @@ const {
     getStudentsTracking,
     getCompanyById,
     updateCompany,
-    deleteCompany
+    deleteCompany,
+    createManualQuestion,
+    updateQuestion,
+    deleteQuestion,
+    getQuestionsByCompany,
+    uploadSplitSqlCsv
 } = require('../controllers/adminController');
 const { protect } = require('../middlewares/authMiddleware');
 const { authorize } = require('../middlewares/roleMiddleware');
@@ -47,5 +52,11 @@ router.post('/company/:companyId/interview-blueprint', createBlueprint);
 // Question Management
 router.get('/questions/template', getCsvTemplate);
 router.post('/questions/upload', upload.single('file'), uploadQuestionsCsv);
+router.post('/questions/upload-split-sql', upload.fields([{ name: 'tables', maxCount: 10 }, { name: 'questions', maxCount: 1 }]), uploadSplitSqlCsv);
+router.get('/company/:companyId/questions', getQuestionsByCompany);
+router.post('/question/create', createManualQuestion);
+router.put('/question/:id', updateQuestion);
+router.delete('/question/:id', deleteQuestion);
 
 module.exports = router;
+

@@ -6,7 +6,8 @@ import {
     CompanyIcon,
     InterviewIcon,
     LogoutIcon,
-    ResumeIcon
+    ResumeIcon,
+    SqlIcon
 } from '../icons';
 
 const studentNavItems = [

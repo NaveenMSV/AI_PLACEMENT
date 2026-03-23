@@ -32,7 +32,7 @@ const questionSchema = new mongoose.Schema({
     },
     correctAnswer: {
         type: String, // Value for MCQ or exact match for SQL/Coding basic checks
-        required: true
+        required: false
     },
     difficulty: {
         type: String,
@@ -49,6 +49,12 @@ const questionSchema = new mongoose.Schema({
     solution: {
         type: String,
         default: null
+    },
+    // Language-specific starting code
+    boilerplates: {
+        type: Map,
+        of: String,
+        default: {}
     }
 }, { timestamps: true });
 

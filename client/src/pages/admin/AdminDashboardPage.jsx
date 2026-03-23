@@ -36,10 +36,10 @@ export default function AdminDashboardPage() {
         }
     };
 
-    const filteredCompanies = companies.filter(company =>
-        company.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        company.difficultyLevel.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    const filteredCompanies = companies.filter(company => {
+        return company.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+               company.difficultyLevel.toLowerCase().includes(searchQuery.toLowerCase());
+    });
 
     if (loading) return (
         <DashboardLayout>
@@ -58,9 +58,11 @@ export default function AdminDashboardPage() {
 
     return (
         <DashboardLayout>
-            <div className="mb-8 items-center">
-                <h1 className="text-2xl font-bold tracking-tight text-slate-900">Welcome, {userName}!</h1>
-                <p className="text-slate-500">Manage companies, students, and simulator blueprints.</p>
+            <div className="mb-8 items-center flex justify-between">
+                <div>
+                    <h1 className="text-2xl font-bold tracking-tight text-slate-900">Welcome, {userName}!</h1>
+                    <p className="text-slate-500">Manage companies, students, and simulator blueprints.</p>
+                </div>
             </div>
 
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mb-8">
@@ -114,9 +116,23 @@ export default function AdminDashboardPage() {
                             <CardTitle className="text-xl">Company Blueprints</CardTitle>
                             <CardDescription>Manage interview processes and simulation tracks</CardDescription>
                         </div>
-                        <Button onClick={() => navigate('/admin/companies')} size="sm">
-                            Manage Companies
-                        </Button>
+                        <div className="flex gap-3 items-center">
+                            <Button 
+                                variant="outline" 
+                                size="sm" 
+                                className="border-blue-200 text-blue-600 hover:bg-blue-50"
+                                onClick={() => {
+                                    const cp = companies.find(c => c.name.toLowerCase() === 'coding practice');
+                                    if (cp) navigate(`/admin/questions?companyId=${cp._id}&mode=manual`);
+                                    else alert('Coding Practice company not found. Please create it first.');
+                                }}
+                            >
+                                Manual Entry (Coding Practice)
+                            </Button>
+                            <Button onClick={() => navigate('/admin/companies')} size="sm">
+                                Manage Companies
+                            </Button>
+                        </div>
                     </div>
                 </CardHeader>
                 <CardContent className="p-0">
