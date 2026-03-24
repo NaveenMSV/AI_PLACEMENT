@@ -17,7 +17,9 @@ const {
     updateQuestion,
     deleteQuestion,
     getQuestionsByCompany,
-    uploadSplitSqlCsv
+    uploadSplitSqlCsv,
+    getTestAttemptById,
+    updateRoundScore
 } = require('../controllers/adminController');
 const { protect } = require('../middlewares/authMiddleware');
 const { authorize } = require('../middlewares/roleMiddleware');
@@ -30,6 +32,8 @@ router.use(authorize('admin'));
 router.get('/dashboard', getAdminDashboard);
 router.get('/analytics', getGlobalAnalytics);
 router.get('/students/tracking', getStudentsTracking);
+router.get('/test-attempt/:id', getTestAttemptById);
+router.put('/round-attempt/:id/score', updateRoundScore);
 
 // Company Management
 router.get('/companies', getAllCompanies);

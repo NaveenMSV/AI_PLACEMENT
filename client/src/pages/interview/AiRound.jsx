@@ -1,5 +1,8 @@
-import { Camera, Mic, PlayCircle, Bot, ChevronLeft, Send, Sparkles } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Camera, Mic, PlayCircle, Bot, ChevronLeft, Send, Sparkles, Shield } from 'lucide-react';
 import { cn } from '../../lib/utils';
+import { Card, CardContent } from '../../components/ui/Card';
+import { Button } from '../../components/ui/Button';
 
 export default function AiRound({ questions = [], onFinish, attemptId, roundType, roundNumber }) {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -172,6 +175,25 @@ export default function AiRound({ questions = [], onFinish, attemptId, roundType
                                 </div>
                             </div>
                         </div>
+
+                        {/* Answer Input (For HR/Technical Rounds) */}
+                        {(roundType === 'HR_INTERVIEW' || roundType === 'TECHNICAL_INTERVIEW') && (
+                            <Card className="bg-slate-900/50 border-slate-800 p-8 rounded-[2rem]">
+                                <h4 className="text-[10px] font-black uppercase text-blue-500 tracking-[0.2em] mb-4 flex items-center gap-2">
+                                    <Send size={12} /> Your Response
+                                </h4>
+                                <textarea
+                                    className="w-full h-48 bg-slate-950/50 border-2 border-slate-800 rounded-2xl p-6 text-slate-200 font-medium focus:outline-none focus:border-blue-500/50 transition-all resize-none placeholder:text-slate-700"
+                                    placeholder="Type your answer here..."
+                                    value={answers[currentQuestion._id] || ''}
+                                    onChange={(e) => setAnswers({ ...answers, [currentQuestion._id]: e.target.value })}
+                                />
+                                <div className="mt-4 flex justify-between items-center text-[10px] font-bold text-slate-500 uppercase">
+                                    <span>Character count: {(answers[currentQuestion._id] || '').length}</span>
+                                    <span>Answer will be saved automatically</span>
+                                </div>
+                            </Card>
+                        )}
 
                         {/* Controls */}
                         <div className="bg-slate-900/50 p-8 rounded-[2rem] border border-slate-800 flex justify-between items-center shadow-lg">

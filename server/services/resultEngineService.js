@@ -84,6 +84,11 @@ const calculateScore = async (submittedAnswers, actualQuestions) => {
                     score += 5 * passRatio;
                     if (passRatio === 1) correct++;
                 }
+            } else if (q.questionType === 'SHORT_ANSWER') {
+                // Short answer / Interview questions are NOT auto-scored
+                // They will be manually marked by the admin
+                console.log(`  Q[${qId}] (SHORT_ANSWER): Skipping auto-score (Manual marking required)`);
+                // We don't advance score or correct count here
             } else {
                 // Standard logic for MCQ
                 let studentStr = String(studentAnswer).trim().toLowerCase();

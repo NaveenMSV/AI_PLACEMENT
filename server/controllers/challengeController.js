@@ -26,7 +26,7 @@ const getDailyChallenge = async (req, res) => {
         // 0. Check if there is an EXPLICIT DailyChallenge set for today (Admin manual set)
         const dailyManual = await DailyChallenge.findOne({ date: today, type: type }).populate('questionId');
 
-        if (dailyManual && (!user[challengeField] || user[challengeField].toString() !== dailyManual.questionId._id.toString())) {
+        if (dailyManual && dailyManual.questionId && (!user[challengeField] || user[challengeField].toString() !== dailyManual.questionId._id.toString())) {
             // Admin has pushed a new specific challenge, override the student's current logic
             user[challengeField] = dailyManual.questionId._id;
             user[passedField] = false;
@@ -105,6 +105,12 @@ const getDailyChallenge = async (req, res) => {
                 type: type
             });
             challenge = await challenge.populate('questionId');
+        }
+
+        if (challenge && !challenge.questionId) {
+            // Handle case where challenge exists but question was deleted
+            await DailyChallenge.deleteOne({ _id: challenge._id });
+            return res.status(404).json({ message: "Daily challenge question no longer exists. Please refresh." });
         }
 
         // Assign to user

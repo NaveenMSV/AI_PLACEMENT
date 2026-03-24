@@ -26690,3 +26690,2252 @@ TypeError: Cannot destructure property 'attemptId' of 'req.body' as it is undefi
 2026-03-23T08:34:48.826Z - GET /results/69c0fa8daa65cfe1507950ca - 200
 2026-03-23T08:34:48.829Z - GET /api/student/results/69c0fa8daa65cfe1507950ca
 2026-03-23T08:34:48.834Z - GET /results/69c0fa8daa65cfe1507950ca - 304
+2026-03-23T08:48:35.530Z - GET /api/public/companies
+2026-03-23T08:48:35.533Z - GET /companies - 304
+2026-03-23T08:48:35.537Z - GET /api/public/companies
+2026-03-23T08:48:35.540Z - GET /companies - 304
+2026-03-23T08:48:41.922Z - GET /api/public/companies/69c0ba1ed8973eadacd3f50d
+2026-03-23T08:48:41.922Z - GET /api/public/companies/69c0ba1ed8973eadacd3f50d/interview-preview
+2026-03-23T08:48:41.923Z - GET /api/auth/profile
+2026-03-23T08:48:41.924Z - GET /api/student/test/status/69c0ba1ed8973eadacd3f50d
+2026-03-23T08:48:41.926Z - GET /api/public/companies/69c0ba1ed8973eadacd3f50d/has-questions
+2026-03-23T08:48:41.927Z - GET /companies/69c0ba1ed8973eadacd3f50d - 304
+2026-03-23T08:48:41.930Z - GET /companies/69c0ba1ed8973eadacd3f50d/has-questions - 304
+2026-03-23T08:48:41.931Z - GET /companies/69c0ba1ed8973eadacd3f50d/interview-preview - 200
+2026-03-23T08:48:41.932Z - GET /profile - 304
+2026-03-23T08:48:41.933Z - GET /api/public/companies/69c0ba1ed8973eadacd3f50d
+2026-03-23T08:48:41.934Z - GET /api/public/companies/69c0ba1ed8973eadacd3f50d/has-questions
+2026-03-23T08:48:41.935Z - GET /companies/69c0ba1ed8973eadacd3f50d - 304
+2026-03-23T08:48:41.937Z - GET /api/public/companies/69c0ba1ed8973eadacd3f50d/interview-preview
+2026-03-23T08:48:41.937Z - GET /api/auth/profile
+2026-03-23T08:48:41.938Z - GET /companies/69c0ba1ed8973eadacd3f50d/has-questions - 304
+2026-03-23T08:48:41.939Z - GET /test/status/69c0ba1ed8973eadacd3f50d - 304
+2026-03-23T08:48:41.941Z - GET /companies/69c0ba1ed8973eadacd3f50d/interview-preview - 304
+2026-03-23T08:48:41.942Z - GET /profile - 304
+2026-03-23T08:48:41.942Z - GET /api/student/test/status/69c0ba1ed8973eadacd3f50d
+2026-03-23T08:48:41.947Z - GET /test/status/69c0ba1ed8973eadacd3f50d - 304
+2026-03-23T08:48:44.995Z - GET /api/student/results/69c0f70eb4808378a0648db9
+2026-03-23T08:48:45.000Z - GET /results/69c0f70eb4808378a0648db9 - 304
+2026-03-23T08:48:45.003Z - GET /api/student/results/69c0f70eb4808378a0648db9
+2026-03-23T08:48:45.007Z - GET /results/69c0f70eb4808378a0648db9 - 304
+2026-03-23T08:48:49.661Z - GET /api/student/dashboard/stats?t=1774255729657
+2026-03-23T08:48:49.662Z - GET /api/student/dashboard/tracks?t=1774255729657
+2026-03-23T08:48:49.663Z - GET /api/student/dashboard/tracks?t=1774255729658
+2026-03-23T08:48:49.666Z - GET /api/challenge/today?type=CODING
+2026-03-23T08:48:49.676Z - GET /dashboard/stats?t=1774255729657 - 200
+2026-03-23T08:48:49.680Z - GET /today?type=CODING - 500
+2026-03-23T08:48:49.681Z - GET /dashboard/tracks?t=1774255729657 - 200
+2026-03-23T08:48:49.682Z - GET /api/student/dashboard/stats?t=1774255729657
+2026-03-23T08:48:49.685Z - GET /api/challenge/today?type=CODING
+2026-03-23T08:48:49.686Z - GET /dashboard/tracks?t=1774255729658 - 200
+2026-03-23T08:48:49.687Z - GET /api/challenge/today?type=SQL
+2026-03-23T08:48:49.690Z - GET /dashboard/stats?t=1774255729657 - 200
+2026-03-23T08:48:49.693Z - GET /today?type=CODING - 500
+2026-03-23T08:48:49.695Z - GET /api/challenge/streak
+2026-03-23T08:48:49.697Z - GET /streak - 304
+2026-03-23T08:48:49.699Z - GET /today?type=SQL - 500
+2026-03-23T08:48:49.710Z - GET /api/challenge/today?type=SQL
+2026-03-23T08:48:49.719Z - GET /today?type=SQL - 500
+2026-03-23T08:48:49.722Z - GET /api/challenge/streak
+2026-03-23T08:48:49.725Z - GET /streak - 304
+2026-03-23T08:49:00.029Z - GET /api/challenge/today
+2026-03-23T08:49:00.034Z - GET /today - 500
+2026-03-23T08:49:00.037Z - GET /api/challenge/today
+2026-03-23T08:49:00.042Z - GET /today - 500
+2026-03-23T08:49:01.700Z - GET /api/student/dashboard/stats?t=1774255741696
+2026-03-23T08:49:01.701Z - GET /api/student/dashboard/tracks?t=1774255741696
+2026-03-23T08:49:01.702Z - GET /api/challenge/today?type=CODING
+2026-03-23T08:49:01.711Z - GET /dashboard/stats?t=1774255741696 - 200
+2026-03-23T08:49:01.714Z - GET /today?type=CODING - 500
+2026-03-23T08:49:01.715Z - GET /dashboard/tracks?t=1774255741696 - 200
+2026-03-23T08:49:01.715Z - GET /api/student/dashboard/stats?t=1774255741696
+2026-03-23T08:49:01.717Z - GET /api/challenge/today?type=CODING
+2026-03-23T08:49:01.719Z - GET /api/student/dashboard/tracks?t=1774255741696
+2026-03-23T08:49:01.722Z - GET /api/challenge/today?type=SQL
+2026-03-23T08:49:01.723Z - GET /api/challenge/streak
+2026-03-23T08:49:01.730Z - GET /streak - 304
+2026-03-23T08:49:01.733Z - GET /dashboard/stats?t=1774255741696 - 200
+2026-03-23T08:49:01.734Z - GET /today?type=CODING - 500
+2026-03-23T08:49:01.739Z - GET /dashboard/tracks?t=1774255741696 - 200
+2026-03-23T08:49:01.745Z - GET /today?type=SQL - 500
+2026-03-23T08:49:01.749Z - GET /api/challenge/today?type=SQL
+2026-03-23T08:49:01.750Z - GET /api/challenge/streak
+2026-03-23T08:49:01.752Z - GET /streak - 304
+2026-03-23T08:49:01.758Z - GET /today?type=SQL - 500
+2026-03-23T08:49:05.332Z - GET /api/student/dashboard/stats?t=1774255745328
+2026-03-23T08:49:05.334Z - GET /api/student/dashboard/tracks?t=1774255745328
+2026-03-23T08:49:05.336Z - GET /api/challenge/today?type=CODING
+2026-03-23T08:49:05.338Z - GET /api/student/dashboard/stats?t=1774255745330
+2026-03-23T08:49:05.339Z - GET /api/student/dashboard/tracks?t=1774255745330
+2026-03-23T08:49:05.352Z - GET /dashboard/stats?t=1774255745328 - 200
+2026-03-23T08:49:05.358Z - GET /today?type=CODING - 500
+2026-03-23T08:49:05.359Z - GET /dashboard/stats?t=1774255745330 - 200
+2026-03-23T08:49:05.362Z - GET /dashboard/tracks?t=1774255745328 - 200
+2026-03-23T08:49:05.364Z - GET /dashboard/tracks?t=1774255745330 - 200
+2026-03-23T08:49:05.365Z - GET /api/challenge/today?type=CODING
+2026-03-23T08:49:05.367Z - GET /api/challenge/today?type=SQL
+2026-03-23T08:49:05.372Z - GET /today?type=CODING - 500
+2026-03-23T08:49:05.379Z - GET /today?type=SQL - 500
+2026-03-23T08:49:05.414Z - GET /api/challenge/streak
+2026-03-23T08:49:05.416Z - GET /api/challenge/today?type=SQL
+2026-03-23T08:49:05.420Z - GET /streak - 304
+2026-03-23T08:49:05.424Z - GET /api/challenge/streak
+2026-03-23T08:49:05.428Z - GET /streak - 304
+2026-03-23T08:49:05.430Z - GET /today?type=SQL - 500
+2026-03-23T08:49:24.581Z - POST /api/auth/admin-login
+2026-03-23T08:49:24.583Z - POST /admin-login - 200
+2026-03-23T08:49:24.611Z - GET /api/admin/dashboard
+2026-03-23T08:49:24.613Z - GET /api/admin/companies
+2026-03-23T08:49:24.617Z - GET /companies - 304
+2026-03-23T08:49:24.621Z - GET /api/admin/companies
+2026-03-23T08:49:24.623Z - GET /dashboard - 200
+2026-03-23T08:49:24.625Z - GET /companies - 304
+2026-03-23T08:49:24.626Z - GET /api/admin/dashboard
+2026-03-23T08:49:24.632Z - GET /dashboard - 304
+2026-03-23T09:09:27.174Z - GET /api/admin/dashboard
+2026-03-23T09:09:27.196Z - GET /api/admin/companies
+2026-03-23T09:09:27.216Z - GET /companies - 200
+2026-03-23T09:09:27.219Z - GET /api/admin/companies
+2026-03-23T09:09:27.224Z - GET /dashboard - 200
+2026-03-23T09:09:27.226Z - GET /companies - 304
+2026-03-23T09:09:27.227Z - GET /api/admin/dashboard
+2026-03-23T09:09:27.236Z - GET /dashboard - 304
+2026-03-23T09:09:31.858Z - GET /api/admin/company/69c1012d0bc0515173e568f0
+2026-03-23T09:09:31.862Z - GET /company/69c1012d0bc0515173e568f0 - 200
+2026-03-23T09:09:31.864Z - GET /api/admin/company/69c1012d0bc0515173e568f0
+2026-03-23T09:09:31.868Z - GET /company/69c1012d0bc0515173e568f0 - 304
+2026-03-23T09:09:34.591Z - GET /api/admin/dashboard
+2026-03-23T09:09:34.593Z - GET /api/admin/companies
+2026-03-23T09:09:34.600Z - GET /companies - 304
+2026-03-23T09:09:34.604Z - GET /api/admin/companies
+2026-03-23T09:09:34.606Z - GET /dashboard - 304
+2026-03-23T09:09:34.610Z - GET /companies - 304
+2026-03-23T09:09:34.612Z - GET /api/admin/dashboard
+2026-03-23T09:09:34.620Z - GET /dashboard - 304
+2026-03-23T09:09:36.155Z - GET /api/admin/companies
+2026-03-23T09:09:36.157Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T09:09:36.161Z - GET /companies - 304
+2026-03-23T09:09:36.162Z - GET /company/69c1012d0bc0515173e568f0/questions - 200
+2026-03-23T09:09:36.165Z - GET /api/admin/companies
+2026-03-23T09:09:36.166Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T09:09:36.169Z - GET /companies - 304
+2026-03-23T09:09:36.170Z - GET /company/69c1012d0bc0515173e568f0/questions - 304
+2026-03-23T09:09:36.182Z - GET /api/challenge/today?type=CODING
+2026-03-23T09:09:36.195Z - GET /today?type=CODING - 500
+2026-03-23T09:09:36.199Z - GET /api/challenge/today?type=CODING
+2026-03-23T09:09:36.201Z - GET /api/challenge/today?type=SQL
+2026-03-23T09:09:36.207Z - GET /today?type=CODING - 500
+2026-03-23T09:09:36.224Z - GET /today?type=SQL - 500
+2026-03-23T09:09:36.227Z - GET /api/challenge/today?type=SQL
+2026-03-23T09:09:36.240Z - GET /today?type=SQL - 500
+2026-03-23T09:14:41.706Z - POST /api/admin/question/create
+2026-03-23T09:14:41.712Z - POST /question/create - 201
+2026-03-23T09:14:41.716Z - POST /api/challenge/admin/set
+2026-03-23T09:14:41.723Z - POST /admin/set - 200
+2026-03-23T09:14:43.245Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T09:14:43.259Z - GET /company/69c1012d0bc0515173e568f0/questions - 200
+2026-03-23T09:14:44.689Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T09:14:44.693Z - GET /company/69c1012d0bc0515173e568f0/questions - 304
+2026-03-23T09:14:44.707Z - GET /api/challenge/today?type=CODING
+2026-03-23T09:14:44.722Z - GET /today?type=CODING - 200
+2026-03-23T09:14:44.725Z - GET /api/challenge/today?type=CODING
+2026-03-23T09:14:44.733Z - GET /today?type=CODING - 304
+2026-03-23T09:14:44.733Z - GET /api/challenge/today?type=SQL
+2026-03-23T09:14:44.746Z - GET /today?type=SQL - 500
+2026-03-23T09:14:44.749Z - GET /api/challenge/today?type=SQL
+2026-03-23T09:14:44.758Z - GET /today?type=SQL - 500
+2026-03-23T09:14:56.936Z - POST /api/auth/login
+2026-03-23T09:14:57.021Z - POST /login - 200
+2026-03-23T09:14:57.059Z - GET /api/student/dashboard/stats?t=1774257297055
+2026-03-23T09:14:57.061Z - GET /api/student/dashboard/tracks?t=1774257297055
+2026-03-23T09:14:57.064Z - GET /api/challenge/today?type=CODING
+2026-03-23T09:14:57.079Z - GET /dashboard/stats?t=1774257297055 - 200
+2026-03-23T09:14:57.087Z - GET /api/student/dashboard/stats?t=1774257297055
+2026-03-23T09:14:57.089Z - GET /dashboard/tracks?t=1774257297055 - 200
+2026-03-23T09:14:57.091Z - GET /today?type=CODING - 304
+2026-03-23T09:14:57.094Z - GET /api/student/dashboard/tracks?t=1774257297055
+2026-03-23T09:14:57.096Z - GET /api/challenge/today?type=CODING
+2026-03-23T09:14:57.103Z - GET /dashboard/stats?t=1774257297055 - 200
+2026-03-23T09:14:57.105Z - GET /api/challenge/streak
+2026-03-23T09:14:57.116Z - GET /streak - 304
+2026-03-23T09:14:57.118Z - GET /dashboard/tracks?t=1774257297055 - 200
+2026-03-23T09:14:57.119Z - GET /today?type=CODING - 304
+2026-03-23T09:14:57.128Z - GET /api/challenge/streak
+2026-03-23T09:14:57.132Z - GET /streak - 304
+2026-03-23T09:15:00.799Z - GET /api/challenge/today
+2026-03-23T09:15:00.805Z - GET /today - 200
+2026-03-23T09:15:00.807Z - GET /api/challenge/today
+2026-03-23T09:15:00.812Z - GET /today - 304
+2026-03-23T09:15:48.697Z - POST /api/student/code/run
+2026-03-23T09:15:48.704Z - POST /code/run - 200
+2026-03-23T09:15:50.197Z - POST /api/student/code/run
+2026-03-23T09:15:50.201Z - POST /code/run - 200
+2026-03-23T09:16:45.083Z - POST /api/student/code/run
+2026-03-23T09:16:46.501Z - POST /code/run - 200
+2026-03-23T09:17:24.721Z - POST /api/student/code/run
+2026-03-23T09:17:24.725Z - POST /code/run - 200
+2026-03-23T09:17:29.675Z - POST /api/student/code/run
+2026-03-23T09:17:29.681Z - POST /code/run - 200
+2026-03-23T09:18:19.913Z - POST /api/student/code/run
+2026-03-23T09:18:21.278Z - POST /code/run - 200
+2026-03-23T09:19:26.740Z - POST /api/student/code/run
+2026-03-23T09:19:27.709Z - POST /code/run - 200
+2026-03-23T09:21:12.949Z - POST /api/student/code/run
+2026-03-23T09:21:13.985Z - POST /code/run - 200
+2026-03-23T09:21:27.634Z - POST /api/student/code/run
+2026-03-23T09:21:27.827Z - POST /code/run - 200
+2026-03-23T09:21:48.489Z - POST /api/student/code/run
+2026-03-23T09:21:48.494Z - POST /code/run - 200
+2026-03-23T09:22:37.776Z - POST /api/student/code/run
+2026-03-23T09:22:38.864Z - POST /code/run - 200
+2026-03-23T09:30:52.035Z - POST /api/student/code/run
+2026-03-23T09:30:53.108Z - POST /code/run - 200
+2026-03-23T09:30:58.602Z - GET /api/challenge/today
+2026-03-23T09:30:58.625Z - GET /today - 304
+2026-03-23T09:30:58.628Z - GET /api/challenge/today
+2026-03-23T09:30:58.637Z - GET /today - 304
+2026-03-23T09:31:26.691Z - POST /api/student/code/run
+2026-03-23T09:31:26.915Z - POST /code/run - 200
+2026-03-23T09:32:32.677Z - POST /api/student/code/run
+2026-03-23T09:32:32.901Z - POST /code/run - 200
+2026-03-23T09:32:55.522Z - POST /api/student/code/run
+2026-03-23T09:32:55.740Z - POST /code/run - 200
+2026-03-23T10:08:55.496Z - POST /api/student/code/run
+2026-03-23T10:08:55.728Z - POST /code/run - 200
+2026-03-23T10:10:06.923Z - POST /api/student/code/run
+2026-03-23T10:10:08.388Z - POST /code/run - 200
+2026-03-23T10:11:38.803Z - POST /api/student/code/run
+2026-03-23T10:11:40.288Z - POST /code/run - 200
+2026-03-23T10:13:24.886Z - POST /api/student/code/run
+2026-03-23T10:13:25.987Z - POST /code/run - 200
+2026-03-23T10:15:17.746Z - POST /api/student/code/run
+2026-03-23T10:15:19.196Z - POST /code/run - 200
+2026-03-23T10:16:27.802Z - POST /api/student/code/run
+2026-03-23T10:16:29.274Z - POST /code/run - 200
+2026-03-23T10:17:35.586Z - POST /api/student/code/run
+2026-03-23T10:17:37.098Z - POST /code/run - 200
+2026-03-23T10:18:33.477Z - POST /api/student/code/run
+2026-03-23T10:18:34.956Z - POST /code/run - 200
+2026-03-23T10:20:19.202Z - POST /api/student/code/run
+2026-03-23T10:20:20.726Z - POST /code/run - 200
+2026-03-23T10:21:35.151Z - POST /api/student/code/run
+2026-03-23T10:21:36.642Z - POST /code/run - 200
+2026-03-23T10:22:52.705Z - POST /api/student/code/run
+2026-03-23T10:23:03.700Z - POST /api/student/code/run
+2026-03-23T10:23:05.136Z - POST /code/run - 200
+2026-03-23T10:23:09.291Z - POST /api/challenge/submit
+2026-03-23T10:23:09.301Z - POST /submit - 200
+2026-03-23T10:23:10.858Z - GET /api/student/dashboard/stats?t=1774261390854
+2026-03-23T10:23:10.861Z - GET /api/student/dashboard/tracks?t=1774261390855
+2026-03-23T10:23:10.863Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:23:10.865Z - GET /api/student/dashboard/stats?t=1774261390856
+2026-03-23T10:23:10.872Z - GET /api/student/dashboard/tracks?t=1774261390856
+2026-03-23T10:23:10.898Z - GET /dashboard/stats?t=1774261390854 - 200
+2026-03-23T10:23:10.909Z - GET /dashboard/stats?t=1774261390856 - 200
+2026-03-23T10:23:10.913Z - GET /today?type=CODING - 200
+2026-03-23T10:23:10.919Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:23:10.923Z - GET /dashboard/tracks?t=1774261390855 - 200
+2026-03-23T10:23:10.927Z - GET /dashboard/tracks?t=1774261390856 - 200
+2026-03-23T10:23:10.935Z - GET /today?type=CODING - 304
+2026-03-23T10:23:10.936Z - GET /api/challenge/streak
+2026-03-23T10:23:10.940Z - GET /streak - 200
+2026-03-23T10:23:10.964Z - GET /api/challenge/streak
+2026-03-23T10:23:10.969Z - GET /streak - 304
+2026-03-23T10:23:16.170Z - GET /api/public/companies
+2026-03-23T10:23:16.173Z - GET /companies - 200
+2026-03-23T10:23:16.176Z - GET /api/public/companies
+2026-03-23T10:23:16.179Z - GET /companies - 304
+2026-03-23T10:23:18.213Z - GET /api/public/companies/69c0fa37aa65cfe150794f96
+2026-03-23T10:23:18.215Z - GET /companies/69c0fa37aa65cfe150794f96 - 304
+2026-03-23T10:23:18.215Z - GET /api/auth/profile
+2026-03-23T10:23:18.216Z - GET /api/public/companies/69c0fa37aa65cfe150794f96/interview-preview
+2026-03-23T10:23:18.217Z - GET /api/student/test/status/69c0fa37aa65cfe150794f96
+2026-03-23T10:23:18.218Z - GET /api/public/companies/69c0fa37aa65cfe150794f96/has-questions
+2026-03-23T10:23:18.223Z - GET /api/public/companies/69c0fa37aa65cfe150794f96
+2026-03-23T10:23:18.225Z - GET /companies/69c0fa37aa65cfe150794f96/has-questions - 304
+2026-03-23T10:23:18.226Z - GET /profile - 200
+2026-03-23T10:23:18.227Z - GET /companies/69c0fa37aa65cfe150794f96/interview-preview - 304
+2026-03-23T10:23:18.229Z - GET /companies/69c0fa37aa65cfe150794f96 - 304
+2026-03-23T10:23:18.230Z - GET /api/public/companies/69c0fa37aa65cfe150794f96/has-questions
+2026-03-23T10:23:18.232Z - GET /api/auth/profile
+2026-03-23T10:23:18.233Z - GET /api/public/companies/69c0fa37aa65cfe150794f96/interview-preview
+2026-03-23T10:23:18.235Z - GET /companies/69c0fa37aa65cfe150794f96/has-questions - 304
+2026-03-23T10:23:18.236Z - GET /test/status/69c0fa37aa65cfe150794f96 - 304
+2026-03-23T10:23:18.238Z - GET /profile - 304
+2026-03-23T10:23:18.239Z - GET /companies/69c0fa37aa65cfe150794f96/interview-preview - 304
+2026-03-23T10:23:18.241Z - GET /api/student/test/status/69c0fa37aa65cfe150794f96
+2026-03-23T10:23:18.246Z - GET /test/status/69c0fa37aa65cfe150794f96 - 304
+2026-03-23T10:23:19.313Z - GET /api/public/companies
+2026-03-23T10:23:19.315Z - GET /companies - 304
+2026-03-23T10:23:19.317Z - GET /api/public/companies
+2026-03-23T10:23:19.319Z - GET /companies - 304
+2026-03-23T10:23:21.289Z - GET /api/public/companies/69c1012d0bc0515173e568f5
+2026-03-23T10:23:21.290Z - GET /api/public/companies/69c1012d0bc0515173e568f5/interview-preview
+2026-03-23T10:23:21.290Z - GET /api/student/test/status/69c1012d0bc0515173e568f5
+2026-03-23T10:23:21.291Z - GET /api/public/companies/69c1012d0bc0515173e568f5/has-questions
+2026-03-23T10:23:21.293Z - GET /api/auth/profile
+2026-03-23T10:23:21.294Z - GET /companies/69c1012d0bc0515173e568f5 - 200
+2026-03-23T10:23:21.296Z - GET /companies/69c1012d0bc0515173e568f5/has-questions - 200
+2026-03-23T10:23:21.298Z - GET /companies/69c1012d0bc0515173e568f5/interview-preview - 200
+2026-03-23T10:23:21.298Z - GET /test/status/69c1012d0bc0515173e568f5 - 200
+2026-03-23T10:23:21.300Z - GET /profile - 304
+2026-03-23T10:23:21.300Z - GET /api/public/companies/69c1012d0bc0515173e568f5
+2026-03-23T10:23:21.302Z - GET /api/public/companies/69c1012d0bc0515173e568f5/has-questions
+2026-03-23T10:23:21.303Z - GET /companies/69c1012d0bc0515173e568f5 - 304
+2026-03-23T10:23:21.304Z - GET /api/public/companies/69c1012d0bc0515173e568f5/interview-preview
+2026-03-23T10:23:21.304Z - GET /api/student/test/status/69c1012d0bc0515173e568f5
+2026-03-23T10:23:21.305Z - GET /api/auth/profile
+2026-03-23T10:23:21.306Z - GET /companies/69c1012d0bc0515173e568f5/has-questions - 304
+2026-03-23T10:23:21.310Z - GET /companies/69c1012d0bc0515173e568f5/interview-preview - 304
+2026-03-23T10:23:21.311Z - GET /test/status/69c1012d0bc0515173e568f5 - 304
+2026-03-23T10:23:21.313Z - GET /profile - 304
+2026-03-23T10:23:22.650Z - POST /api/student/enroll/69c1012d0bc0515173e568f5
+2026-03-23T10:23:22.658Z - POST /enroll/69c1012d0bc0515173e568f5 - 200
+2026-03-23T10:23:24.082Z - GET /api/public/companies
+2026-03-23T10:23:24.084Z - GET /companies - 304
+2026-03-23T10:23:24.087Z - GET /api/public/companies
+2026-03-23T10:23:24.088Z - GET /companies - 304
+2026-03-23T10:23:26.089Z - GET /api/public/companies/69c0ba1ed8973eadacd3f50d
+2026-03-23T10:23:26.090Z - GET /api/public/companies/69c0ba1ed8973eadacd3f50d/interview-preview
+2026-03-23T10:23:26.091Z - GET /api/auth/profile
+2026-03-23T10:23:26.092Z - GET /api/public/companies/69c0ba1ed8973eadacd3f50d/has-questions
+2026-03-23T10:23:26.094Z - GET /api/student/test/status/69c0ba1ed8973eadacd3f50d
+2026-03-23T10:23:26.096Z - GET /companies/69c0ba1ed8973eadacd3f50d - 304
+2026-03-23T10:23:26.098Z - GET /companies/69c0ba1ed8973eadacd3f50d/has-questions - 304
+2026-03-23T10:23:26.101Z - GET /companies/69c0ba1ed8973eadacd3f50d/interview-preview - 304
+2026-03-23T10:23:26.102Z - GET /profile - 200
+2026-03-23T10:23:26.103Z - GET /api/public/companies/69c0ba1ed8973eadacd3f50d
+2026-03-23T10:23:26.105Z - GET /api/public/companies/69c0ba1ed8973eadacd3f50d/has-questions
+2026-03-23T10:23:26.106Z - GET /api/public/companies/69c0ba1ed8973eadacd3f50d/interview-preview
+2026-03-23T10:23:26.107Z - GET /companies/69c0ba1ed8973eadacd3f50d - 304
+2026-03-23T10:23:26.109Z - GET /companies/69c0ba1ed8973eadacd3f50d/has-questions - 304
+2026-03-23T10:23:26.110Z - GET /api/auth/profile
+2026-03-23T10:23:26.113Z - GET /test/status/69c0ba1ed8973eadacd3f50d - 304
+2026-03-23T10:23:26.116Z - GET /companies/69c0ba1ed8973eadacd3f50d/interview-preview - 304
+2026-03-23T10:23:26.118Z - GET /profile - 304
+2026-03-23T10:23:26.118Z - GET /api/student/test/status/69c0ba1ed8973eadacd3f50d
+2026-03-23T10:23:26.124Z - GET /test/status/69c0ba1ed8973eadacd3f50d - 304
+2026-03-23T10:23:27.264Z - GET /api/public/companies
+2026-03-23T10:23:27.266Z - GET /companies - 304
+2026-03-23T10:23:27.268Z - GET /api/public/companies
+2026-03-23T10:23:27.270Z - GET /companies - 304
+2026-03-23T10:23:28.958Z - GET /api/public/companies/69c0e2a61c3d79518149e9dd
+2026-03-23T10:23:28.961Z - GET /companies/69c0e2a61c3d79518149e9dd - 304
+2026-03-23T10:23:28.964Z - GET /api/public/companies/69c0e2a61c3d79518149e9dd/interview-preview
+2026-03-23T10:23:28.965Z - GET /api/auth/profile
+2026-03-23T10:23:28.967Z - GET /api/public/companies/69c0e2a61c3d79518149e9dd/has-questions
+2026-03-23T10:23:28.968Z - GET /api/student/test/status/69c0e2a61c3d79518149e9dd
+2026-03-23T10:23:28.970Z - GET /companies/69c0e2a61c3d79518149e9dd/has-questions - 304
+2026-03-23T10:23:28.971Z - GET /api/public/companies/69c0e2a61c3d79518149e9dd
+2026-03-23T10:23:28.973Z - GET /companies/69c0e2a61c3d79518149e9dd/interview-preview - 304
+2026-03-23T10:23:28.974Z - GET /profile - 304
+2026-03-23T10:23:28.976Z - GET /companies/69c0e2a61c3d79518149e9dd - 304
+2026-03-23T10:23:28.978Z - GET /api/public/companies/69c0e2a61c3d79518149e9dd/has-questions
+2026-03-23T10:23:28.980Z - GET /api/public/companies/69c0e2a61c3d79518149e9dd/interview-preview
+2026-03-23T10:23:28.981Z - GET /api/auth/profile
+2026-03-23T10:23:28.982Z - GET /companies/69c0e2a61c3d79518149e9dd/has-questions - 304
+2026-03-23T10:23:28.983Z - GET /test/status/69c0e2a61c3d79518149e9dd - 304
+2026-03-23T10:23:28.987Z - GET /companies/69c0e2a61c3d79518149e9dd/interview-preview - 304
+2026-03-23T10:23:28.988Z - GET /profile - 304
+2026-03-23T10:23:28.989Z - GET /api/student/test/status/69c0e2a61c3d79518149e9dd
+2026-03-23T10:23:28.995Z - GET /test/status/69c0e2a61c3d79518149e9dd - 304
+2026-03-23T10:23:29.597Z - GET /api/public/companies
+2026-03-23T10:23:29.599Z - GET /companies - 304
+2026-03-23T10:23:29.602Z - GET /api/public/companies
+2026-03-23T10:23:29.604Z - GET /companies - 304
+2026-03-23T10:23:30.720Z - GET /api/public/companies/69c1012d0bc0515173e568f0
+2026-03-23T10:23:30.722Z - GET /api/public/companies/69c1012d0bc0515173e568f0/interview-preview
+2026-03-23T10:23:30.724Z - GET /companies/69c1012d0bc0515173e568f0 - 200
+2026-03-23T10:23:30.724Z - GET /api/student/test/status/69c1012d0bc0515173e568f0
+2026-03-23T10:23:30.725Z - GET /api/auth/profile
+2026-03-23T10:23:30.729Z - GET /companies/69c1012d0bc0515173e568f0/interview-preview - 200
+2026-03-23T10:23:30.729Z - GET /api/public/companies/69c1012d0bc0515173e568f0/has-questions
+2026-03-23T10:23:30.730Z - GET /api/public/companies/69c1012d0bc0515173e568f0
+2026-03-23T10:23:30.733Z - GET /test/status/69c1012d0bc0515173e568f0 - 200
+2026-03-23T10:23:30.735Z - GET /companies/69c1012d0bc0515173e568f0/has-questions - 200
+2026-03-23T10:23:30.736Z - GET /companies/69c1012d0bc0515173e568f0 - 304
+2026-03-23T10:23:30.737Z - GET /profile - 304
+2026-03-23T10:23:30.738Z - GET /api/public/companies/69c1012d0bc0515173e568f0/interview-preview
+2026-03-23T10:23:30.739Z - GET /api/student/test/status/69c1012d0bc0515173e568f0
+2026-03-23T10:23:30.740Z - GET /api/public/companies/69c1012d0bc0515173e568f0/has-questions
+2026-03-23T10:23:30.742Z - GET /api/auth/profile
+2026-03-23T10:23:30.744Z - GET /companies/69c1012d0bc0515173e568f0/has-questions - 304
+2026-03-23T10:23:30.744Z - GET /companies/69c1012d0bc0515173e568f0/interview-preview - 304
+2026-03-23T10:23:30.745Z - GET /test/status/69c1012d0bc0515173e568f0 - 304
+2026-03-23T10:23:30.748Z - GET /profile - 304
+2026-03-23T10:23:33.264Z - POST /api/student/enroll/69c1012d0bc0515173e568f0
+2026-03-23T10:23:33.269Z - POST /enroll/69c1012d0bc0515173e568f0 - 200
+2026-03-23T10:23:34.796Z - POST /api/student/test/start/69c1012d0bc0515173e568f0
+2026-03-23T10:23:34.806Z - POST /test/start/69c1012d0bc0515173e568f0 - 201
+2026-03-23T10:23:34.848Z - GET /api/student/test/69c114a6cfedd1e914407983/round/1
+2026-03-23T10:23:34.857Z - GET /test/69c114a6cfedd1e914407983/round/1 - 200
+2026-03-23T10:23:34.860Z - GET /api/student/test/69c114a6cfedd1e914407983/round/1
+2026-03-23T10:23:34.867Z - GET /test/69c114a6cfedd1e914407983/round/1 - 304
+2026-03-23T10:23:37.317Z - PATCH /api/simulation/increment-violation
+2026-03-23T10:23:37.330Z - PATCH /increment-violation - 200
+2026-03-23T10:23:37.349Z - POST /api/student/security/malpractice
+2026-03-23T10:23:37.352Z - POST /security/malpractice - 403
+2026-03-23T10:23:42.490Z - GET /api/student/dashboard/stats?t=1774261422485
+2026-03-23T10:23:42.492Z - GET /api/student/dashboard/tracks?t=1774261422485
+2026-03-23T10:23:42.494Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:23:42.495Z - GET /api/student/dashboard/stats?t=1774261422486
+2026-03-23T10:23:42.497Z - GET /api/student/dashboard/tracks?t=1774261422486
+2026-03-23T10:23:42.519Z - GET /dashboard/stats?t=1774261422485 - 200
+2026-03-23T10:23:42.524Z - GET /dashboard/stats?t=1774261422486 - 200
+2026-03-23T10:23:42.530Z - GET /today?type=CODING - 304
+2026-03-23T10:23:42.532Z - GET /dashboard/tracks?t=1774261422485 - 200
+2026-03-23T10:23:42.533Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:23:42.534Z - GET /dashboard/tracks?t=1774261422486 - 200
+2026-03-23T10:23:42.540Z - GET /today?type=CODING - 304
+2026-03-23T10:23:42.576Z - GET /api/challenge/streak
+2026-03-23T10:23:42.580Z - GET /streak - 304
+2026-03-23T10:23:42.587Z - GET /api/challenge/streak
+2026-03-23T10:23:42.591Z - GET /streak - 304
+2026-03-23T10:23:46.268Z - GET /api/public/companies/69c1012d0bc0515173e568f5
+2026-03-23T10:23:46.269Z - GET /api/public/companies/69c1012d0bc0515173e568f5/has-questions
+2026-03-23T10:23:46.270Z - GET /api/public/companies/69c1012d0bc0515173e568f5/interview-preview
+2026-03-23T10:23:46.271Z - GET /api/auth/profile
+2026-03-23T10:23:46.272Z - GET /api/student/test/status/69c1012d0bc0515173e568f5
+2026-03-23T10:23:46.273Z - GET /companies/69c1012d0bc0515173e568f5 - 304
+2026-03-23T10:23:46.274Z - GET /companies/69c1012d0bc0515173e568f5/has-questions - 304
+2026-03-23T10:23:46.276Z - GET /companies/69c1012d0bc0515173e568f5/interview-preview - 304
+2026-03-23T10:23:46.277Z - GET /profile - 200
+2026-03-23T10:23:46.278Z - GET /test/status/69c1012d0bc0515173e568f5 - 304
+2026-03-23T10:23:46.278Z - GET /api/public/companies/69c1012d0bc0515173e568f5/has-questions
+2026-03-23T10:23:46.279Z - GET /api/public/companies/69c1012d0bc0515173e568f5
+2026-03-23T10:23:46.280Z - GET /companies/69c1012d0bc0515173e568f5/has-questions - 304
+2026-03-23T10:23:46.281Z - GET /companies/69c1012d0bc0515173e568f5 - 304
+2026-03-23T10:23:46.281Z - GET /api/public/companies/69c1012d0bc0515173e568f5/interview-preview
+2026-03-23T10:23:46.282Z - GET /api/auth/profile
+2026-03-23T10:23:46.283Z - GET /api/student/test/status/69c1012d0bc0515173e568f5
+2026-03-23T10:23:46.286Z - GET /companies/69c1012d0bc0515173e568f5/interview-preview - 304
+2026-03-23T10:23:46.286Z - GET /profile - 304
+2026-03-23T10:23:46.287Z - GET /test/status/69c1012d0bc0515173e568f5 - 304
+2026-03-23T10:23:47.336Z - GET /api/student/dashboard/stats?t=1774261427333
+2026-03-23T10:23:47.337Z - GET /api/student/dashboard/tracks?t=1774261427333
+2026-03-23T10:23:47.338Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:23:47.345Z - GET /dashboard/stats?t=1774261427333 - 200
+2026-03-23T10:23:47.350Z - GET /dashboard/tracks?t=1774261427333 - 200
+2026-03-23T10:23:47.351Z - GET /api/student/dashboard/stats?t=1774261427333
+2026-03-23T10:23:47.352Z - GET /today?type=CODING - 304
+2026-03-23T10:23:47.354Z - GET /api/student/dashboard/tracks?t=1774261427333
+2026-03-23T10:23:47.356Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:23:47.359Z - GET /dashboard/stats?t=1774261427333 - 200
+2026-03-23T10:23:47.363Z - GET /api/challenge/streak
+2026-03-23T10:23:47.368Z - GET /dashboard/tracks?t=1774261427333 - 200
+2026-03-23T10:23:47.369Z - GET /today?type=CODING - 304
+2026-03-23T10:23:47.370Z - GET /streak - 304
+2026-03-23T10:23:47.405Z - GET /api/challenge/streak
+2026-03-23T10:23:47.409Z - GET /streak - 304
+2026-03-23T10:24:03.738Z - POST /api/auth/admin-login
+2026-03-23T10:24:03.741Z - POST /admin-login - 200
+2026-03-23T10:24:03.767Z - GET /api/admin/dashboard
+2026-03-23T10:24:03.769Z - GET /api/admin/companies
+2026-03-23T10:24:03.774Z - GET /companies - 304
+2026-03-23T10:24:03.777Z - GET /dashboard - 200
+2026-03-23T10:24:03.778Z - GET /api/admin/companies
+2026-03-23T10:24:03.780Z - GET /api/admin/dashboard
+2026-03-23T10:24:03.784Z - GET /companies - 304
+2026-03-23T10:24:03.787Z - GET /dashboard - 304
+2026-03-23T10:25:18.793Z - GET /api/admin/companies
+2026-03-23T10:25:18.795Z - GET /companies - 304
+2026-03-23T10:25:18.798Z - GET /api/admin/companies
+2026-03-23T10:25:18.801Z - GET /companies - 304
+2026-03-23T10:26:11.834Z - POST /api/admin/company/create
+2026-03-23T10:26:11.842Z - POST /company/create - 201
+2026-03-23T10:26:11.857Z - GET /api/admin/companies
+2026-03-23T10:26:11.861Z - GET /companies - 200
+2026-03-23T10:26:14.425Z - GET /api/admin/company/69c11543cfedd1e914407a31/questions
+2026-03-23T10:26:14.426Z - GET /api/admin/companies
+2026-03-23T10:26:14.429Z - GET /company/69c11543cfedd1e914407a31/questions - 200
+2026-03-23T10:26:14.430Z - GET /companies - 304
+2026-03-23T10:26:14.432Z - GET /api/admin/company/69c11543cfedd1e914407a31/questions
+2026-03-23T10:26:14.433Z - GET /api/admin/companies
+2026-03-23T10:26:14.436Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:26:14.438Z - GET /company/69c11543cfedd1e914407a31/questions - 304
+2026-03-23T10:26:14.439Z - GET /companies - 304
+2026-03-23T10:26:14.448Z - GET /today?type=CODING - 200
+2026-03-23T10:26:14.456Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:26:14.458Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:26:14.466Z - GET /today?type=CODING - 304
+2026-03-23T10:26:14.473Z - GET /today?type=SQL - 500
+2026-03-23T10:26:14.476Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:26:14.487Z - GET /today?type=SQL - 500
+2026-03-23T10:28:39.930Z - POST /api/admin/questions/upload
+--- CSV Upload Start: file-1774261719934.csv ---
+Target Company ID: 69c11543cfedd1e914407a31, Round: 3, Type: CODING
+CSV: Detected delimiter: ","
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV Import complete. Seeded 0
+CSV Upload Success. Seeded count: 0
+2026-03-23T10:28:39.953Z - POST /questions/upload - 201
+2026-03-23T10:28:39.959Z - GET /api/admin/company/69c11543cfedd1e914407a31/questions
+2026-03-23T10:28:39.962Z - GET /company/69c11543cfedd1e914407a31/questions - 304
+2026-03-23T10:28:39.968Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:28:39.977Z - GET /today?type=CODING - 304
+2026-03-23T10:28:39.981Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:28:39.993Z - GET /today?type=SQL - 500
+2026-03-23T10:28:41.301Z - POST /api/admin/questions/upload
+--- CSV Upload Start: file-1774261721304.csv ---
+Target Company ID: 69c11543cfedd1e914407a31, Round: 2, Type: TECHNICAL_INTERVIEW
+CSV: Detected delimiter: ","
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV Import complete. Seeded 0
+CSV Upload Success. Seeded count: 0
+2026-03-23T10:28:41.321Z - POST /questions/upload - 201
+2026-03-23T10:28:41.326Z - GET /api/admin/company/69c11543cfedd1e914407a31/questions
+2026-03-23T10:28:41.329Z - GET /company/69c11543cfedd1e914407a31/questions - 304
+2026-03-23T10:28:41.335Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:28:41.342Z - GET /today?type=CODING - 304
+2026-03-23T10:28:41.347Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:28:41.358Z - GET /today?type=SQL - 500
+2026-03-23T10:28:42.874Z - POST /api/admin/questions/upload
+--- CSV Upload Start: file-1774261722876.csv ---
+Target Company ID: 69c11543cfedd1e914407a31, Round: 1, Type: HR_INTERVIEW
+CSV: Detected delimiter: ","
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV Import complete. Seeded 0
+CSV Upload Success. Seeded count: 0
+2026-03-23T10:28:42.886Z - POST /questions/upload - 201
+2026-03-23T10:28:42.891Z - GET /api/admin/company/69c11543cfedd1e914407a31/questions
+2026-03-23T10:28:42.894Z - GET /company/69c11543cfedd1e914407a31/questions - 304
+2026-03-23T10:28:42.901Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:28:42.908Z - GET /today?type=CODING - 304
+2026-03-23T10:28:42.912Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:28:42.922Z - GET /today?type=SQL - 500
+2026-03-23T10:28:53.367Z - POST /api/auth/login
+2026-03-23T10:28:53.450Z - POST /login - 200
+2026-03-23T10:28:53.481Z - GET /api/student/dashboard/stats?t=1774261733477
+2026-03-23T10:28:53.483Z - GET /api/student/dashboard/tracks?t=1774261733477
+2026-03-23T10:28:53.485Z - GET /api/student/dashboard/stats?t=1774261733478
+2026-03-23T10:28:53.486Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:28:53.491Z - GET /api/student/dashboard/tracks?t=1774261733478
+2026-03-23T10:28:53.498Z - GET /dashboard/stats?t=1774261733477 - 200
+2026-03-23T10:28:53.505Z - GET /dashboard/stats?t=1774261733478 - 200
+2026-03-23T10:28:53.509Z - GET /dashboard/tracks?t=1774261733477 - 200
+2026-03-23T10:28:53.514Z - GET /today?type=CODING - 200
+2026-03-23T10:28:53.516Z - GET /dashboard/tracks?t=1774261733478 - 200
+2026-03-23T10:28:53.517Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:28:53.521Z - GET /api/challenge/streak
+2026-03-23T10:28:53.525Z - GET /streak - 304
+2026-03-23T10:28:53.528Z - GET /today?type=CODING - 304
+2026-03-23T10:28:53.540Z - GET /api/challenge/streak
+2026-03-23T10:28:53.544Z - GET /streak - 304
+2026-03-23T10:28:55.838Z - GET /api/public/companies
+2026-03-23T10:28:55.841Z - GET /companies - 200
+2026-03-23T10:28:55.844Z - GET /api/public/companies
+2026-03-23T10:28:55.847Z - GET /companies - 304
+2026-03-23T10:28:58.091Z - GET /api/public/companies/69c11543cfedd1e914407a31
+2026-03-23T10:28:58.092Z - GET /api/public/companies/69c11543cfedd1e914407a31/interview-preview
+2026-03-23T10:28:58.092Z - GET /api/student/test/status/69c11543cfedd1e914407a31
+2026-03-23T10:28:58.093Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:28:58.094Z - GET /api/auth/profile
+2026-03-23T10:28:58.095Z - GET /companies/69c11543cfedd1e914407a31 - 200
+2026-03-23T10:28:58.097Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 200
+2026-03-23T10:28:58.099Z - GET /companies/69c11543cfedd1e914407a31/interview-preview - 200
+2026-03-23T10:28:58.100Z - GET /test/status/69c11543cfedd1e914407a31 - 200
+2026-03-23T10:28:58.101Z - GET /api/public/companies/69c11543cfedd1e914407a31
+2026-03-23T10:28:58.103Z - GET /profile - 200
+2026-03-23T10:28:58.104Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:28:58.105Z - GET /companies/69c11543cfedd1e914407a31 - 304
+2026-03-23T10:28:58.106Z - GET /api/public/companies/69c11543cfedd1e914407a31/interview-preview
+2026-03-23T10:28:58.107Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:28:58.108Z - GET /api/student/test/status/69c11543cfedd1e914407a31
+2026-03-23T10:28:58.109Z - GET /api/auth/profile
+2026-03-23T10:28:58.113Z - GET /companies/69c11543cfedd1e914407a31/interview-preview - 304
+2026-03-23T10:28:58.114Z - GET /test/status/69c11543cfedd1e914407a31 - 304
+2026-03-23T10:28:58.115Z - GET /profile - 304
+2026-03-23T10:28:59.147Z - POST /api/student/enroll/69c11543cfedd1e914407a31
+2026-03-23T10:28:59.152Z - POST /enroll/69c11543cfedd1e914407a31 - 200
+2026-03-23T10:29:03.090Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:29:03.092Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:29:08.105Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:29:08.107Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:29:13.706Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:29:13.708Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:29:18.721Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:29:18.724Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:29:23.714Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:29:23.716Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:29:28.722Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:29:28.724Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:29:33.104Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:29:33.108Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:29:38.717Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:29:38.719Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:29:43.708Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:29:43.710Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:29:48.704Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:29:48.706Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:29:53.711Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:29:53.713Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:29:58.708Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:29:58.710Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:30:03.704Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:30:03.706Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:30:08.717Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:30:08.719Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:30:13.709Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:30:13.711Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:30:18.715Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:30:18.717Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:30:23.713Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:30:23.716Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:30:28.711Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:30:28.713Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:31:14.719Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:31:14.721Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:32:14.711Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:32:14.713Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:33:14.714Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:33:14.716Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:34:14.708Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:34:14.710Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:35:14.707Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:35:14.709Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:36:14.711Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:36:14.719Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:37:14.718Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:37:14.721Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:38:14.715Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:38:14.718Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:39:14.707Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:39:14.709Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:40:14.720Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:40:14.722Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:41:14.718Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:41:14.720Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:42:14.713Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:42:14.716Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:43:14.724Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:43:14.727Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:44:14.710Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:44:14.712Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:45:14.708Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:45:14.710Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:46:14.713Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:46:14.716Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:46:33.816Z - GET /api/admin/companies
+2026-03-23T10:46:33.832Z - GET /companies - 200
+2026-03-23T10:46:33.836Z - GET /api/admin/companies
+2026-03-23T10:46:33.842Z - GET /companies - 304
+2026-03-23T10:46:39.970Z - GET /api/admin/companies
+2026-03-23T10:46:39.972Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T10:46:39.976Z - GET /companies - 304
+2026-03-23T10:46:39.979Z - GET /company/69c1012d0bc0515173e568f0/questions - 200
+2026-03-23T10:46:39.980Z - GET /api/admin/companies
+2026-03-23T10:46:39.982Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T10:46:39.984Z - GET /companies - 304
+2026-03-23T10:46:39.985Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint
+2026-03-23T10:46:39.989Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint - 404
+2026-03-23T10:46:39.990Z - GET /company/69c1012d0bc0515173e568f0/questions - 304
+2026-03-23T10:46:40.036Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:46:40.048Z - GET /today?type=CODING - 200
+2026-03-23T10:46:40.074Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint
+2026-03-23T10:46:40.077Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint - 404
+2026-03-23T10:46:40.078Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:46:40.079Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:46:40.087Z - GET /today?type=CODING - 304
+2026-03-23T10:46:40.100Z - GET /today?type=SQL - 500
+2026-03-23T10:46:40.108Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:46:40.119Z - GET /today?type=SQL - 500
+2026-03-23T10:47:10.040Z - GET /api/admin/companies
+2026-03-23T10:47:10.042Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T10:47:10.045Z - GET /companies - 304
+2026-03-23T10:47:10.046Z - GET /company/69c1012d0bc0515173e568f0/questions - 304
+2026-03-23T10:47:10.048Z - GET /api/admin/companies
+2026-03-23T10:47:10.049Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T10:47:10.051Z - GET /companies - 304
+2026-03-23T10:47:10.052Z - GET /company/69c1012d0bc0515173e568f0/questions - 304
+2026-03-23T10:47:10.065Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint
+2026-03-23T10:47:10.066Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:47:10.067Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint - 404
+2026-03-23T10:47:10.071Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint
+2026-03-23T10:47:10.073Z - GET /today?type=CODING - 304
+2026-03-23T10:47:10.074Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint - 404
+2026-03-23T10:47:10.076Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:47:10.081Z - GET /today?type=CODING - 304
+2026-03-23T10:47:10.098Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:47:10.107Z - GET /today?type=SQL - 500
+2026-03-23T10:47:10.111Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:47:10.119Z - GET /today?type=SQL - 500
+2026-03-23T10:47:14.721Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:47:14.723Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:47:41.836Z - GET /api/admin/companies
+2026-03-23T10:47:41.839Z - GET /companies - 304
+2026-03-23T10:47:41.842Z - GET /api/admin/companies
+2026-03-23T10:47:41.846Z - GET /companies - 304
+2026-03-23T10:47:56.309Z - GET /api/admin/companies
+2026-03-23T10:47:56.311Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T10:47:56.314Z - GET /companies - 304
+2026-03-23T10:47:56.315Z - GET /company/69c1012d0bc0515173e568f0/questions - 304
+2026-03-23T10:47:56.316Z - GET /api/admin/companies
+2026-03-23T10:47:56.317Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T10:47:56.319Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint
+2026-03-23T10:47:56.321Z - GET /companies - 304
+2026-03-23T10:47:56.323Z - GET /company/69c1012d0bc0515173e568f0/questions - 304
+2026-03-23T10:47:56.323Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint - 404
+2026-03-23T10:47:56.379Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:47:56.385Z - GET /today?type=CODING - 304
+2026-03-23T10:47:56.405Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint
+2026-03-23T10:47:56.406Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:47:56.408Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:47:56.410Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint - 404
+2026-03-23T10:47:56.414Z - GET /today?type=CODING - 304
+2026-03-23T10:47:56.420Z - GET /today?type=SQL - 500
+2026-03-23T10:47:56.426Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:47:56.434Z - GET /today?type=SQL - 500
+2026-03-23T10:48:10.128Z - GET /api/admin/companies
+2026-03-23T10:48:10.131Z - GET /companies - 304
+2026-03-23T10:48:10.134Z - GET /api/admin/companies
+2026-03-23T10:48:10.137Z - GET /companies - 304
+2026-03-23T10:48:14.714Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:48:14.716Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:48:26.173Z - GET /api/admin/companies
+2026-03-23T10:48:26.174Z - GET /api/admin/company/69c11543cfedd1e914407a31/questions
+2026-03-23T10:48:26.178Z - GET /companies - 304
+2026-03-23T10:48:26.179Z - GET /company/69c11543cfedd1e914407a31/questions - 200
+2026-03-23T10:48:26.181Z - GET /api/admin/companies
+2026-03-23T10:48:26.182Z - GET /api/admin/company/69c11543cfedd1e914407a31/questions
+2026-03-23T10:48:26.185Z - GET /companies - 304
+2026-03-23T10:48:26.186Z - GET /api/admin/company/69c11543cfedd1e914407a31/interview-blueprint
+2026-03-23T10:48:26.187Z - GET /company/69c11543cfedd1e914407a31/questions - 304
+2026-03-23T10:48:26.188Z - GET /api/admin/company/69c11543cfedd1e914407a31/interview-blueprint - 404
+2026-03-23T10:48:26.235Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:48:26.241Z - GET /today?type=CODING - 304
+2026-03-23T10:48:26.265Z - GET /api/admin/company/69c11543cfedd1e914407a31/interview-blueprint
+2026-03-23T10:48:26.266Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:48:26.267Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:48:26.269Z - GET /api/admin/company/69c11543cfedd1e914407a31/interview-blueprint - 404
+2026-03-23T10:48:26.275Z - GET /today?type=CODING - 304
+2026-03-23T10:48:26.287Z - GET /today?type=SQL - 500
+2026-03-23T10:48:26.291Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:48:26.306Z - GET /today?type=SQL - 500
+2026-03-23T10:48:42.509Z - GET /api/admin/companies
+2026-03-23T10:48:42.512Z - GET /companies - 304
+2026-03-23T10:48:42.515Z - GET /api/admin/companies
+2026-03-23T10:48:42.518Z - GET /companies - 304
+2026-03-23T10:48:49.836Z - GET /api/admin/companies
+2026-03-23T10:48:49.837Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T10:48:49.840Z - GET /companies - 304
+2026-03-23T10:48:49.841Z - GET /company/69c1012d0bc0515173e568f0/questions - 304
+2026-03-23T10:48:49.843Z - GET /api/admin/companies
+2026-03-23T10:48:49.844Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T10:48:49.846Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint
+2026-03-23T10:48:49.848Z - GET /companies - 304
+2026-03-23T10:48:49.849Z - GET /company/69c1012d0bc0515173e568f0/questions - 304
+2026-03-23T10:48:49.850Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint - 404
+2026-03-23T10:48:49.901Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:48:49.907Z - GET /today?type=CODING - 304
+2026-03-23T10:48:49.922Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint
+2026-03-23T10:48:49.924Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:48:49.925Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint - 404
+2026-03-23T10:48:49.927Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:48:49.932Z - GET /today?type=CODING - 304
+2026-03-23T10:48:49.938Z - GET /today?type=SQL - 500
+2026-03-23T10:48:49.946Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:48:49.956Z - GET /today?type=SQL - 500
+2026-03-23T10:48:57.666Z - GET /api/admin/companies
+2026-03-23T10:48:57.669Z - GET /companies - 304
+2026-03-23T10:48:57.671Z - GET /api/admin/companies
+2026-03-23T10:48:57.674Z - GET /companies - 304
+2026-03-23T10:49:04.424Z - GET /api/admin/companies
+2026-03-23T10:49:04.426Z - GET /api/admin/company/69c0b670d87f7a1faa4982b6/questions
+2026-03-23T10:49:04.428Z - GET /companies - 304
+2026-03-23T10:49:04.430Z - GET /company/69c0b670d87f7a1faa4982b6/questions - 304
+2026-03-23T10:49:04.432Z - GET /api/admin/companies
+2026-03-23T10:49:04.433Z - GET /api/admin/company/69c0b670d87f7a1faa4982b6/questions
+2026-03-23T10:49:04.436Z - GET /api/admin/company/69c0b670d87f7a1faa4982b6/interview-blueprint
+2026-03-23T10:49:04.437Z - GET /companies - 304
+2026-03-23T10:49:04.439Z - GET /company/69c0b670d87f7a1faa4982b6/questions - 304
+2026-03-23T10:49:04.440Z - GET /api/admin/company/69c0b670d87f7a1faa4982b6/interview-blueprint - 404
+2026-03-23T10:49:04.466Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:49:04.472Z - GET /today?type=CODING - 304
+2026-03-23T10:49:04.488Z - GET /api/admin/company/69c0b670d87f7a1faa4982b6/interview-blueprint
+2026-03-23T10:49:04.489Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:49:04.491Z - GET /api/admin/company/69c0b670d87f7a1faa4982b6/interview-blueprint - 404
+2026-03-23T10:49:04.496Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:49:04.499Z - GET /today?type=CODING - 304
+2026-03-23T10:49:04.509Z - GET /today?type=SQL - 500
+2026-03-23T10:49:04.524Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:49:04.535Z - GET /today?type=SQL - 500
+2026-03-23T10:49:14.719Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:49:14.722Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:49:19.526Z - GET /api/admin/companies
+2026-03-23T10:49:19.527Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T10:49:19.530Z - GET /companies - 304
+2026-03-23T10:49:19.531Z - GET /company/69c1012d0bc0515173e568f0/questions - 304
+2026-03-23T10:49:19.533Z - GET /api/admin/companies
+2026-03-23T10:49:19.534Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T10:49:19.538Z - GET /companies - 304
+2026-03-23T10:49:19.539Z - GET /company/69c1012d0bc0515173e568f0/questions - 304
+2026-03-23T10:49:19.540Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint
+2026-03-23T10:49:19.541Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:49:19.542Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint - 404
+2026-03-23T10:49:19.546Z - GET /today?type=CODING - 304
+2026-03-23T10:49:19.560Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:49:19.567Z - GET /today?type=SQL - 500
+2026-03-23T10:49:19.598Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint
+2026-03-23T10:49:19.599Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:49:19.601Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint - 404
+2026-03-23T10:49:19.604Z - GET /today?type=CODING - 304
+2026-03-23T10:49:19.724Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:49:19.731Z - GET /today?type=SQL - 500
+2026-03-23T10:50:01.387Z - GET /api/admin/companies
+2026-03-23T10:50:01.390Z - GET /companies - 304
+2026-03-23T10:50:01.394Z - GET /api/admin/companies
+2026-03-23T10:50:01.397Z - GET /companies - 304
+2026-03-23T10:50:13.504Z - GET /api/admin/companies
+2026-03-23T10:50:13.505Z - GET /api/admin/company/69c11543cfedd1e914407a31/questions
+2026-03-23T10:50:13.508Z - GET /companies - 304
+2026-03-23T10:50:13.508Z - GET /company/69c11543cfedd1e914407a31/questions - 304
+2026-03-23T10:50:13.511Z - GET /api/admin/companies
+2026-03-23T10:50:13.513Z - GET /api/admin/company/69c11543cfedd1e914407a31/questions
+2026-03-23T10:50:13.515Z - GET /api/admin/company/69c11543cfedd1e914407a31/interview-blueprint
+2026-03-23T10:50:13.517Z - GET /companies - 304
+2026-03-23T10:50:13.518Z - GET /company/69c11543cfedd1e914407a31/questions - 304
+2026-03-23T10:50:13.518Z - GET /api/admin/company/69c11543cfedd1e914407a31/interview-blueprint - 404
+2026-03-23T10:50:13.555Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:50:13.560Z - GET /today?type=CODING - 304
+2026-03-23T10:50:13.598Z - GET /api/admin/company/69c11543cfedd1e914407a31/interview-blueprint
+2026-03-23T10:50:13.600Z - GET /api/admin/company/69c11543cfedd1e914407a31/interview-blueprint - 404
+2026-03-23T10:50:13.601Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:50:13.602Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:50:13.607Z - GET /today?type=CODING - 304
+2026-03-23T10:50:13.612Z - GET /today?type=SQL - 500
+2026-03-23T10:50:13.627Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:50:13.635Z - GET /today?type=SQL - 500
+2026-03-23T10:50:14.724Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:50:14.726Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:50:40.167Z - GET /api/admin/companies
+2026-03-23T10:50:40.170Z - GET /companies - 304
+2026-03-23T10:50:40.173Z - GET /api/admin/companies
+2026-03-23T10:50:40.176Z - GET /companies - 304
+2026-03-23T10:51:14.709Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:51:14.711Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:51:40.431Z - GET /api/admin/companies
+2026-03-23T10:51:40.433Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T10:51:40.436Z - GET /companies - 304
+2026-03-23T10:51:40.437Z - GET /company/69c1012d0bc0515173e568f0/questions - 304
+2026-03-23T10:51:40.439Z - GET /api/admin/companies
+2026-03-23T10:51:40.441Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T10:51:40.443Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint
+2026-03-23T10:51:40.445Z - GET /companies - 304
+2026-03-23T10:51:40.446Z - GET /company/69c1012d0bc0515173e568f0/questions - 304
+2026-03-23T10:51:40.447Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint - 404
+2026-03-23T10:51:40.511Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:51:40.512Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint
+2026-03-23T10:51:40.515Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint - 404
+2026-03-23T10:51:40.519Z - GET /today?type=CODING - 304
+2026-03-23T10:51:40.523Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:51:40.528Z - GET /today?type=CODING - 304
+2026-03-23T10:51:40.537Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:51:40.546Z - GET /today?type=SQL - 500
+2026-03-23T10:51:40.554Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:51:40.563Z - GET /today?type=SQL - 500
+2026-03-23T10:51:48.721Z - GET /api/admin/companies
+2026-03-23T10:51:48.724Z - GET /companies - 304
+2026-03-23T10:51:48.728Z - GET /api/admin/companies
+2026-03-23T10:51:48.731Z - GET /companies - 304
+2026-03-23T10:52:02.429Z - GET /api/admin/companies
+2026-03-23T10:52:02.431Z - GET /api/admin/company/69c11543cfedd1e914407a31/questions
+2026-03-23T10:52:02.434Z - GET /companies - 304
+2026-03-23T10:52:02.434Z - GET /company/69c11543cfedd1e914407a31/questions - 304
+2026-03-23T10:52:02.436Z - GET /api/admin/companies
+2026-03-23T10:52:02.438Z - GET /api/admin/company/69c11543cfedd1e914407a31/questions
+2026-03-23T10:52:02.441Z - GET /companies - 304
+2026-03-23T10:52:02.441Z - GET /company/69c11543cfedd1e914407a31/questions - 304
+2026-03-23T10:52:02.442Z - GET /api/admin/company/69c11543cfedd1e914407a31/interview-blueprint
+2026-03-23T10:52:02.443Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:52:02.444Z - GET /api/admin/company/69c11543cfedd1e914407a31/interview-blueprint - 404
+2026-03-23T10:52:02.448Z - GET /today?type=CODING - 304
+2026-03-23T10:52:02.473Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:52:02.481Z - GET /today?type=SQL - 500
+2026-03-23T10:52:02.513Z - GET /api/admin/company/69c11543cfedd1e914407a31/interview-blueprint
+2026-03-23T10:52:02.514Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:52:02.515Z - GET /api/admin/company/69c11543cfedd1e914407a31/interview-blueprint - 404
+2026-03-23T10:52:02.520Z - GET /today?type=CODING - 304
+2026-03-23T10:52:02.537Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:52:02.547Z - GET /today?type=SQL - 500
+2026-03-23T10:52:14.721Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:52:14.723Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:52:21.352Z - GET /api/admin/companies
+2026-03-23T10:52:21.355Z - GET /companies - 304
+2026-03-23T10:52:21.358Z - GET /api/admin/companies
+2026-03-23T10:52:21.361Z - GET /companies - 304
+2026-03-23T10:52:28.551Z - GET /api/admin/company/69c0fa37aa65cfe150794f96/questions
+2026-03-23T10:52:28.553Z - GET /api/admin/companies
+2026-03-23T10:52:28.556Z - GET /company/69c0fa37aa65cfe150794f96/questions - 200
+2026-03-23T10:52:28.557Z - GET /companies - 304
+2026-03-23T10:52:28.559Z - GET /api/admin/company/69c0fa37aa65cfe150794f96/questions
+2026-03-23T10:52:28.560Z - GET /api/admin/companies
+2026-03-23T10:52:28.564Z - GET /company/69c0fa37aa65cfe150794f96/questions - 304
+2026-03-23T10:52:28.565Z - GET /companies - 304
+2026-03-23T10:52:28.566Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:52:28.571Z - GET /today?type=CODING - 304
+2026-03-23T10:52:28.621Z - GET /api/admin/company/69c0fa37aa65cfe150794f96/interview-blueprint
+2026-03-23T10:52:28.622Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:52:28.624Z - GET /api/admin/company/69c0fa37aa65cfe150794f96/interview-blueprint - 404
+2026-03-23T10:52:28.635Z - GET /today?type=SQL - 500
+2026-03-23T10:52:28.678Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:52:28.681Z - GET /api/admin/company/69c0fa37aa65cfe150794f96/interview-blueprint
+2026-03-23T10:52:28.683Z - GET /api/admin/company/69c0fa37aa65cfe150794f96/interview-blueprint - 404
+2026-03-23T10:52:28.688Z - GET /today?type=CODING - 304
+2026-03-23T10:52:28.727Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:52:28.735Z - GET /today?type=SQL - 500
+2026-03-23T10:52:57.899Z - GET /api/admin/companies
+2026-03-23T10:52:57.902Z - GET /companies - 304
+2026-03-23T10:52:57.905Z - GET /api/admin/companies
+2026-03-23T10:52:57.908Z - GET /companies - 304
+2026-03-23T10:53:04.818Z - GET /api/admin/companies
+2026-03-23T10:53:04.820Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T10:53:04.822Z - GET /companies - 304
+2026-03-23T10:53:04.823Z - GET /company/69c1012d0bc0515173e568f0/questions - 304
+2026-03-23T10:53:04.825Z - GET /api/admin/companies
+2026-03-23T10:53:04.827Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T10:53:04.829Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint
+2026-03-23T10:53:04.831Z - GET /companies - 304
+2026-03-23T10:53:04.832Z - GET /company/69c1012d0bc0515173e568f0/questions - 304
+2026-03-23T10:53:04.833Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint - 404
+2026-03-23T10:53:04.884Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:53:04.891Z - GET /today?type=CODING - 304
+2026-03-23T10:53:04.912Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint
+2026-03-23T10:53:04.914Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:53:04.915Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:53:04.917Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint - 404
+2026-03-23T10:53:04.923Z - GET /today?type=CODING - 304
+2026-03-23T10:53:04.931Z - GET /today?type=SQL - 500
+2026-03-23T10:53:04.934Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:53:04.944Z - GET /today?type=SQL - 500
+2026-03-23T10:53:14.710Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:53:14.713Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:53:36.743Z - GET /api/admin/companies
+2026-03-23T10:53:36.747Z - GET /companies - 304
+2026-03-23T10:53:36.750Z - GET /api/admin/companies
+2026-03-23T10:53:36.753Z - GET /companies - 304
+2026-03-23T10:53:44.749Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T10:53:44.751Z - GET /api/admin/companies
+2026-03-23T10:53:44.754Z - GET /company/69c1012d0bc0515173e568f0/questions - 304
+2026-03-23T10:53:44.755Z - GET /companies - 304
+2026-03-23T10:53:44.757Z - GET /api/admin/company/69c1012d0bc0515173e568f0/questions
+2026-03-23T10:53:44.759Z - GET /api/admin/companies
+2026-03-23T10:53:44.761Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:53:44.762Z - GET /company/69c1012d0bc0515173e568f0/questions - 304
+2026-03-23T10:53:44.764Z - GET /companies - 304
+2026-03-23T10:53:44.768Z - GET /today?type=CODING - 304
+2026-03-23T10:53:44.775Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:53:44.778Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint
+2026-03-23T10:53:44.780Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint - 404
+2026-03-23T10:53:44.786Z - GET /today?type=SQL - 500
+2026-03-23T10:53:44.790Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:53:44.791Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint
+2026-03-23T10:53:44.793Z - GET /api/admin/company/69c1012d0bc0515173e568f0/interview-blueprint - 404
+2026-03-23T10:53:44.798Z - GET /today?type=CODING - 304
+2026-03-23T10:53:44.836Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:53:44.845Z - GET /today?type=SQL - 500
+2026-03-23T10:54:06.063Z - GET /api/admin/companies
+2026-03-23T10:54:06.067Z - GET /companies - 304
+2026-03-23T10:54:06.070Z - GET /api/admin/companies
+2026-03-23T10:54:06.074Z - GET /companies - 304
+2026-03-23T10:54:13.267Z - GET /api/admin/companies
+2026-03-23T10:54:13.270Z - GET /api/admin/company/69c1012d0bc0515173e568f5/questions
+2026-03-23T10:54:13.274Z - GET /companies - 304
+2026-03-23T10:54:13.276Z - GET /company/69c1012d0bc0515173e568f5/questions - 200
+2026-03-23T10:54:13.278Z - GET /api/admin/companies
+2026-03-23T10:54:13.280Z - GET /api/admin/company/69c1012d0bc0515173e568f5/questions
+2026-03-23T10:54:13.284Z - GET /api/admin/company/69c1012d0bc0515173e568f5/interview-blueprint
+2026-03-23T10:54:13.286Z - GET /companies - 304
+2026-03-23T10:54:13.287Z - GET /company/69c1012d0bc0515173e568f5/questions - 304
+2026-03-23T10:54:13.289Z - GET /api/admin/company/69c1012d0bc0515173e568f5/interview-blueprint - 404
+2026-03-23T10:54:13.312Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:54:13.320Z - GET /today?type=CODING - 304
+2026-03-23T10:54:13.351Z - GET /api/challenge/today?type=CODING
+2026-03-23T10:54:13.352Z - GET /api/admin/company/69c1012d0bc0515173e568f5/interview-blueprint
+2026-03-23T10:54:13.355Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:54:13.357Z - GET /api/admin/company/69c1012d0bc0515173e568f5/interview-blueprint - 404
+2026-03-23T10:54:13.363Z - GET /today?type=CODING - 304
+2026-03-23T10:54:13.373Z - GET /today?type=SQL - 500
+2026-03-23T10:54:13.377Z - GET /api/challenge/today?type=SQL
+2026-03-23T10:54:13.387Z - GET /today?type=SQL - 500
+2026-03-23T10:54:14.717Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:54:14.720Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:54:28.494Z - GET /api/admin/companies
+2026-03-23T10:54:28.498Z - GET /companies - 304
+2026-03-23T10:54:28.501Z - GET /api/admin/companies
+2026-03-23T10:54:28.504Z - GET /companies - 304
+2026-03-23T10:55:14.716Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:55:14.718Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:56:14.717Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:56:14.719Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:56:40.778Z - GET /api/public/companies/69c11543cfedd1e914407a31
+2026-03-23T10:56:40.779Z - GET /api/public/companies/69c11543cfedd1e914407a31/interview-preview
+2026-03-23T10:56:40.781Z - GET /api/auth/profile
+2026-03-23T10:56:40.782Z - GET /api/student/test/status/69c11543cfedd1e914407a31
+2026-03-23T10:56:40.783Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:56:40.784Z - GET /companies/69c11543cfedd1e914407a31 - 304
+2026-03-23T10:56:40.788Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:56:40.789Z - GET /companies/69c11543cfedd1e914407a31/interview-preview - 304
+2026-03-23T10:56:40.790Z - GET /profile - 200
+2026-03-23T10:56:40.791Z - GET /api/public/companies/69c11543cfedd1e914407a31
+2026-03-23T10:56:40.792Z - GET /test/status/69c11543cfedd1e914407a31 - 304
+2026-03-23T10:56:40.793Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T10:56:40.794Z - GET /companies/69c11543cfedd1e914407a31 - 304
+2026-03-23T10:56:40.795Z - GET /api/public/companies/69c11543cfedd1e914407a31/interview-preview
+2026-03-23T10:56:40.796Z - GET /api/auth/profile
+2026-03-23T10:56:40.798Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T10:56:40.800Z - GET /api/student/test/status/69c11543cfedd1e914407a31
+2026-03-23T10:56:40.802Z - GET /companies/69c11543cfedd1e914407a31/interview-preview - 304
+2026-03-23T10:56:40.804Z - GET /profile - 304
+2026-03-23T10:56:40.805Z - GET /test/status/69c11543cfedd1e914407a31 - 304
+2026-03-23T11:44:24.645Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:44:24.648Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:44:25.167Z - GET /api/public/companies/69c11543cfedd1e914407a31
+2026-03-23T11:44:25.168Z - GET /api/public/companies/69c11543cfedd1e914407a31/interview-preview
+2026-03-23T11:44:25.170Z - GET /companies/69c11543cfedd1e914407a31 - 304
+2026-03-23T11:44:25.172Z - GET /companies/69c11543cfedd1e914407a31/interview-preview - 304
+2026-03-23T11:44:25.173Z - GET /api/auth/profile
+2026-03-23T11:44:25.177Z - GET /profile - 304
+2026-03-23T11:44:25.178Z - GET /api/student/test/status/69c11543cfedd1e914407a31
+2026-03-23T11:44:25.180Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:44:25.181Z - GET /test/status/69c11543cfedd1e914407a31 - 304
+2026-03-23T11:44:25.182Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:44:25.184Z - GET /api/public/companies/69c11543cfedd1e914407a31
+2026-03-23T11:44:25.186Z - GET /api/public/companies/69c11543cfedd1e914407a31/interview-preview
+2026-03-23T11:44:25.187Z - GET /companies/69c11543cfedd1e914407a31 - 304
+2026-03-23T11:44:25.189Z - GET /companies/69c11543cfedd1e914407a31/interview-preview - 304
+2026-03-23T11:44:25.190Z - GET /api/auth/profile
+2026-03-23T11:44:25.192Z - GET /api/student/test/status/69c11543cfedd1e914407a31
+2026-03-23T11:44:25.194Z - GET /profile - 304
+2026-03-23T11:44:25.195Z - GET /test/status/69c11543cfedd1e914407a31 - 304
+2026-03-23T11:44:25.196Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:44:25.198Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:44:30.719Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:44:30.722Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:44:35.714Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:44:35.719Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:44:40.717Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:44:40.721Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:44:45.717Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:44:45.721Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:44:50.710Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:44:50.714Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:44:55.718Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:44:55.723Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:45:00.713Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:45:00.718Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:45:05.714Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:45:05.718Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:45:10.709Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:45:10.711Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:45:15.709Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:45:15.711Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:45:20.721Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:45:20.723Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:46:14.728Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:46:14.745Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:47:14.733Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:47:14.741Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:48:14.719Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:48:14.724Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:49:14.723Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:49:14.727Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:50:14.721Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:50:14.725Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:51:14.716Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:51:14.719Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:52:14.718Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:52:14.723Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:53:14.734Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:53:14.739Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:54:14.714Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:54:14.717Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:55:14.733Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:55:14.737Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:56:14.722Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:56:14.725Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:57:14.725Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:57:14.730Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:58:14.727Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:58:14.731Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T11:59:14.724Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T11:59:14.727Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:00:14.746Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:00:14.752Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:01:14.729Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:01:14.736Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:02:14.724Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:02:14.729Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:03:14.725Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:03:14.733Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:04:14.729Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:04:14.736Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:05:14.729Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:05:14.736Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:06:14.736Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:06:14.741Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:07:14.728Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:07:14.731Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:08:14.724Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:08:14.729Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:09:14.713Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:09:14.718Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:10:14.726Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:10:14.730Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:11:14.721Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:11:14.724Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:12:14.742Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:12:14.748Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:13:14.723Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:13:14.728Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:14:14.723Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:14:14.728Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:15:14.729Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:15:14.733Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:16:14.732Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:16:14.736Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:17:14.726Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:17:14.729Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:18:14.724Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:18:14.731Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:19:14.709Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:19:14.713Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:20:14.731Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:20:14.735Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:21:14.729Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:21:14.733Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:22:14.742Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:22:14.749Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:23:14.728Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:23:14.733Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:24:14.724Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:24:14.731Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:25:14.734Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:25:14.737Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:26:14.721Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:26:14.724Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:27:14.724Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:27:14.731Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:28:14.729Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:28:14.734Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:29:14.722Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:29:14.725Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:30:14.774Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:30:14.777Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:31:14.723Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:31:14.725Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:32:14.725Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:32:14.729Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:33:14.721Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:33:14.724Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:34:14.719Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:34:14.724Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:35:14.728Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:35:14.731Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:36:14.736Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:36:14.741Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:37:14.721Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:37:14.723Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:38:14.730Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:38:14.734Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:39:14.716Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:39:14.719Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:40:14.726Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:40:14.729Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:41:14.722Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:41:14.726Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:42:14.724Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:42:14.729Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:43:14.746Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:43:14.749Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:44:14.729Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:44:14.731Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:45:14.719Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:45:14.722Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:46:14.724Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:46:14.727Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:47:14.719Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:47:14.722Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:48:14.733Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:48:14.736Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:49:14.718Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:49:14.723Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:50:14.725Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:50:14.727Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:51:14.724Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:51:14.726Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:52:14.721Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:52:14.724Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:53:14.724Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:53:14.727Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:54:14.749Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:54:14.754Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:55:14.722Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:55:14.726Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:56:14.730Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:56:14.735Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:57:14.719Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:57:14.722Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:58:14.723Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:58:14.726Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T12:59:14.725Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T12:59:14.729Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:00:14.725Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:00:14.729Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:01:14.710Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:01:14.715Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:02:14.718Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:02:14.722Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:03:14.719Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:03:14.722Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:04:14.718Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:04:14.724Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:05:14.725Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:05:14.727Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:06:14.728Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:06:14.730Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:07:14.721Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:07:14.724Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:08:14.727Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:08:14.734Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:09:14.709Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:09:14.715Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:10:14.726Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:10:14.732Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:11:14.731Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:11:14.739Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:12:14.724Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:12:14.729Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:13:14.729Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:13:14.736Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:14:14.707Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:14:14.712Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:15:14.698Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:15:14.706Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:16:14.722Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:16:14.729Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:17:14.719Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:17:14.725Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:18:14.722Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:18:14.728Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:19:14.695Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:19:14.703Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:20:14.715Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:20:14.722Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:21:14.714Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:21:14.720Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T13:22:14.712Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T13:22:14.718Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:11:52.525Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:11:52.562Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:11:53.434Z - GET /api/public/companies/69c11543cfedd1e914407a31
+2026-03-23T14:11:53.438Z - GET /api/public/companies/69c11543cfedd1e914407a31/interview-preview
+2026-03-23T14:11:53.440Z - GET /api/student/test/status/69c11543cfedd1e914407a31
+2026-03-23T14:11:53.451Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:11:53.453Z - GET /api/auth/profile
+2026-03-23T14:11:53.459Z - GET /companies/69c11543cfedd1e914407a31 - 304
+2026-03-23T14:11:53.463Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:11:53.471Z - GET /api/public/companies/69c11543cfedd1e914407a31
+2026-03-23T14:11:53.473Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:11:53.476Z - GET /companies/69c11543cfedd1e914407a31/interview-preview - 304
+2026-03-23T14:11:53.483Z - GET /companies/69c11543cfedd1e914407a31 - 304
+2026-03-23T14:11:53.487Z - GET /test/status/69c11543cfedd1e914407a31 - 304
+2026-03-23T14:11:53.488Z - GET /api/public/companies/69c11543cfedd1e914407a31/interview-preview
+2026-03-23T14:11:53.494Z - GET /profile - 304
+2026-03-23T14:11:53.495Z - GET /api/student/test/status/69c11543cfedd1e914407a31
+2026-03-23T14:11:53.499Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:11:53.500Z - GET /api/auth/profile
+2026-03-23T14:11:53.505Z - GET /companies/69c11543cfedd1e914407a31/interview-preview - 304
+2026-03-23T14:11:53.509Z - GET /test/status/69c11543cfedd1e914407a31 - 304
+2026-03-23T14:11:53.511Z - GET /profile - 304
+2026-03-23T14:11:58.440Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:11:58.443Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:12:03.443Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:12:03.445Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:12:08.439Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:12:08.441Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:12:13.440Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:12:13.443Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:12:18.436Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:12:18.438Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:12:23.436Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:12:23.439Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:12:28.434Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:12:28.436Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:12:33.432Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:12:33.435Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:12:38.437Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:12:38.439Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:12:43.441Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:12:43.443Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:12:48.434Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:12:48.437Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:13:11.369Z - GET /api/admin/companies
+2026-03-23T14:13:11.375Z - GET /companies - 304
+2026-03-23T14:13:11.379Z - GET /api/admin/companies
+2026-03-23T14:13:11.384Z - GET /companies - 304
+2026-03-23T14:13:12.443Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:13:12.445Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:14:12.440Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:14:12.443Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:14:15.423Z - POST /api/auth/register
+2026-03-23T14:14:15.509Z - POST /register - 201
+2026-03-23T14:14:36.167Z - POST /api/auth/login
+2026-03-23T14:14:36.264Z - POST /login - 200
+2026-03-23T14:14:36.361Z - GET /api/student/dashboard/stats?t=1774275276358
+2026-03-23T14:14:36.365Z - GET /api/student/dashboard/tracks?t=1774275276359
+2026-03-23T14:14:36.370Z - GET /api/student/dashboard/stats?t=1774275276360
+2026-03-23T14:14:36.372Z - GET /api/student/dashboard/tracks?t=1774275276360
+2026-03-23T14:14:36.374Z - GET /api/challenge/today?type=CODING
+2026-03-23T14:14:36.386Z - GET /dashboard/tracks?t=1774275276359 - 200
+2026-03-23T14:14:36.390Z - GET /dashboard/tracks?t=1774275276360 - 200
+2026-03-23T14:14:36.394Z - GET /dashboard/stats?t=1774275276358 - 200
+2026-03-23T14:14:36.394Z - GET /dashboard/stats?t=1774275276360 - 200
+2026-03-23T14:14:36.398Z - GET /today?type=CODING - 500
+2026-03-23T14:14:36.401Z - GET /api/challenge/today?type=CODING
+2026-03-23T14:14:36.407Z - GET /today?type=CODING - 500
+2026-03-23T14:14:36.466Z - GET /api/challenge/today?type=SQL
+2026-03-23T14:14:36.469Z - GET /api/challenge/streak
+2026-03-23T14:14:36.476Z - GET /streak - 304
+2026-03-23T14:14:36.499Z - GET /today?type=SQL - 500
+2026-03-23T14:14:36.502Z - GET /api/challenge/today?type=SQL
+2026-03-23T14:14:36.508Z - GET /api/challenge/streak
+2026-03-23T14:14:36.513Z - GET /streak - 304
+2026-03-23T14:14:36.522Z - GET /today?type=SQL - 500
+2026-03-23T14:14:50.938Z - GET /api/public/companies
+2026-03-23T14:14:50.944Z - GET /companies - 200
+2026-03-23T14:14:50.948Z - GET /api/public/companies
+2026-03-23T14:14:50.952Z - GET /companies - 304
+2026-03-23T14:14:57.178Z - GET /api/public/companies/69c1012d0bc0515173e568f0
+2026-03-23T14:14:57.179Z - GET /api/public/companies/69c1012d0bc0515173e568f0/interview-preview
+2026-03-23T14:14:57.180Z - GET /api/student/test/status/69c1012d0bc0515173e568f0
+2026-03-23T14:14:57.181Z - GET /api/public/companies/69c1012d0bc0515173e568f0/has-questions
+2026-03-23T14:14:57.182Z - GET /api/auth/profile
+2026-03-23T14:14:57.184Z - GET /companies/69c1012d0bc0515173e568f0 - 200
+2026-03-23T14:14:57.187Z - GET /companies/69c1012d0bc0515173e568f0/has-questions - 200
+2026-03-23T14:14:57.190Z - GET /companies/69c1012d0bc0515173e568f0/interview-preview - 200
+2026-03-23T14:14:57.192Z - GET /test/status/69c1012d0bc0515173e568f0 - 200
+2026-03-23T14:14:57.192Z - GET /api/public/companies/69c1012d0bc0515173e568f0
+2026-03-23T14:14:57.195Z - GET /profile - 200
+2026-03-23T14:14:57.195Z - GET /api/public/companies/69c1012d0bc0515173e568f0/has-questions
+2026-03-23T14:14:57.196Z - GET /api/public/companies/69c1012d0bc0515173e568f0/interview-preview
+2026-03-23T14:14:57.198Z - GET /companies/69c1012d0bc0515173e568f0 - 304
+2026-03-23T14:14:57.200Z - GET /companies/69c1012d0bc0515173e568f0/has-questions - 304
+2026-03-23T14:14:57.201Z - GET /api/student/test/status/69c1012d0bc0515173e568f0
+2026-03-23T14:14:57.203Z - GET /api/auth/profile
+2026-03-23T14:14:57.206Z - GET /companies/69c1012d0bc0515173e568f0/interview-preview - 304
+2026-03-23T14:14:57.208Z - GET /test/status/69c1012d0bc0515173e568f0 - 304
+2026-03-23T14:14:57.210Z - GET /profile - 304
+2026-03-23T14:15:02.178Z - GET /api/public/companies/69c1012d0bc0515173e568f0/has-questions
+2026-03-23T14:15:02.181Z - GET /companies/69c1012d0bc0515173e568f0/has-questions - 304
+2026-03-23T14:15:03.703Z - POST /api/student/enroll/69c1012d0bc0515173e568f0
+2026-03-23T14:15:03.711Z - POST /enroll/69c1012d0bc0515173e568f0 - 200
+2026-03-23T14:15:07.180Z - GET /api/public/companies/69c1012d0bc0515173e568f0/has-questions
+2026-03-23T14:15:07.182Z - GET /companies/69c1012d0bc0515173e568f0/has-questions - 304
+2026-03-23T14:15:12.177Z - GET /api/public/companies/69c1012d0bc0515173e568f0/has-questions
+2026-03-23T14:15:12.180Z - GET /companies/69c1012d0bc0515173e568f0/has-questions - 304
+2026-03-23T14:15:12.439Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:15:12.443Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:15:12.910Z - GET /api/public/companies
+2026-03-23T14:15:12.913Z - GET /companies - 304
+2026-03-23T14:15:12.917Z - GET /api/public/companies
+2026-03-23T14:15:12.920Z - GET /companies - 304
+2026-03-23T14:15:20.744Z - GET /api/public/companies/69c1012d0bc0515173e568f5
+2026-03-23T14:15:20.745Z - GET /api/public/companies/69c1012d0bc0515173e568f5/interview-preview
+2026-03-23T14:15:20.747Z - GET /companies/69c1012d0bc0515173e568f5 - 200
+2026-03-23T14:15:20.747Z - GET /api/student/test/status/69c1012d0bc0515173e568f5
+2026-03-23T14:15:20.749Z - GET /api/public/companies/69c1012d0bc0515173e568f5/has-questions
+2026-03-23T14:15:20.750Z - GET /api/auth/profile
+2026-03-23T14:15:20.755Z - GET /companies/69c1012d0bc0515173e568f5/has-questions - 200
+2026-03-23T14:15:20.755Z - GET /api/public/companies/69c1012d0bc0515173e568f5
+2026-03-23T14:15:20.758Z - GET /companies/69c1012d0bc0515173e568f5/interview-preview - 200
+2026-03-23T14:15:20.759Z - GET /test/status/69c1012d0bc0515173e568f5 - 200
+2026-03-23T14:15:20.760Z - GET /companies/69c1012d0bc0515173e568f5 - 304
+2026-03-23T14:15:20.761Z - GET /profile - 200
+2026-03-23T14:15:20.762Z - GET /api/public/companies/69c1012d0bc0515173e568f5/has-questions
+2026-03-23T14:15:20.763Z - GET /api/public/companies/69c1012d0bc0515173e568f5/interview-preview
+2026-03-23T14:15:20.765Z - GET /companies/69c1012d0bc0515173e568f5/has-questions - 304
+2026-03-23T14:15:20.766Z - GET /api/student/test/status/69c1012d0bc0515173e568f5
+2026-03-23T14:15:20.768Z - GET /api/auth/profile
+2026-03-23T14:15:20.772Z - GET /companies/69c1012d0bc0515173e568f5/interview-preview - 304
+2026-03-23T14:15:20.774Z - GET /test/status/69c1012d0bc0515173e568f5 - 304
+2026-03-23T14:15:20.775Z - GET /profile - 304
+2026-03-23T14:15:25.747Z - GET /api/public/companies/69c1012d0bc0515173e568f5/has-questions
+2026-03-23T14:15:25.750Z - GET /companies/69c1012d0bc0515173e568f5/has-questions - 304
+2026-03-23T14:15:28.962Z - POST /api/student/enroll/69c1012d0bc0515173e568f5
+2026-03-23T14:15:28.971Z - POST /enroll/69c1012d0bc0515173e568f5 - 200
+2026-03-23T14:15:30.747Z - GET /api/public/companies/69c1012d0bc0515173e568f5/has-questions
+2026-03-23T14:15:30.749Z - GET /companies/69c1012d0bc0515173e568f5/has-questions - 304
+2026-03-23T14:15:35.746Z - GET /api/public/companies/69c1012d0bc0515173e568f5/has-questions
+2026-03-23T14:15:35.748Z - GET /companies/69c1012d0bc0515173e568f5/has-questions - 304
+2026-03-23T14:15:36.442Z - POST /api/student/test/start/69c1012d0bc0515173e568f5
+2026-03-23T14:15:36.452Z - POST /test/start/69c1012d0bc0515173e568f5 - 201
+2026-03-23T14:15:36.476Z - GET /api/student/test/69c14b084aa85b64a58aa5d3/round/1
+2026-03-23T14:15:36.485Z - GET /test/69c14b084aa85b64a58aa5d3/round/1 - 200
+2026-03-23T14:15:36.488Z - GET /api/student/test/69c14b084aa85b64a58aa5d3/round/1
+2026-03-23T14:15:36.495Z - GET /test/69c14b084aa85b64a58aa5d3/round/1 - 304
+2026-03-23T14:16:12.436Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:16:12.439Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:16:38.505Z - POST /api/student/test/69c14b084aa85b64a58aa5d3/finish
+2026-03-23T14:16:38.508Z - ERROR: Cannot destructure property 'attemptId' of 'req.body' as it is undefined.
+TypeError: Cannot destructure property 'attemptId' of 'req.body' as it is undefined.
+    at enforceAntiCheat (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\middlewares\antiCheatMiddleware.js:4:13)
+    at Layer.handleRequest (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:295:15
+    at param (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:600:14)
+    at param (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:610:14)
+    at processParams (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:664:3)
+2026-03-23T14:16:38.510Z - POST /api/student/test/69c14b084aa85b64a58aa5d3/finish - 500
+2026-03-23T14:16:38.653Z - GET /api/student/results/69c14b084aa85b64a58aa5d3
+2026-03-23T14:16:38.661Z - GET /results/69c14b084aa85b64a58aa5d3 - 200
+2026-03-23T14:16:38.664Z - GET /api/student/results/69c14b084aa85b64a58aa5d3
+2026-03-23T14:16:38.670Z - GET /results/69c14b084aa85b64a58aa5d3 - 304
+2026-03-23T14:16:53.908Z - GET /api/student/dashboard/stats?t=1774275413904
+2026-03-23T14:16:53.910Z - GET /api/student/dashboard/tracks?t=1774275413904
+2026-03-23T14:16:53.912Z - GET /api/challenge/today?type=CODING
+2026-03-23T14:16:53.916Z - GET /api/student/dashboard/tracks?t=1774275413906
+2026-03-23T14:16:53.917Z - GET /api/student/dashboard/stats?t=1774275413906
+2026-03-23T14:16:53.932Z - GET /dashboard/stats?t=1774275413904 - 200
+2026-03-23T14:16:53.938Z - GET /today?type=CODING - 500
+2026-03-23T14:16:53.939Z - GET /dashboard/tracks?t=1774275413904 - 200
+2026-03-23T14:16:53.941Z - GET /dashboard/stats?t=1774275413906 - 200
+2026-03-23T14:16:53.942Z - GET /dashboard/tracks?t=1774275413906 - 200
+2026-03-23T14:16:53.943Z - GET /api/challenge/today?type=CODING
+2026-03-23T14:16:53.948Z - GET /today?type=CODING - 500
+2026-03-23T14:16:53.954Z - GET /api/challenge/today?type=SQL
+2026-03-23T14:16:53.956Z - GET /api/challenge/streak
+2026-03-23T14:16:53.959Z - GET /streak - 304
+2026-03-23T14:16:53.967Z - GET /api/challenge/streak
+2026-03-23T14:16:53.971Z - GET /today?type=SQL - 500
+2026-03-23T14:16:53.973Z - GET /streak - 304
+2026-03-23T14:16:53.975Z - GET /api/challenge/today?type=SQL
+2026-03-23T14:16:53.987Z - GET /today?type=SQL - 500
+2026-03-23T14:17:00.917Z - GET /api/public/companies/69c1012d0bc0515173e568f0
+2026-03-23T14:17:00.918Z - GET /api/public/companies/69c1012d0bc0515173e568f0/interview-preview
+2026-03-23T14:17:00.919Z - GET /api/auth/profile
+2026-03-23T14:17:00.920Z - GET /api/student/test/status/69c1012d0bc0515173e568f0
+2026-03-23T14:17:00.921Z - GET /api/public/companies/69c1012d0bc0515173e568f0/has-questions
+2026-03-23T14:17:00.923Z - GET /companies/69c1012d0bc0515173e568f0 - 304
+2026-03-23T14:17:00.927Z - GET /companies/69c1012d0bc0515173e568f0/has-questions - 304
+2026-03-23T14:17:00.928Z - GET /companies/69c1012d0bc0515173e568f0/interview-preview - 304
+2026-03-23T14:17:00.929Z - GET /profile - 200
+2026-03-23T14:17:00.930Z - GET /api/public/companies/69c1012d0bc0515173e568f0
+2026-03-23T14:17:00.932Z - GET /test/status/69c1012d0bc0515173e568f0 - 304
+2026-03-23T14:17:00.933Z - GET /api/public/companies/69c1012d0bc0515173e568f0/has-questions
+2026-03-23T14:17:00.934Z - GET /api/public/companies/69c1012d0bc0515173e568f0/interview-preview
+2026-03-23T14:17:00.936Z - GET /companies/69c1012d0bc0515173e568f0 - 304
+2026-03-23T14:17:00.937Z - GET /companies/69c1012d0bc0515173e568f0/has-questions - 304
+2026-03-23T14:17:00.938Z - GET /api/auth/profile
+2026-03-23T14:17:00.939Z - GET /api/student/test/status/69c1012d0bc0515173e568f0
+2026-03-23T14:17:00.945Z - GET /companies/69c1012d0bc0515173e568f0/interview-preview - 304
+2026-03-23T14:17:00.946Z - GET /profile - 304
+2026-03-23T14:17:00.947Z - GET /test/status/69c1012d0bc0515173e568f0 - 304
+2026-03-23T14:17:05.921Z - GET /api/public/companies/69c1012d0bc0515173e568f0/has-questions
+2026-03-23T14:17:05.924Z - GET /companies/69c1012d0bc0515173e568f0/has-questions - 304
+2026-03-23T14:17:08.772Z - GET /api/student/dashboard/tracks?t=1774275428766
+2026-03-23T14:17:08.773Z - GET /api/student/dashboard/stats?t=1774275428766
+2026-03-23T14:17:08.776Z - GET /api/student/dashboard/stats?t=1774275428767
+2026-03-23T14:17:08.777Z - GET /api/student/dashboard/tracks?t=1774275428767
+2026-03-23T14:17:08.779Z - GET /api/challenge/today?type=CODING
+2026-03-23T14:17:08.796Z - GET /dashboard/stats?t=1774275428766 - 200
+2026-03-23T14:17:08.797Z - GET /dashboard/tracks?t=1774275428766 - 200
+2026-03-23T14:17:08.798Z - GET /dashboard/stats?t=1774275428767 - 200
+2026-03-23T14:17:08.800Z - GET /today?type=CODING - 500
+2026-03-23T14:17:08.801Z - GET /dashboard/tracks?t=1774275428767 - 200
+2026-03-23T14:17:08.804Z - GET /api/challenge/today?type=CODING
+2026-03-23T14:17:08.811Z - GET /today?type=CODING - 500
+2026-03-23T14:17:08.812Z - GET /api/challenge/today?type=SQL
+2026-03-23T14:17:08.817Z - GET /api/challenge/streak
+2026-03-23T14:17:08.822Z - GET /streak - 304
+2026-03-23T14:17:08.826Z - GET /api/challenge/streak
+2026-03-23T14:17:08.831Z - GET /today?type=SQL - 500
+2026-03-23T14:17:08.831Z - GET /streak - 304
+2026-03-23T14:17:08.834Z - GET /api/challenge/today?type=SQL
+2026-03-23T14:17:08.846Z - GET /today?type=SQL - 500
+2026-03-23T14:17:12.448Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:17:12.451Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:17:16.914Z - GET /api/public/companies/69c1012d0bc0515173e568f5
+2026-03-23T14:17:16.916Z - GET /api/public/companies/69c1012d0bc0515173e568f5/interview-preview
+2026-03-23T14:17:16.917Z - GET /api/auth/profile
+2026-03-23T14:17:16.919Z - GET /companies/69c1012d0bc0515173e568f5 - 304
+2026-03-23T14:17:16.920Z - GET /api/student/test/status/69c1012d0bc0515173e568f5
+2026-03-23T14:17:16.921Z - GET /api/public/companies/69c1012d0bc0515173e568f5/has-questions
+2026-03-23T14:17:16.924Z - GET /companies/69c1012d0bc0515173e568f5/interview-preview - 304
+2026-03-23T14:17:16.926Z - GET /api/public/companies/69c1012d0bc0515173e568f5
+2026-03-23T14:17:16.927Z - GET /companies/69c1012d0bc0515173e568f5/has-questions - 304
+2026-03-23T14:17:16.929Z - GET /profile - 304
+2026-03-23T14:17:16.932Z - GET /companies/69c1012d0bc0515173e568f5 - 304
+2026-03-23T14:17:16.932Z - GET /api/public/companies/69c1012d0bc0515173e568f5/interview-preview
+2026-03-23T14:17:16.933Z - GET /api/public/companies/69c1012d0bc0515173e568f5/has-questions
+2026-03-23T14:17:16.936Z - GET /api/auth/profile
+2026-03-23T14:17:16.938Z - GET /companies/69c1012d0bc0515173e568f5/has-questions - 304
+2026-03-23T14:17:16.939Z - GET /companies/69c1012d0bc0515173e568f5/interview-preview - 304
+2026-03-23T14:17:16.943Z - GET /profile - 304
+2026-03-23T14:17:16.953Z - GET /test/status/69c1012d0bc0515173e568f5 - 200
+2026-03-23T14:17:16.957Z - GET /api/student/test/status/69c1012d0bc0515173e568f5
+2026-03-23T14:17:16.963Z - GET /test/status/69c1012d0bc0515173e568f5 - 304
+2026-03-23T14:17:21.919Z - GET /api/public/companies/69c1012d0bc0515173e568f5/has-questions
+2026-03-23T14:17:21.922Z - GET /companies/69c1012d0bc0515173e568f5/has-questions - 304
+2026-03-23T14:17:24.555Z - GET /api/public/companies
+2026-03-23T14:17:24.558Z - GET /companies - 304
+2026-03-23T14:17:24.561Z - GET /api/public/companies
+2026-03-23T14:17:24.564Z - GET /companies - 304
+2026-03-23T14:17:30.711Z - GET /api/public/companies/69c0e2a61c3d79518149e9dd
+2026-03-23T14:17:30.713Z - GET /api/public/companies/69c0e2a61c3d79518149e9dd/interview-preview
+2026-03-23T14:17:30.715Z - GET /api/student/test/status/69c0e2a61c3d79518149e9dd
+2026-03-23T14:17:30.717Z - GET /api/auth/profile
+2026-03-23T14:17:30.720Z - GET /companies/69c0e2a61c3d79518149e9dd - 200
+2026-03-23T14:17:30.720Z - GET /api/public/companies/69c0e2a61c3d79518149e9dd/has-questions
+2026-03-23T14:17:30.726Z - GET /companies/69c0e2a61c3d79518149e9dd/has-questions - 200
+2026-03-23T14:17:30.727Z - GET /companies/69c0e2a61c3d79518149e9dd/interview-preview - 200
+2026-03-23T14:17:30.728Z - GET /test/status/69c0e2a61c3d79518149e9dd - 200
+2026-03-23T14:17:30.729Z - GET /api/public/companies/69c0e2a61c3d79518149e9dd
+2026-03-23T14:17:30.731Z - GET /profile - 304
+2026-03-23T14:17:30.733Z - GET /companies/69c0e2a61c3d79518149e9dd - 304
+2026-03-23T14:17:30.735Z - GET /api/public/companies/69c0e2a61c3d79518149e9dd/has-questions
+2026-03-23T14:17:30.736Z - GET /api/public/companies/69c0e2a61c3d79518149e9dd/interview-preview
+2026-03-23T14:17:30.738Z - GET /api/student/test/status/69c0e2a61c3d79518149e9dd
+2026-03-23T14:17:30.739Z - GET /api/auth/profile
+2026-03-23T14:17:30.740Z - GET /companies/69c0e2a61c3d79518149e9dd/has-questions - 304
+2026-03-23T14:17:30.745Z - GET /companies/69c0e2a61c3d79518149e9dd/interview-preview - 304
+2026-03-23T14:17:30.746Z - GET /test/status/69c0e2a61c3d79518149e9dd - 304
+2026-03-23T14:17:30.748Z - GET /profile - 304
+2026-03-23T14:17:35.713Z - GET /api/public/companies/69c0e2a61c3d79518149e9dd/has-questions
+2026-03-23T14:17:35.715Z - GET /companies/69c0e2a61c3d79518149e9dd/has-questions - 304
+2026-03-23T14:17:36.794Z - POST /api/student/enroll/69c0e2a61c3d79518149e9dd
+2026-03-23T14:17:36.801Z - POST /enroll/69c0e2a61c3d79518149e9dd - 200
+2026-03-23T14:17:40.710Z - GET /api/public/companies/69c0e2a61c3d79518149e9dd/has-questions
+2026-03-23T14:17:40.713Z - GET /companies/69c0e2a61c3d79518149e9dd/has-questions - 304
+2026-03-23T14:17:43.176Z - POST /api/student/test/start/69c0e2a61c3d79518149e9dd
+2026-03-23T14:17:43.187Z - POST /test/start/69c0e2a61c3d79518149e9dd - 201
+2026-03-23T14:17:43.206Z - GET /api/student/test/69c14b874aa85b64a58aa6a1/round/1
+2026-03-23T14:17:43.213Z - GET /test/69c14b874aa85b64a58aa6a1/round/1 - 200
+2026-03-23T14:17:43.218Z - GET /api/student/test/69c14b874aa85b64a58aa6a1/round/1
+2026-03-23T14:17:43.226Z - GET /test/69c14b874aa85b64a58aa6a1/round/1 - 304
+2026-03-23T14:17:56.309Z - POST /api/student/test/69c14b874aa85b64a58aa6a1/finish
+2026-03-23T14:17:56.312Z - ERROR: Cannot destructure property 'attemptId' of 'req.body' as it is undefined.
+TypeError: Cannot destructure property 'attemptId' of 'req.body' as it is undefined.
+    at enforceAntiCheat (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\middlewares\antiCheatMiddleware.js:4:13)
+    at Layer.handleRequest (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:295:15
+    at param (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:600:14)
+    at param (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:610:14)
+    at processParams (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:664:3)
+2026-03-23T14:17:56.313Z - POST /api/student/test/69c14b874aa85b64a58aa6a1/finish - 500
+2026-03-23T14:17:56.453Z - GET /api/student/results/69c14b874aa85b64a58aa6a1
+2026-03-23T14:17:56.460Z - GET /results/69c14b874aa85b64a58aa6a1 - 200
+2026-03-23T14:17:56.464Z - GET /api/student/results/69c14b874aa85b64a58aa6a1
+2026-03-23T14:17:56.470Z - GET /results/69c14b874aa85b64a58aa6a1 - 304
+2026-03-23T14:18:03.734Z - GET /api/public/companies
+2026-03-23T14:18:03.736Z - GET /companies - 304
+2026-03-23T14:18:03.740Z - GET /api/public/companies
+2026-03-23T14:18:03.743Z - GET /companies - 304
+2026-03-23T14:18:11.097Z - GET /api/public/companies/69c0ba1ed8973eadacd3f50d
+2026-03-23T14:18:11.098Z - GET /api/public/companies/69c0ba1ed8973eadacd3f50d/interview-preview
+2026-03-23T14:18:11.100Z - GET /companies/69c0ba1ed8973eadacd3f50d - 200
+2026-03-23T14:18:11.103Z - GET /companies/69c0ba1ed8973eadacd3f50d/interview-preview - 200
+2026-03-23T14:18:11.104Z - GET /api/student/test/status/69c0ba1ed8973eadacd3f50d
+2026-03-23T14:18:11.105Z - GET /api/public/companies/69c0ba1ed8973eadacd3f50d/has-questions
+2026-03-23T14:18:11.107Z - GET /api/auth/profile
+2026-03-23T14:18:11.111Z - GET /companies/69c0ba1ed8973eadacd3f50d/has-questions - 200
+2026-03-23T14:18:11.111Z - GET /api/public/companies/69c0ba1ed8973eadacd3f50d
+2026-03-23T14:18:11.112Z - GET /api/public/companies/69c0ba1ed8973eadacd3f50d/interview-preview
+2026-03-23T14:18:11.115Z - GET /test/status/69c0ba1ed8973eadacd3f50d - 200
+2026-03-23T14:18:11.116Z - GET /companies/69c0ba1ed8973eadacd3f50d - 304
+2026-03-23T14:18:11.118Z - GET /profile - 200
+2026-03-23T14:18:11.119Z - GET /api/public/companies/69c0ba1ed8973eadacd3f50d/has-questions
+2026-03-23T14:18:11.120Z - GET /companies/69c0ba1ed8973eadacd3f50d/interview-preview - 304
+2026-03-23T14:18:11.121Z - GET /api/student/test/status/69c0ba1ed8973eadacd3f50d
+2026-03-23T14:18:11.123Z - GET /companies/69c0ba1ed8973eadacd3f50d/has-questions - 304
+2026-03-23T14:18:11.125Z - GET /api/auth/profile
+2026-03-23T14:18:11.128Z - GET /test/status/69c0ba1ed8973eadacd3f50d - 304
+2026-03-23T14:18:11.130Z - GET /profile - 304
+2026-03-23T14:18:12.443Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:18:12.446Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:18:16.103Z - GET /api/public/companies/69c0ba1ed8973eadacd3f50d/has-questions
+2026-03-23T14:18:16.105Z - GET /companies/69c0ba1ed8973eadacd3f50d/has-questions - 304
+2026-03-23T14:18:18.250Z - GET /api/public/companies
+2026-03-23T14:18:18.253Z - GET /companies - 304
+2026-03-23T14:18:18.257Z - GET /api/public/companies
+2026-03-23T14:18:18.260Z - GET /companies - 304
+2026-03-23T14:18:25.612Z - GET /api/public/companies/69c0b670d87f7a1faa4982b6
+2026-03-23T14:18:25.614Z - GET /api/public/companies/69c0b670d87f7a1faa4982b6/interview-preview
+2026-03-23T14:18:25.615Z - GET /api/student/test/status/69c0b670d87f7a1faa4982b6
+2026-03-23T14:18:25.616Z - GET /api/public/companies/69c0b670d87f7a1faa4982b6/has-questions
+2026-03-23T14:18:25.618Z - GET /companies/69c0b670d87f7a1faa4982b6 - 200
+2026-03-23T14:18:25.621Z - GET /api/auth/profile
+2026-03-23T14:18:25.623Z - GET /companies/69c0b670d87f7a1faa4982b6/has-questions - 200
+2026-03-23T14:18:25.624Z - GET /companies/69c0b670d87f7a1faa4982b6/interview-preview - 200
+2026-03-23T14:18:25.625Z - GET /test/status/69c0b670d87f7a1faa4982b6 - 200
+2026-03-23T14:18:25.626Z - GET /api/public/companies/69c0b670d87f7a1faa4982b6
+2026-03-23T14:18:25.629Z - GET /api/public/companies/69c0b670d87f7a1faa4982b6/has-questions
+2026-03-23T14:18:25.630Z - GET /companies/69c0b670d87f7a1faa4982b6 - 304
+2026-03-23T14:18:25.632Z - GET /profile - 304
+2026-03-23T14:18:25.632Z - GET /api/public/companies/69c0b670d87f7a1faa4982b6/interview-preview
+2026-03-23T14:18:25.634Z - GET /companies/69c0b670d87f7a1faa4982b6/has-questions - 304
+2026-03-23T14:18:25.635Z - GET /api/student/test/status/69c0b670d87f7a1faa4982b6
+2026-03-23T14:18:25.638Z - GET /api/auth/profile
+2026-03-23T14:18:25.640Z - GET /companies/69c0b670d87f7a1faa4982b6/interview-preview - 304
+2026-03-23T14:18:25.642Z - GET /test/status/69c0b670d87f7a1faa4982b6 - 304
+2026-03-23T14:18:25.644Z - GET /profile - 304
+2026-03-23T14:18:30.618Z - GET /api/public/companies/69c0b670d87f7a1faa4982b6/has-questions
+2026-03-23T14:18:30.620Z - GET /companies/69c0b670d87f7a1faa4982b6/has-questions - 304
+2026-03-23T14:18:31.832Z - GET /api/public/companies
+2026-03-23T14:18:31.835Z - GET /companies - 304
+2026-03-23T14:18:31.838Z - GET /api/public/companies
+2026-03-23T14:18:31.841Z - GET /companies - 304
+2026-03-23T14:18:39.161Z - GET /api/public/companies/69c0fa37aa65cfe150794f96/interview-preview
+2026-03-23T14:18:39.162Z - GET /api/public/companies/69c0fa37aa65cfe150794f96
+2026-03-23T14:18:39.163Z - GET /api/student/test/status/69c0fa37aa65cfe150794f96
+2026-03-23T14:18:39.164Z - GET /api/auth/profile
+2026-03-23T14:18:39.166Z - GET /companies/69c0fa37aa65cfe150794f96 - 200
+2026-03-23T14:18:39.168Z - GET /api/public/companies/69c0fa37aa65cfe150794f96/has-questions
+2026-03-23T14:18:39.171Z - GET /companies/69c0fa37aa65cfe150794f96/interview-preview - 200
+2026-03-23T14:18:39.172Z - GET /test/status/69c0fa37aa65cfe150794f96 - 200
+2026-03-23T14:18:39.173Z - GET /companies/69c0fa37aa65cfe150794f96/has-questions - 200
+2026-03-23T14:18:39.174Z - GET /profile - 304
+2026-03-23T14:18:39.174Z - GET /api/public/companies/69c0fa37aa65cfe150794f96
+2026-03-23T14:18:39.176Z - GET /companies/69c0fa37aa65cfe150794f96 - 304
+2026-03-23T14:18:39.177Z - GET /api/public/companies/69c0fa37aa65cfe150794f96/interview-preview
+2026-03-23T14:18:39.179Z - GET /api/student/test/status/69c0fa37aa65cfe150794f96
+2026-03-23T14:18:39.181Z - GET /api/public/companies/69c0fa37aa65cfe150794f96/has-questions
+2026-03-23T14:18:39.182Z - GET /companies/69c0fa37aa65cfe150794f96/interview-preview - 304
+2026-03-23T14:18:39.184Z - GET /api/auth/profile
+2026-03-23T14:18:39.185Z - GET /companies/69c0fa37aa65cfe150794f96/has-questions - 304
+2026-03-23T14:18:39.186Z - GET /test/status/69c0fa37aa65cfe150794f96 - 304
+2026-03-23T14:18:39.189Z - GET /profile - 304
+2026-03-23T14:18:44.168Z - GET /api/public/companies/69c0fa37aa65cfe150794f96/has-questions
+2026-03-23T14:18:44.171Z - GET /companies/69c0fa37aa65cfe150794f96/has-questions - 304
+2026-03-23T14:18:46.351Z - GET /api/public/companies
+2026-03-23T14:18:46.353Z - GET /companies - 304
+2026-03-23T14:18:46.356Z - GET /api/public/companies
+2026-03-23T14:18:46.359Z - GET /companies - 304
+2026-03-23T14:18:55.237Z - GET /api/public/companies/69c1012d0bc0515173e568f0
+2026-03-23T14:18:55.238Z - GET /api/public/companies/69c1012d0bc0515173e568f0/interview-preview
+2026-03-23T14:18:55.240Z - GET /companies/69c1012d0bc0515173e568f0 - 304
+2026-03-23T14:18:55.242Z - GET /companies/69c1012d0bc0515173e568f0/interview-preview - 304
+2026-03-23T14:18:55.245Z - GET /api/auth/profile
+2026-03-23T14:18:55.246Z - GET /api/student/test/status/69c1012d0bc0515173e568f0
+2026-03-23T14:18:55.248Z - GET /api/public/companies/69c1012d0bc0515173e568f0/has-questions
+2026-03-23T14:18:55.252Z - GET /api/public/companies/69c1012d0bc0515173e568f0
+2026-03-23T14:18:55.254Z - GET /companies/69c1012d0bc0515173e568f0/has-questions - 304
+2026-03-23T14:18:55.255Z - GET /profile - 304
+2026-03-23T14:18:55.256Z - GET /test/status/69c1012d0bc0515173e568f0 - 304
+2026-03-23T14:18:55.256Z - GET /api/public/companies/69c1012d0bc0515173e568f0/interview-preview
+2026-03-23T14:18:55.258Z - GET /companies/69c1012d0bc0515173e568f0 - 304
+2026-03-23T14:18:55.258Z - GET /api/public/companies/69c1012d0bc0515173e568f0/has-questions
+2026-03-23T14:18:55.260Z - GET /api/auth/profile
+2026-03-23T14:18:55.262Z - GET /companies/69c1012d0bc0515173e568f0/has-questions - 304
+2026-03-23T14:18:55.263Z - GET /companies/69c1012d0bc0515173e568f0/interview-preview - 304
+2026-03-23T14:18:55.264Z - GET /api/student/test/status/69c1012d0bc0515173e568f0
+2026-03-23T14:18:55.267Z - GET /profile - 304
+2026-03-23T14:18:55.267Z - GET /test/status/69c1012d0bc0515173e568f0 - 304
+2026-03-23T14:19:00.240Z - GET /api/public/companies/69c1012d0bc0515173e568f0/has-questions
+2026-03-23T14:19:00.242Z - GET /companies/69c1012d0bc0515173e568f0/has-questions - 304
+2026-03-23T14:19:01.609Z - POST /api/student/test/start/69c1012d0bc0515173e568f0
+2026-03-23T14:19:01.619Z - POST /test/start/69c1012d0bc0515173e568f0 - 201
+2026-03-23T14:19:01.639Z - GET /api/student/test/69c14bd54aa85b64a58aa71f/round/1
+2026-03-23T14:19:01.646Z - GET /test/69c14bd54aa85b64a58aa71f/round/1 - 200
+2026-03-23T14:19:01.649Z - GET /api/student/test/69c14bd54aa85b64a58aa71f/round/1
+2026-03-23T14:19:01.656Z - GET /test/69c14bd54aa85b64a58aa71f/round/1 - 304
+2026-03-23T14:19:12.432Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:19:12.435Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:19:30.186Z - POST /api/student/test/69c14bd54aa85b64a58aa71f/finish
+2026-03-23T14:19:30.189Z - ERROR: Cannot destructure property 'attemptId' of 'req.body' as it is undefined.
+TypeError: Cannot destructure property 'attemptId' of 'req.body' as it is undefined.
+    at enforceAntiCheat (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\middlewares\antiCheatMiddleware.js:4:13)
+    at Layer.handleRequest (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:295:15
+    at param (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:600:14)
+    at param (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:610:14)
+    at processParams (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:664:3)
+2026-03-23T14:19:30.190Z - POST /api/student/test/69c14bd54aa85b64a58aa71f/finish - 500
+2026-03-23T14:19:30.342Z - GET /api/student/results/69c14bd54aa85b64a58aa71f
+2026-03-23T14:19:30.351Z - GET /results/69c14bd54aa85b64a58aa71f - 200
+2026-03-23T14:19:30.354Z - GET /api/student/results/69c14bd54aa85b64a58aa71f
+2026-03-23T14:19:30.361Z - GET /results/69c14bd54aa85b64a58aa71f - 304
+2026-03-23T14:20:12.447Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:20:12.450Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:21:12.445Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:21:12.448Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:22:12.453Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:22:12.455Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:23:12.445Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:23:12.447Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:24:12.446Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:24:12.448Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:25:12.438Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:25:12.440Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:26:12.453Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:26:12.465Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:27:12.447Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:27:12.449Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:28:12.439Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:28:12.442Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:29:12.444Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:29:12.447Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:30:12.436Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:30:12.439Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:31:12.438Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:31:12.441Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:32:12.458Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:32:12.462Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:33:12.442Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:33:12.445Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:34:12.442Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:34:12.445Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:35:12.439Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:35:12.442Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:36:12.442Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:36:12.445Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:37:12.440Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:37:12.442Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:38:12.450Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:38:12.453Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:39:12.439Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:39:12.441Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:40:12.446Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:40:12.448Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:41:12.450Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:41:12.453Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:42:12.439Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:42:12.441Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:43:12.446Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:43:12.448Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:44:12.446Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:44:12.448Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:45:12.442Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:45:12.444Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:46:12.442Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:46:12.444Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:47:12.450Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:47:12.452Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:48:12.438Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:48:12.440Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:49:12.439Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:49:12.442Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:50:12.436Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:50:12.438Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:51:12.446Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:51:12.448Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:52:12.444Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:52:12.446Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:53:12.456Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:53:12.459Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:54:12.442Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:54:12.445Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:55:12.439Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:55:12.441Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:56:12.454Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:56:12.456Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:57:12.443Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:57:12.445Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:58:12.444Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:58:12.447Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T14:59:12.445Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T14:59:12.447Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:00:12.448Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:00:12.451Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:01:12.446Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:01:12.448Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:02:12.443Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:02:12.445Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:03:12.444Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:03:12.446Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:04:12.439Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:04:12.442Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:05:12.436Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:05:12.438Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:06:12.441Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:06:12.443Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:07:12.444Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:07:12.446Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:08:12.444Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:08:12.446Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:09:12.443Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:09:12.446Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:10:12.448Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:10:12.450Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:11:12.434Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:11:12.437Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:12:12.441Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:12:12.443Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:13:12.442Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:13:12.444Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:14:12.440Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:14:12.442Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:15:12.446Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:15:12.448Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:16:12.444Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:16:12.446Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:17:12.439Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:17:12.441Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:18:12.438Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:18:12.440Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:19:12.441Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:19:12.443Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:20:12.442Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:20:12.444Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:21:12.448Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:21:12.450Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:22:12.438Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:22:12.440Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:23:12.436Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:23:12.438Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:24:12.436Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:24:12.438Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:25:12.449Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:25:12.451Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:26:12.435Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:26:12.437Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:27:12.438Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:27:12.441Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:28:12.440Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:28:12.442Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:29:12.443Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:29:12.445Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:30:12.452Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:30:12.455Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:31:12.449Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:31:12.451Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:32:12.442Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:32:12.444Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:33:12.446Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:33:12.449Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:34:12.439Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:34:12.441Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:35:12.445Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:35:12.448Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:36:12.450Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:36:12.453Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:37:12.443Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:37:12.445Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:38:12.435Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:38:12.437Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:39:12.442Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:39:12.444Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:40:12.449Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:40:12.452Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:41:12.454Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:41:12.457Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:42:12.434Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:42:12.436Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:43:12.443Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:43:12.446Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:44:12.439Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:44:12.442Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:45:12.442Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:45:12.443Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:46:12.439Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:46:12.441Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:47:12.450Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:47:12.452Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:48:12.440Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:48:12.442Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:49:12.435Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:49:12.437Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:50:12.444Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:50:12.446Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:51:12.450Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:51:12.452Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:52:12.442Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:52:12.445Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:53:12.445Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:53:12.448Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:54:12.443Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:54:12.446Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:55:12.445Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:55:12.448Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:56:12.441Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:56:12.442Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:57:12.447Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:57:12.450Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:58:12.439Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:58:12.442Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T15:59:12.436Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T15:59:12.438Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:00:12.444Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:00:12.446Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:01:12.441Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:01:12.443Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:02:12.450Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:02:12.453Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:03:12.451Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:03:12.453Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:04:12.450Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:04:12.452Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:05:12.447Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:05:12.449Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:06:12.437Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:06:12.439Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:07:12.451Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:07:12.453Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:08:12.449Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:08:12.451Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:09:12.437Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:09:12.440Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:10:12.445Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:10:12.447Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:11:12.435Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:11:12.438Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:12:12.439Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:12:12.441Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:13:01.966Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:13:01.969Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:13:03.382Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:13:03.385Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:13:08.441Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:13:08.443Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:13:13.441Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:13:13.443Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:13:18.439Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:13:18.441Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:13:23.442Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:13:23.444Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:13:28.440Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:13:28.442Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:13:33.445Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:13:33.447Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:13:37.636Z - GET /api/public/companies/69c11543cfedd1e914407a31
+2026-03-23T16:13:37.639Z - GET /api/public/companies/69c11543cfedd1e914407a31/interview-preview
+2026-03-23T16:13:37.642Z - GET /api/auth/profile
+2026-03-23T16:13:37.655Z - GET /api/student/test/status/69c11543cfedd1e914407a31
+2026-03-23T16:13:37.657Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:13:37.663Z - GET /companies/69c11543cfedd1e914407a31 - 304
+2026-03-23T16:13:37.674Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:13:37.676Z - GET /companies/69c11543cfedd1e914407a31/interview-preview - 304
+2026-03-23T16:13:37.678Z - GET /profile - 304
+2026-03-23T16:13:37.679Z - GET /test/status/69c11543cfedd1e914407a31 - 304
+2026-03-23T16:13:37.681Z - GET /api/public/companies/69c11543cfedd1e914407a31
+2026-03-23T16:13:37.682Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-23T16:13:37.683Z - GET /api/public/companies/69c11543cfedd1e914407a31/interview-preview
+2026-03-23T16:13:37.684Z - GET /api/auth/profile
+2026-03-23T16:13:37.685Z - GET /companies/69c11543cfedd1e914407a31 - 304
+2026-03-23T16:13:37.686Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-23T16:13:37.688Z - GET /api/student/test/status/69c11543cfedd1e914407a31
+2026-03-23T16:13:37.691Z - GET /companies/69c11543cfedd1e914407a31/interview-preview - 304
+2026-03-23T16:13:37.693Z - GET /profile - 304
+2026-03-23T16:13:37.694Z - GET /test/status/69c11543cfedd1e914407a31 - 304
+2026-03-24T03:31:31.493Z - POST /api/auth/admin-login
+2026-03-24T03:31:31.530Z - POST /admin-login - 200
+2026-03-24T03:31:31.557Z - GET /api/admin/dashboard
+2026-03-24T03:31:31.561Z - GET /api/admin/companies
+2026-03-24T03:31:31.590Z - GET /companies - 304
+2026-03-24T03:31:31.593Z - GET /api/admin/companies
+2026-03-24T03:31:31.598Z - GET /companies - 304
+2026-03-24T03:31:31.603Z - GET /dashboard - 200
+2026-03-24T03:31:31.605Z - GET /api/admin/dashboard
+2026-03-24T03:31:31.613Z - GET /dashboard - 304
+2026-03-24T03:31:38.425Z - GET /api/admin/companies
+2026-03-24T03:31:38.443Z - GET /companies - 304
+2026-03-24T03:31:38.446Z - GET /api/admin/companies
+2026-03-24T03:31:38.451Z - GET /companies - 304
+2026-03-24T03:31:40.910Z - GET /api/admin/companies
+2026-03-24T03:31:40.913Z - GET /api/admin/company/69c11543cfedd1e914407a31/questions
+2026-03-24T03:31:40.917Z - GET /companies - 304
+2026-03-24T03:31:40.921Z - GET /api/admin/companies
+2026-03-24T03:31:40.924Z - GET /api/admin/company/69c11543cfedd1e914407a31/interview-blueprint
+2026-03-24T03:31:40.927Z - GET /companies - 304
+2026-03-24T03:31:40.929Z - GET /company/69c11543cfedd1e914407a31/questions - 304
+2026-03-24T03:31:40.933Z - GET /api/admin/company/69c11543cfedd1e914407a31/interview-blueprint - 404
+2026-03-24T03:31:40.934Z - GET /api/admin/company/69c11543cfedd1e914407a31/questions
+2026-03-24T03:31:40.935Z - GET /api/admin/company/69c11543cfedd1e914407a31/interview-blueprint
+2026-03-24T03:31:40.942Z - GET /api/challenge/today?type=CODING
+2026-03-24T03:31:40.945Z - GET /api/admin/company/69c11543cfedd1e914407a31/interview-blueprint - 404
+2026-03-24T03:31:40.946Z - GET /company/69c11543cfedd1e914407a31/questions - 304
+2026-03-24T03:31:41.021Z - GET /today?type=CODING - 200
+2026-03-24T03:31:41.025Z - GET /api/challenge/today?type=CODING
+2026-03-24T03:31:41.027Z - GET /api/challenge/today?type=SQL
+2026-03-24T03:31:41.037Z - GET /today?type=CODING - 200
+2026-03-24T03:31:41.047Z - GET /today?type=SQL - 500
+2026-03-24T03:31:41.050Z - GET /api/challenge/today?type=SQL
+2026-03-24T03:31:41.062Z - GET /today?type=SQL - 500
+2026-03-24T03:31:55.963Z - POST /api/admin/questions/upload
+--- CSV Upload Start: file-1774323115971.csv ---
+Target Company ID: 69c11543cfedd1e914407a31, Round: 1, Type: TECHNICAL_INTERVIEW
+CSV: Detected delimiter: ","
+CSV: Row accepted - TECHNICAL_INTERVIEW
+CSV: Row accepted - TECHNICAL_INTERVIEW
+CSV: Row accepted - TECHNICAL_INTERVIEW
+CSV: Row accepted - TECHNICAL_INTERVIEW
+CSV: Row accepted - TECHNICAL_INTERVIEW
+CSV: Row accepted - TECHNICAL_INTERVIEW
+CSV: Row accepted - TECHNICAL_INTERVIEW
+CSV: Row accepted - TECHNICAL_INTERVIEW
+CSV: Row accepted - TECHNICAL_INTERVIEW
+CSV: Row accepted - TECHNICAL_INTERVIEW
+CSV: Row accepted - TECHNICAL_INTERVIEW
+CSV: Row accepted - TECHNICAL_INTERVIEW
+CSV: Row accepted - TECHNICAL_INTERVIEW
+CSV: Row accepted - TECHNICAL_INTERVIEW
+CSV: Row accepted - TECHNICAL_INTERVIEW
+CSV Import complete. Seeded 15
+CSV Upload Success. Seeded count: 15
+2026-03-24T03:31:56.028Z - POST /questions/upload - 201
+2026-03-24T03:31:56.033Z - GET /api/admin/company/69c11543cfedd1e914407a31/questions
+2026-03-24T03:31:56.038Z - GET /company/69c11543cfedd1e914407a31/questions - 200
+2026-03-24T03:31:56.044Z - GET /api/challenge/today?type=CODING
+2026-03-24T03:31:56.049Z - GET /today?type=CODING - 304
+2026-03-24T03:31:56.074Z - GET /api/challenge/today?type=SQL
+2026-03-24T03:31:56.085Z - GET /today?type=SQL - 500
+2026-03-24T03:32:06.791Z - POST /api/admin/questions/upload
+--- CSV Upload Start: file-1774323126794.csv ---
+Target Company ID: 69c11543cfedd1e914407a31, Round: 2, Type: HR_INTERVIEW
+CSV: Detected delimiter: ","
+CSV: Row accepted - HR_INTERVIEW
+CSV: Row accepted - HR_INTERVIEW
+CSV: Row accepted - HR_INTERVIEW
+CSV: Row accepted - HR_INTERVIEW
+CSV: Row accepted - HR_INTERVIEW
+CSV: Row accepted - HR_INTERVIEW
+CSV: Row accepted - HR_INTERVIEW
+CSV: Row accepted - HR_INTERVIEW
+CSV: Row accepted - HR_INTERVIEW
+CSV: Row accepted - HR_INTERVIEW
+CSV Import complete. Seeded 10
+CSV Upload Success. Seeded count: 10
+2026-03-24T03:32:06.808Z - POST /questions/upload - 201
+2026-03-24T03:32:06.819Z - GET /api/admin/company/69c11543cfedd1e914407a31/questions
+2026-03-24T03:32:06.827Z - GET /company/69c11543cfedd1e914407a31/questions - 200
+2026-03-24T03:32:06.834Z - GET /api/challenge/today?type=CODING
+2026-03-24T03:32:06.842Z - GET /today?type=CODING - 304
+2026-03-24T03:32:06.869Z - GET /api/challenge/today?type=SQL
+2026-03-24T03:32:06.884Z - GET /today?type=SQL - 500
+2026-03-24T03:32:17.808Z - POST /api/admin/questions/upload
+--- CSV Upload Start: file-1774323137809.csv ---
+Target Company ID: 69c11543cfedd1e914407a31, Round: 3, Type: CODING
+CSV: Detected delimiter: ","
+CSV: Row skipped! Q:true, A:false, S:false
+CSV: Row skipped! Q:true, A:false, S:false
+CSV Import complete. Seeded 0
+CSV Upload Success. Seeded count: 0
+2026-03-24T03:32:17.818Z - POST /questions/upload - 201
+2026-03-24T03:32:17.843Z - GET /api/admin/company/69c11543cfedd1e914407a31/questions
+2026-03-24T03:32:17.848Z - GET /company/69c11543cfedd1e914407a31/questions - 304
+2026-03-24T03:32:17.861Z - GET /api/challenge/today?type=CODING
+2026-03-24T03:32:17.868Z - GET /today?type=CODING - 304
+2026-03-24T03:32:17.878Z - GET /api/challenge/today?type=SQL
+2026-03-24T03:32:17.889Z - GET /today?type=SQL - 500
+2026-03-24T03:32:29.440Z - POST /api/auth/login
+2026-03-24T03:32:29.530Z - POST /login - 200
+2026-03-24T03:32:29.585Z - GET /api/student/dashboard/stats?t=1774323149581
+2026-03-24T03:32:29.589Z - GET /api/student/dashboard/tracks?t=1774323149581
+2026-03-24T03:32:29.590Z - GET /api/challenge/today?type=CODING
+2026-03-24T03:32:29.591Z - GET /api/student/dashboard/stats?t=1774323149582
+2026-03-24T03:32:29.593Z - GET /api/student/dashboard/tracks?t=1774323149582
+2026-03-24T03:32:29.608Z - GET /dashboard/stats?t=1774323149581 - 200
+2026-03-24T03:32:29.611Z - GET /dashboard/stats?t=1774323149582 - 200
+2026-03-24T03:32:29.612Z - GET /today?type=CODING - 304
+2026-03-24T03:32:29.621Z - GET /api/challenge/today?type=CODING
+2026-03-24T03:32:29.639Z - GET /dashboard/tracks?t=1774323149582 - 200
+2026-03-24T03:32:29.640Z - GET /dashboard/tracks?t=1774323149581 - 200
+2026-03-24T03:32:29.643Z - GET /today?type=CODING - 304
+2026-03-24T03:32:29.649Z - GET /api/challenge/streak
+2026-03-24T03:32:29.654Z - GET /streak - 304
+2026-03-24T03:32:29.678Z - GET /api/challenge/streak
+2026-03-24T03:32:29.683Z - GET /streak - 304
+2026-03-24T03:32:33.503Z - GET /api/public/companies/69c11543cfedd1e914407a31
+2026-03-24T03:32:33.504Z - GET /api/auth/profile
+2026-03-24T03:32:33.505Z - GET /api/public/companies/69c11543cfedd1e914407a31/interview-preview
+2026-03-24T03:32:33.506Z - GET /api/student/test/status/69c11543cfedd1e914407a31
+2026-03-24T03:32:33.507Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-24T03:32:33.509Z - GET /companies/69c11543cfedd1e914407a31 - 304
+2026-03-24T03:32:33.513Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 200
+2026-03-24T03:32:33.515Z - GET /profile - 200
+2026-03-24T03:32:33.516Z - GET /companies/69c11543cfedd1e914407a31/interview-preview - 200
+2026-03-24T03:32:33.516Z - GET /api/public/companies/69c11543cfedd1e914407a31
+2026-03-24T03:32:33.517Z - GET /test/status/69c11543cfedd1e914407a31 - 304
+2026-03-24T03:32:33.518Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-24T03:32:33.519Z - GET /companies/69c11543cfedd1e914407a31 - 304
+2026-03-24T03:32:33.520Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-24T03:32:33.521Z - GET /api/auth/profile
+2026-03-24T03:32:33.522Z - GET /api/public/companies/69c11543cfedd1e914407a31/interview-preview
+2026-03-24T03:32:33.525Z - GET /api/student/test/status/69c11543cfedd1e914407a31
+2026-03-24T03:32:33.528Z - GET /profile - 304
+2026-03-24T03:32:33.530Z - GET /companies/69c11543cfedd1e914407a31/interview-preview - 304
+2026-03-24T03:32:33.531Z - GET /test/status/69c11543cfedd1e914407a31 - 304
+2026-03-24T03:32:34.922Z - POST /api/student/test/start/69c11543cfedd1e914407a31
+2026-03-24T03:32:34.944Z - POST /test/start/69c11543cfedd1e914407a31 - 201
+2026-03-24T03:32:34.975Z - GET /api/student/test/69c205d2b5f5b3d58a95b728/round/1
+2026-03-24T03:32:34.983Z - GET /test/69c205d2b5f5b3d58a95b728/round/1 - 200
+2026-03-24T03:32:34.986Z - GET /api/student/test/69c205d2b5f5b3d58a95b728/round/1
+2026-03-24T03:32:34.994Z - GET /test/69c205d2b5f5b3d58a95b728/round/1 - 304
+2026-03-24T03:33:03.816Z - GET /api/student/dashboard/stats?t=1774323183811
+2026-03-24T03:33:03.818Z - GET /api/student/dashboard/tracks?t=1774323183812
+2026-03-24T03:33:03.818Z - GET /api/student/dashboard/stats?t=1774323183812
+2026-03-24T03:33:03.819Z - GET /api/challenge/today?type=CODING
+2026-03-24T03:33:03.834Z - GET /dashboard/stats?t=1774323183811 - 200
+2026-03-24T03:33:03.837Z - GET /dashboard/stats?t=1774323183812 - 200
+2026-03-24T03:33:03.840Z - GET /dashboard/tracks?t=1774323183812 - 200
+2026-03-24T03:33:03.841Z - GET /today?type=CODING - 304
+2026-03-24T03:33:03.843Z - GET /api/student/dashboard/tracks?t=1774323183812
+2026-03-24T03:33:03.845Z - GET /api/challenge/today?type=CODING
+2026-03-24T03:33:03.846Z - GET /api/challenge/streak
+2026-03-24T03:33:03.851Z - GET /streak - 304
+2026-03-24T03:33:03.860Z - GET /dashboard/tracks?t=1774323183812 - 200
+2026-03-24T03:33:03.861Z - GET /today?type=CODING - 304
+2026-03-24T03:33:03.870Z - GET /api/challenge/streak
+2026-03-24T03:33:03.874Z - GET /streak - 304
+2026-03-24T03:33:04.242Z - GET /api/public/companies/69c11543cfedd1e914407a31
+2026-03-24T03:33:04.244Z - GET /companies/69c11543cfedd1e914407a31 - 304
+2026-03-24T03:33:04.245Z - GET /api/public/companies/69c11543cfedd1e914407a31/interview-preview
+2026-03-24T03:33:04.246Z - GET /api/auth/profile
+2026-03-24T03:33:04.249Z - GET /api/student/test/status/69c11543cfedd1e914407a31
+2026-03-24T03:33:04.250Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-24T03:33:04.253Z - GET /companies/69c11543cfedd1e914407a31/interview-preview - 304
+2026-03-24T03:33:04.255Z - GET /api/public/companies/69c11543cfedd1e914407a31
+2026-03-24T03:33:04.257Z - GET /profile - 304
+2026-03-24T03:33:04.258Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-24T03:33:04.260Z - GET /api/public/companies/69c11543cfedd1e914407a31/interview-preview
+2026-03-24T03:33:04.263Z - GET /companies/69c11543cfedd1e914407a31 - 304
+2026-03-24T03:33:04.264Z - GET /api/auth/profile
+2026-03-24T03:33:04.266Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-24T03:33:04.269Z - GET /test/status/69c11543cfedd1e914407a31 - 200
+2026-03-24T03:33:04.270Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-24T03:33:04.272Z - GET /companies/69c11543cfedd1e914407a31/interview-preview - 304
+2026-03-24T03:33:04.273Z - GET /profile - 304
+2026-03-24T03:33:04.273Z - GET /api/student/test/status/69c11543cfedd1e914407a31
+2026-03-24T03:33:04.279Z - GET /test/status/69c11543cfedd1e914407a31 - 304
+2026-03-24T03:33:05.882Z - GET /api/public/companies/69c11543cfedd1e914407a31
+2026-03-24T03:33:05.884Z - GET /api/public/companies/69c11543cfedd1e914407a31/interview-preview
+2026-03-24T03:33:05.885Z - GET /api/auth/profile
+2026-03-24T03:33:05.886Z - GET /api/student/test/status/69c11543cfedd1e914407a31
+2026-03-24T03:33:05.888Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-24T03:33:05.891Z - GET /companies/69c11543cfedd1e914407a31 - 304
+2026-03-24T03:33:05.894Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-24T03:33:05.896Z - GET /companies/69c11543cfedd1e914407a31/interview-preview - 304
+2026-03-24T03:33:05.897Z - GET /profile - 304
+2026-03-24T03:33:05.898Z - GET /api/public/companies/69c11543cfedd1e914407a31
+2026-03-24T03:33:05.900Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-24T03:33:05.901Z - GET /api/public/companies/69c11543cfedd1e914407a31/interview-preview
+2026-03-24T03:33:05.903Z - GET /companies/69c11543cfedd1e914407a31 - 304
+2026-03-24T03:33:05.905Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-24T03:33:05.905Z - GET /api/auth/profile
+2026-03-24T03:33:05.909Z - GET /test/status/69c11543cfedd1e914407a31 - 304
+2026-03-24T03:33:05.912Z - GET /companies/69c11543cfedd1e914407a31/interview-preview - 304
+2026-03-24T03:33:05.913Z - GET /profile - 304
+2026-03-24T03:33:05.914Z - GET /api/student/test/status/69c11543cfedd1e914407a31
+2026-03-24T03:33:05.919Z - GET /test/status/69c11543cfedd1e914407a31 - 304
+2026-03-24T03:33:08.805Z - GET /api/student/test/69c205d2b5f5b3d58a95b728/round/1
+2026-03-24T03:33:08.812Z - GET /test/69c205d2b5f5b3d58a95b728/round/1 - 304
+2026-03-24T03:33:08.815Z - GET /api/student/test/69c205d2b5f5b3d58a95b728/round/1
+2026-03-24T03:33:08.822Z - GET /test/69c205d2b5f5b3d58a95b728/round/1 - 304
+2026-03-24T03:33:39.508Z - GET /api/student/test/69c205d2b5f5b3d58a95b728/round/1
+2026-03-24T03:33:39.516Z - GET /test/69c205d2b5f5b3d58a95b728/round/1 - 304
+2026-03-24T03:33:39.518Z - GET /api/student/test/69c205d2b5f5b3d58a95b728/round/1
+2026-03-24T03:33:39.526Z - GET /test/69c205d2b5f5b3d58a95b728/round/1 - 304
+2026-03-24T03:33:42.302Z - GET /api/student/test/69c205d2b5f5b3d58a95b728/round/1
+2026-03-24T03:33:42.311Z - GET /test/69c205d2b5f5b3d58a95b728/round/1 - 304
+2026-03-24T03:33:42.313Z - GET /api/student/test/69c205d2b5f5b3d58a95b728/round/1
+2026-03-24T03:33:42.320Z - GET /test/69c205d2b5f5b3d58a95b728/round/1 - 304
+2026-03-24T03:33:47.664Z - GET /api/student/test/69c205d2b5f5b3d58a95b728/round/1
+2026-03-24T03:33:47.672Z - GET /test/69c205d2b5f5b3d58a95b728/round/1 - 304
+2026-03-24T03:33:47.674Z - GET /api/student/test/69c205d2b5f5b3d58a95b728/round/1
+2026-03-24T03:33:47.681Z - GET /test/69c205d2b5f5b3d58a95b728/round/1 - 304
+2026-03-24T03:42:39.431Z - POST /api/auth/login
+2026-03-24T03:42:39.531Z - POST /login - 200
+2026-03-24T03:42:39.635Z - GET /api/student/dashboard/stats?t=1774323759631
+2026-03-24T03:42:39.638Z - GET /api/student/dashboard/tracks?t=1774323759631
+2026-03-24T03:42:39.642Z - GET /api/student/dashboard/stats?t=1774323759632
+2026-03-24T03:42:39.644Z - GET /api/student/dashboard/tracks?t=1774323759632
+2026-03-24T03:42:39.645Z - GET /api/challenge/today?type=CODING
+2026-03-24T03:42:39.674Z - GET /dashboard/stats?t=1774323759631 - 200
+2026-03-24T03:42:39.686Z - GET /dashboard/stats?t=1774323759632 - 200
+2026-03-24T03:42:39.697Z - GET /dashboard/tracks?t=1774323759631 - 200
+2026-03-24T03:42:39.704Z - GET /dashboard/tracks?t=1774323759632 - 200
+2026-03-24T03:42:39.707Z - GET /today?type=CODING - 304
+2026-03-24T03:42:39.709Z - GET /api/challenge/streak
+2026-03-24T03:42:39.710Z - GET /api/challenge/today?type=CODING
+2026-03-24T03:42:39.716Z - GET /streak - 304
+2026-03-24T03:42:39.723Z - GET /today?type=CODING - 304
+2026-03-24T03:42:39.725Z - GET /api/challenge/streak
+2026-03-24T03:42:39.729Z - GET /streak - 304
+2026-03-24T03:42:43.866Z - GET /api/public/companies/69c11543cfedd1e914407a31
+2026-03-24T03:42:43.868Z - GET /api/public/companies/69c11543cfedd1e914407a31/interview-preview
+2026-03-24T03:42:43.870Z - GET /api/auth/profile
+2026-03-24T03:42:43.872Z - GET /api/student/test/status/69c11543cfedd1e914407a31
+2026-03-24T03:42:43.873Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-24T03:42:43.875Z - GET /companies/69c11543cfedd1e914407a31 - 304
+2026-03-24T03:42:43.878Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-24T03:42:43.879Z - GET /companies/69c11543cfedd1e914407a31/interview-preview - 304
+2026-03-24T03:42:43.880Z - GET /profile - 200
+2026-03-24T03:42:43.882Z - GET /api/public/companies/69c11543cfedd1e914407a31
+2026-03-24T03:42:43.885Z - GET /api/public/companies/69c11543cfedd1e914407a31/has-questions
+2026-03-24T03:42:43.886Z - GET /api/public/companies/69c11543cfedd1e914407a31/interview-preview
+2026-03-24T03:42:43.888Z - GET /companies/69c11543cfedd1e914407a31 - 304
+2026-03-24T03:42:43.890Z - GET /companies/69c11543cfedd1e914407a31/has-questions - 304
+2026-03-24T03:42:43.891Z - GET /api/auth/profile
+2026-03-24T03:42:43.894Z - GET /test/status/69c11543cfedd1e914407a31 - 304
+2026-03-24T03:42:43.897Z - GET /companies/69c11543cfedd1e914407a31/interview-preview - 304
+2026-03-24T03:42:43.898Z - GET /profile - 304
+2026-03-24T03:42:43.899Z - GET /api/student/test/status/69c11543cfedd1e914407a31
+2026-03-24T03:42:43.905Z - GET /test/status/69c11543cfedd1e914407a31 - 304
+2026-03-24T03:42:44.967Z - GET /api/student/test/69c205d2b5f5b3d58a95b728/round/1
+2026-03-24T03:42:44.977Z - GET /test/69c205d2b5f5b3d58a95b728/round/1 - 304
+2026-03-24T03:42:44.980Z - GET /api/student/test/69c205d2b5f5b3d58a95b728/round/1
+2026-03-24T03:42:44.988Z - GET /test/69c205d2b5f5b3d58a95b728/round/1 - 304
+2026-03-24T03:45:19.067Z - POST /api/student/test/69c205d2b5f5b3d58a95b728/round/1/submit
+2026-03-24T03:45:19.084Z - POST /test/69c205d2b5f5b3d58a95b728/round/1/submit - 200
+2026-03-24T03:45:19.089Z - GET /api/student/test/69c205d2b5f5b3d58a95b728/round/2
+2026-03-24T03:45:19.095Z - GET /test/69c205d2b5f5b3d58a95b728/round/2 - 200
+2026-03-24T03:45:19.111Z - GET /api/student/test/69c205d2b5f5b3d58a95b728/round/2
+2026-03-24T03:45:19.118Z - GET /test/69c205d2b5f5b3d58a95b728/round/2 - 304
+2026-03-24T03:45:40.806Z - POST /api/student/test/69c205d2b5f5b3d58a95b728/round/2/submit
+2026-03-24T03:45:40.816Z - POST /test/69c205d2b5f5b3d58a95b728/round/2/submit - 200
+2026-03-24T03:45:40.820Z - GET /api/student/test/69c205d2b5f5b3d58a95b728/round/3
+2026-03-24T03:45:40.825Z - GET /test/69c205d2b5f5b3d58a95b728/round/3 - 200
+2026-03-24T03:45:40.834Z - GET /api/student/test/69c205d2b5f5b3d58a95b728/round/3
+2026-03-24T03:45:40.839Z - GET /test/69c205d2b5f5b3d58a95b728/round/3 - 304
+2026-03-24T03:45:46.086Z - POST /api/student/test/69c205d2b5f5b3d58a95b728/finish
+2026-03-24T03:45:46.088Z - ERROR: Cannot destructure property 'attemptId' of 'req.body' as it is undefined.
+TypeError: Cannot destructure property 'attemptId' of 'req.body' as it is undefined.
+    at enforceAntiCheat (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\middlewares\antiCheatMiddleware.js:4:13)
+    at Layer.handleRequest (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\lib\layer.js:152:17)
+    at next (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\lib\route.js:157:13)
+    at Route.dispatch (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\lib\route.js:117:3)
+    at handle (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:435:11)
+    at Layer.handleRequest (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\lib\layer.js:152:17)
+    at C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:295:15
+    at param (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:600:14)
+    at param (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:610:14)
+    at processParams (C:\Users\Naveen M S V\OneDrive\Desktop\AI Placement management\server\node_modules\router\index.js:664:3)
+2026-03-24T03:45:46.089Z - POST /api/student/test/69c205d2b5f5b3d58a95b728/finish - 500
+2026-03-24T03:45:46.259Z - GET /api/student/results/69c205d2b5f5b3d58a95b728
+2026-03-24T03:45:46.277Z - GET /results/69c205d2b5f5b3d58a95b728 - 200
+2026-03-24T03:45:46.280Z - GET /api/student/results/69c205d2b5f5b3d58a95b728
+2026-03-24T03:45:46.287Z - GET /results/69c205d2b5f5b3d58a95b728 - 304

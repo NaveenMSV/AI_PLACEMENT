@@ -126,7 +126,21 @@ export default function StudentsPage() {
                                                                     {new Date(test.date).toLocaleDateString()}
                                                                 </div>
                                                             </TableCell>
-                                                            <TableCell className="py-3">{getStatusBadge(test.status)}</TableCell>
+                                                            <TableCell className="py-3">
+                                                                <div className="flex items-center gap-3">
+                                                                    {getStatusBadge(test.status)}
+                                                                    {test.status === 'COMPLETED' && (
+                                                                        <Button 
+                                                                            variant="ghost" 
+                                                                            size="sm" 
+                                                                            className="h-7 px-2 text-[10px] font-bold uppercase tracking-wider text-blue-600 hover:text-blue-700 hover:bg-blue-50"
+                                                                            onClick={() => navigate(`/admin/review-attempt/${test.id}`)}
+                                                                        >
+                                                                            Review Assessment
+                                                                        </Button>
+                                                                    )}
+                                                                </div>
+                                                            </TableCell>
                                                             <TableCell className="text-right py-3">
                                                                 <span className={cn(
                                                                     "font-bold text-sm",

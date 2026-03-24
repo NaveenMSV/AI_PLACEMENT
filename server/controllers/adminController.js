@@ -2,6 +2,8 @@ const Company = require('../models/Company');
 const InterviewBlueprint = require('../models/InterviewBlueprint');
 const User = require('../models/User');
 const TestAttempt = require('../models/TestAttempt');
+const RoundAttempt = require('../models/RoundAttempt');
+const { finalizeTestAttempt } = require('../services/resultEngineService');
 const { generateTemplate } = require('../utils/csvTemplateGenerator');
 const { parseAndSeedCsv, parseSplitSqlCsv } = require('../services/csvParserService');
 const Question = require('../models/Question');
@@ -392,6 +394,7 @@ const getStudentsTracking = async (req, res) => {
                 enrolledCompanies: student.enrolledCompanies,
                 joinedAt: student.createdAt,
                 testHistory: attempts.map(a => ({
+                    id: a._id,
                     company: a.companyId?.name,
                     status: a.status,
                     score: a.score,
@@ -469,6 +472,53 @@ const getQuestionsByCompany = async (req, res) => {
     }
 };
 
+// @desc    Get test attempt details for review
+// @route   GET /api/admin/test-attempt/:id
+// @access  Private/Admin
+const getTestAttemptById = async (req, res) => {
+    try {
+        const attempt = await TestAttempt.findById(req.params.id)
+            .populate('userId', 'name email')
+            .populate('companyId', 'name');
+
+        if (!attempt) return res.status(404).json({ message: 'Attempt not found' });
+
+        const roundAttempts = await RoundAttempt.find({ attemptId: attempt._id }).lean();
+
+        // Populate questions for each round to show the text
+        const enrichedRounds = await Promise.all(roundAttempts.map(async (ra) => {
+            const questionIds = Object.keys(ra.answers || {});
+            const questions = await Question.find({ _id: { $in: questionIds } }).lean();
+            return { ...ra, questions };
+        }));
+
+        res.json({ attempt, roundAttempts: enrichedRounds });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
+// @desc    Update round score manually
+// @route   PUT /api/admin/round-attempt/:id/score
+// @access  Private/Admin
+const updateRoundScore = async (req, res) => {
+    try {
+        const { score } = req.body;
+        const roundAttempt = await RoundAttempt.findById(req.params.id);
+        if (!roundAttempt) return res.status(404).json({ message: 'Round attempt not found' });
+
+        roundAttempt.score = score;
+        await roundAttempt.save();
+
+        // Re-calculate final test score
+        const updatedAttempt = await finalizeTestAttempt(roundAttempt.attemptId, { TestAttempt, RoundAttempt });
+
+        res.json({ message: 'Score updated successfully', attempt: updatedAttempt });
+    } catch (error) {
+        res.status(500).json({ message: error.message });
+    }
+};
+
 module.exports = {
     getAdminDashboard,
     createCompany,
@@ -486,6 +536,8 @@ module.exports = {
     updateQuestion,
     deleteQuestion,
     getQuestionsByCompany,
-    uploadSplitSqlCsv
+    uploadSplitSqlCsv,
+    getTestAttemptById,
+    updateRoundScore
 };
 

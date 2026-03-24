@@ -124,14 +124,23 @@ export default function ResultsPage() {
                                                 </div>
                                             </div>
                                             <div className="text-right flex flex-col items-end">
-                                                <div className="flex items-baseline gap-1">
-                                                    <p className="text-2xl font-black text-slate-900">{round?.score || 0}</p>
-                                                    <p className="text-xs font-bold text-slate-400">/ { (round?.totalQuestions || 0) * 5 }</p>
-                                                </div>
-                                                <p className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter mb-1">Total Points</p>
-                                                <Badge variant="secondary" className="text-[10px] py-0 px-1.5 h-4 font-bold bg-slate-100 text-slate-600 border-none">
-                                                    {round?.correctCount || 0} / {round?.totalQuestions || 0} Correct
-                                                </Badge>
+                                                {['HR_INTERVIEW', 'TECHNICAL_INTERVIEW'].includes(round?.roundType) && (round?.score === 0 || !round?.score) ? (
+                                                    <div className="flex flex-col items-end">
+                                                        <p className="text-sm font-black text-orange-500 uppercase tracking-tight animate-pulse">Marks will be updated soon</p>
+                                                        <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest mt-1">Pending Admin Review</p>
+                                                    </div>
+                                                ) : (
+                                                    <>
+                                                        <div className="flex items-baseline gap-1">
+                                                            <p className="text-2xl font-black text-slate-900">{round?.score || 0}</p>
+                                                            <p className="text-xs font-bold text-slate-400">/ { (round?.totalQuestions || 0) * 5 }</p>
+                                                        </div>
+                                                        <p className="text-[10px] font-bold text-slate-500 uppercase tracking-tighter mb-1">Total Points</p>
+                                                        <Badge variant="secondary" className="text-[10px] py-0 px-1.5 h-4 font-bold bg-slate-100 text-slate-600 border-none">
+                                                            {round?.correctCount || 0} / {round?.totalQuestions || 0} Correct
+                                                        </Badge>
+                                                    </>
+                                                )}
                                             </div>
                                         </div>
                                         
@@ -148,7 +157,9 @@ export default function ResultsPage() {
                                                         {round?.roundType === 'CODING' && (round.score > 70 ? 'Good optimization. Continue practicing specialized DSA topics like Graphs/DP.' : 'Logic is on track but needs better optimization. Focus on space and time complexity.')}
                                                         {round?.roundType === 'SQL' && (round.score > 70 ? 'Mastery of basic queries. Explore advanced JOINs and Window functions.' : 'Review database normalization and complex JOIN operations.')}
                                                         {round?.roundType === 'AI_INTERVIEW' && (round.score > 70 ? 'Excellent communication and confidence. Maintain this articulation.' : 'Work on clarity of thought and behavioral structure. Try standard STAR method.')}
-                                                        {(!round.roundType || !['APTITUDE', 'CODING', 'SQL', 'AI_INTERVIEW'].includes(round.roundType)) && 'Complete more rounds to see specific feedback.'}
+                                                        {['TECHNICAL_INTERVIEW', 'HR_INTERVIEW'].includes(round?.roundType) && (round?.score === 0 || !round?.score) ? 'Your responses have been recorded and are currently being reviewed by the panel. Your final score will be updated soon.' : 
+                                                         ['TECHNICAL_INTERVIEW', 'HR_INTERVIEW'].includes(round?.roundType) ? 'Review the feedback from your technical/HR panel and focus on the areas of improvement mentioned.' : ''}
+                                                        {(!round.roundType || !['APTITUDE', 'CODING', 'SQL', 'AI_INTERVIEW', 'TECHNICAL_INTERVIEW', 'HR_INTERVIEW'].includes(round.roundType)) && 'Complete more rounds to see specific feedback.'}
                                                     </p>
                                                 </div>
                                             </div>

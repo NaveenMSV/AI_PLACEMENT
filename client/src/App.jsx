@@ -12,6 +12,7 @@ import StudentsPage from './pages/admin/StudentsPage';
 import ManageCompaniesPage from './pages/admin/ManageCompaniesPage';
 import ManageQuestionsPage from './pages/admin/ManageQuestionsPage';
 import EditCompanyPage from './pages/admin/EditCompanyPage';
+import ReviewAttemptPage from './pages/admin/ReviewAttemptPage';
 import CompanyProfilePage from './pages/interview/CompanyProfilePage';
 import SimulationEnginePage from './pages/interview/SimulationEnginePage';
 import CompaniesPage from './pages/student/CompaniesPage';
@@ -59,6 +60,7 @@ function App() {
             <Route path="/admin/companies" element={<ManageCompaniesPage />} />
             <Route path="/admin/questions" element={<ManageQuestionsPage />} />
             <Route path="/admin/company/:id/edit" element={<EditCompanyPage />} />
+            <Route path="/admin/review-attempt/:attemptId" element={<ReviewAttemptPage />} />
 
             {/* Fallback */}
             <Route path="*" element={<Navigate to="/" replace />} />

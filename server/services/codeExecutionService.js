@@ -94,7 +94,7 @@ const executeJS = (code, input) => {
         // C++ Polyfills
         const CppVector = (sizeOrArr, fillVal) => {
             let arr = Array.isArray(sizeOrArr) ? sizeOrArr : (typeof sizeOrArr === 'number' ? new Array(sizeOrArr).fill(fillVal) : []);
-            return arr; // Now standard arrays have the methods via prototype
+            return arr; 
         };
 
         const CppMap = () => {
@@ -113,17 +113,41 @@ const executeJS = (code, input) => {
             });
         };
 
+        class ListNode {
+            constructor(val, next) {
+                this.val = (val === undefined ? 0 : val);
+                this.next = (next === undefined ? null : next);
+            }
+        }
+        const __toLinkedList = (arr) => {
+            if (!Array.isArray(arr)) return arr;
+            let dummy = new ListNode(0);
+            let curr = dummy;
+            for (let x of arr) {
+                curr.next = new ListNode(x);
+                curr = curr.next;
+            }
+            return dummy.next;
+        };
+        const __fromLinkedList = (node) => {
+            let res = [];
+            let visited = new Set();
+            while (node && !visited.has(node)) {
+                visited.add(node);
+                res.push(node.val);
+                node = node.next;
+            }
+            return res;
+        };
+
         ${code}
 
         // Try to detect and call the user's function automatically
         let __result;
-        const __inputRaw = \`${input.replace(/`/g, '\\`').replace(/\\/g, '\\\\')}\`;
 
-        // Parse input lines
-        const __inputLines = __inputRaw.trim().split('\\n');
-
-        // Try to parse values from input
+        // Parse input lines for function calling strategy
         function __parseValue(s) {
+            if (!s) return s;
             s = s.trim();
             try { return JSON.parse(s); } catch(e) { return s; }
         }
@@ -132,7 +156,8 @@ const executeJS = (code, input) => {
 
         // Strategy 1: Look for a 'solve' function
         if (typeof solve === 'function') {
-            __result = __parsedInputs.length === 1 ? solve(__parsedInputs[0]) : solve(...__parsedInputs);
+            const __finalArgs = __parsedInputs.map(val => Array.isArray(val) ? __toLinkedList(val) : val);
+            __result = __finalArgs.length === 1 ? solve(__finalArgs[0]) : solve(...__finalArgs);
         }
         // Strategy 2: Look for a class Solution with a method
         else if (typeof Solution === 'function') {
@@ -140,14 +165,15 @@ const executeJS = (code, input) => {
             const __methods = Object.getOwnPropertyNames(Solution.prototype).filter(m => m !== 'constructor');
             if (__methods.length > 0) {
                 const __method = __sol[__methods[0]].bind(__sol);
-                __result = __parsedInputs.length === 1 ? __method(__parsedInputs[0]) : __method(...__parsedInputs);
+                const __finalArgs = __parsedInputs.map(val => Array.isArray(val) ? __toLinkedList(val) : val);
+                __result = __finalArgs.length === 1 ? __method(__finalArgs[0]) : __method(...__finalArgs);
             }
         }
         // Strategy 3: Find any globally defined function that isn't built-in
         else {
-            const __builtins = new Set(['__parseValue', '__captured', '__origLog', '__inputRaw', '__inputLines', '__parsedInputs', '__result', 'console', 'Math', 'JSON', 'parseInt', 'parseFloat', 'isNaN', 'isFinite', 'undefined', 'NaN', 'Infinity', 'Array', 'Object', 'String', 'Number', 'Boolean', 'Date', 'RegExp', 'Error', 'Map', 'Set', 'Promise', 'Symbol', 'Proxy', 'Reflect', 'eval', 'setTimeout', 'setInterval']);
+            const __builtins = new Set(['__parseValue', '__captured', '__origLog', '__inputRaw', '__inputLines', '__parsedInputs', '__result', 'console', 'Math', 'JSON', 'parseInt', 'parseFloat', 'isNaN', 'isFinite', 'undefined', 'NaN', 'Infinity', 'Array', 'Object', 'String', 'Number', 'Boolean', 'Date', 'RegExp', 'Error', 'Map', 'Set', 'Promise', 'Symbol', 'Proxy', 'Reflect', 'eval', 'setTimeout', 'setInterval', 'prompt', '__inputIdx', 'main', 'ListNode', '__toLinkedList', '__fromLinkedList']);
             const __globals = Object.keys(this).filter(k => typeof this[k] === 'function' && !__builtins.has(k));
-            if (__globals.length > 0) {
+            if (__globals.length \u003e 0) {
                 const __fn = this[__globals[0]];
                 __result = __parsedInputs.length === 1 ? __fn(__parsedInputs[0]) : __fn(...__parsedInputs);
             }
@@ -155,13 +181,17 @@ const executeJS = (code, input) => {
 
         // Format and append result if returned
         if (__result !== undefined) {
-            const __resStr = typeof __result === 'object' ? JSON.stringify(__result) : String(__result);
-            if (__captured.length === 0) {
-                __captured.push(__resStr);
+            // Auto-convert back from Linked List (or null if it's likely a DLL/LL problem)
+            if (__result instanceof ListNode || (__result === null && typeof solve === 'function')) {
+                __result = __fromLinkedList(__result);
+            }
+
+            // If result is 0 and we already have output, it's likely a procedural exit code, ignore it
+            if (__result === 0 && __captured.length > 0) {
+                // Ignore
             } else {
-                // If we already have logs, the result is likely the last line of output
-                // But only if it's not already the last line (to avoid duplicates)
-                if (__captured[__captured.length - 1] !== __resStr) {
+                const __resStr = typeof __result === 'object' ? JSON.stringify(__result) : String(__result);
+                if (__captured.length === 0 || __captured[__captured.length - 1] !== __resStr) {
                     __captured.push(__resStr);
                 }
             }
@@ -171,7 +201,7 @@ const executeJS = (code, input) => {
         __captured.join('\\n');
     `;
 
-    const context = { console: { log: () => {} }, Math, JSON, parseInt, parseFloat, isNaN, isFinite, Array, Object, String, Number, Boolean, Date, RegExp, Error, Map, Set };
+    const context = { console: { log: (...args) => {} }, Math, JSON, parseInt, parseFloat, isNaN, isFinite, Array, Object, String, Number, Boolean, Date, RegExp, Error, Map, Set };
     vm.createContext(context);
     const result = vm.runInContext(wrappedCode, context, { timeout: 5000 });
     return result !== undefined ? String(result) : '';
@@ -184,23 +214,25 @@ const executeJava = async (code, input) => {
     fs.mkdirSync(tmpDir, { recursive: true });
 
     try {
-        // Extract class name from code
-        const classNameMatch = code.match(/class\s+(\w+)/);
+        // Strip package declaration
+        let cleanCode = code.replace(/^\s*package\s+[\w.]+;/m, '');
+
+        // Extract class name
+        const classNameMatch = cleanCode.match(/class\s+(\w+)/);
         const className = classNameMatch ? classNameMatch[1] : 'Solution';
 
         // Check if code has a main method; if not, wrap it
-        let finalCode = code;
-        if (!code.includes('public static void main')) {
-            // Build a wrapper with a main method that calls the user's solution
-            finalCode = buildJavaWrapper(code, className, input);
+        let finalCode = cleanCode;
+        if (!cleanCode.includes('public static void main')) {
+            finalCode = buildJavaWrapper(cleanCode, className, input);
         } else {
-            // If they have main, inject input via stdin simulation
-            finalCode = code;
+            // If they have main, make sure it's naming is consistent
+            finalCode = cleanCode;
         }
 
         const javaFile = path.join(tmpDir, `${className}.java`);
         fs.writeFileSync(javaFile, finalCode);
-
+        
         // Compile
         try {
             execSync(`javac "${javaFile}"`, { cwd: tmpDir, timeout: 10000, stdio: 'pipe' });
@@ -224,7 +256,6 @@ const executeJava = async (code, input) => {
             throw new Error(`Runtime Error:\n${stderr}`);
         }
     } finally {
-        // Cleanup temp directory
         try { fs.rmSync(tmpDir, { recursive: true, force: true }); } catch (e) { /* ignore */ }
     }
 };
@@ -252,6 +283,40 @@ const buildJavaWrapper = (code, className, input) => {
     }
 
     const mainMethod = `
+    public static class ListNode {
+        public int val;
+        public ListNode next;
+        public ListNode() {}
+        public ListNode(int val) { this.val = val; }
+        public ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+    }
+
+    private static ListNode __toLinkedList(String s) {
+        s = s.trim().replaceAll("^[\\\\[\\\\s]+|[\\\\s\\\\]]+$", "");
+        if (s.isEmpty()) return null;
+        String[] parts = s.split(",\\\\s*");
+        ListNode dummy = new ListNode(0);
+        ListNode curr = dummy;
+        for (String p : parts) {
+            String cleanP = p.trim();
+            if (!cleanP.isEmpty()) {
+                curr.next = new ListNode(Integer.parseInt(cleanP));
+                curr = curr.next;
+            }
+        }
+        return dummy.next;
+    }
+
+    private static String __fromLinkedList(ListNode node) {
+        java.util.List<Integer> res = new java.util.ArrayList<>();
+        java.util.Set<ListNode> visited = new java.util.HashSet<>();
+        while (node != null && !visited.contains(node)) {
+            visited.add(node);
+            res.add(node.val);
+            node = node.next;
+        }
+        return res.toString().replaceAll("\\\\s", "");
+    }
 
     public static void main(String[] args) {
         try {
@@ -295,7 +360,10 @@ const buildJavaWrapper = (code, className, input) => {
             }
 
             Object result = targetMethod.invoke(sol, parsedArgs);
-            if (result != null) {
+            if (result == null || result instanceof ListNode) {
+                System.out.println(__fromLinkedList((ListNode)result));
+            }
+            else if (result != null) {
                 if (result instanceof int[]) {
                     String s = java.util.Arrays.toString((int[])result);
                     System.out.println(s.replaceAll("\\s", ""));
@@ -314,6 +382,7 @@ const buildJavaWrapper = (code, className, input) => {
 
     private static Object __parseInput(String s, Class<?> type) {
         s = s.trim();
+        if (type == ListNode.class) return __toLinkedList(s);
         if (type == int.class || type == Integer.class) return Integer.parseInt(s.replaceAll("[^0-9-]", ""));
         if (type == long.class || type == Long.class) return Long.parseLong(s.replaceAll("[^0-9-]", ""));
         if (type == double.class || type == Double.class) return Double.parseDouble(s);
@@ -392,11 +461,18 @@ const transpileCppToJs = (cppCode) => {
     jsCode = jsCode.replace(/\b(unordered_map|map|unordered_set|set)\s*<[^>]*>\s*([a-zA-Z_]\w*)\s*;/g, 'let $2 = CppMap();');
     
     // Generic replacement for nested types or other declarations
-    jsCode = jsCode.replace(/\b(vector|pair|map|set|unordered_map|unordered_set|stack|queue|deque)\s*<[^>]*>/g, 'let');
+    jsCode = jsCode.replace(/\b(vector|pair|map|set|unordered_map|unordered_set|stack|queue|deque)\s*<[^>]*>/g, 'let ');
+
+    // 6b. Handle cin and cout basics
+    // Support "cin >> x;" and "cin >> x >> y;"
+    jsCode = jsCode.replace(/\bcin\s*>>\s*([a-zA-Z_]\w*)(\s*>>\s*[a-zA-Z_]\w*)*\s*;/g, (match) => {
+        const vars = match.split('>>').slice(1).map(v => v.trim().replace(';', ''));
+        return vars.map(v => `${v} = prompt();`).join(' ');
+    });
 
     // 7. Handle method signatures: convert "returnType methodName(type1 param1, ...) {" to "methodName(param1, ...) {"
     jsCode = jsCode.replace(/\b([a-zA-Z_]\w*)\s+([a-zA-Z_]\w*)\s*\(([^)]*)\)\s*\{/g, (match, retType, methodName, params) => {
-        if (['if', 'for', 'while', 'switch', 'return', 'new', 'throw', 'catch', 'else'].includes(methodName)) return match;
+        if (['if', 'for', 'while', 'switch', 'return', 'new', 'throw', 'catch', 'else', 'main'].includes(methodName)) return match;
         if (['class', 'struct', 'interface', 'enum', 'namespace'].includes(retType)) return match;
 
         const cleanParams = params.split(',').map(p => {
@@ -409,8 +485,16 @@ const transpileCppToJs = (cppCode) => {
         return `${methodName}(${cleanParams}) {`;
     });
 
+    // 7b. Handle main method specially: convert "int main() {" to "function main() {"
+    jsCode = jsCode.replace(/int\s+main\s*\([^)]*\)\s*\{/g, 'function main() {');
+
     // 8. Replace C++ types with 'let' for variable declarations
     jsCode = jsCode.replace(/\b(int|double|float|bool|char|long|long\s+long|unsigned|short|size_t|auto|string|void|char\*)\b(?!\s*\()/g, 'let');
+    
+    // 8b. Add top-level call to main if it exists
+    if (jsCode.includes('function main() {')) {
+        jsCode += '\nmain();';
+    }
     
     // 8c. Special Case: map initializer lists
     jsCode = jsCode.replace(/let\s+([a-zA-Z_]\w*)\s*=\s*\{\s*\{([^}]*)\}\s*(,\s*\{([^}]*)\}\s*)*\}/g, (match, name) => {
@@ -455,8 +539,8 @@ const transpileCppToJs = (cppCode) => {
 
     // I/O - complex cout with multiple inserts
     jsCode = jsCode.replace(/\bcout\s*<<\s*([\s\S]*?);/g, (match, expression) => {
-        // Replace << with + and endl with "\n"
-        let parts = expression.replace(/<<\s*endl\b/g, ' + "\\n"').replace(/<<\s*/g, ' + ');
+        // Replace << with + and endl with empty string (log adds newline)
+        let parts = expression.replace(/<<\s*endl\b/g, '').replace(/<<\s*/g, ' + ');
         return `console.log(${parts});`;
     });
     jsCode = jsCode.replace(/\bendl\b/g, '"\\n"');
@@ -504,11 +588,39 @@ const executePython = async (code, input) => {
 
         // Build a flexible runner
         const runnerCode = `
-import sys, json, os, math, re, collections, heapq, bisect, functools, itertools, datetime
+import sys, json, os, math, re, collections, heapq, bisect, functools, itertools, datetime, io
 sys.path.insert(0, ${JSON.stringify(tmpDir)})
+
+# Capture stdout to avoid duplicate prints if user calls input() or sys.stdin
+sys.stdout = io.StringIO()
 
 raw_input_data = ${JSON.stringify(input)}
 input_lines = raw_input_data.strip().split('\\n')
+
+class ListNode:
+    def __init__(self, val=0, next=None):
+        self.val = val
+        self.next = next
+    def __repr__(self):
+        return f"ListNode({self.val})"
+
+def __to_linked_list(arr):
+    if not arr or not isinstance(arr, list): return arr
+    dummy = ListNode(0)
+    curr = dummy
+    for x in arr:
+        curr.next = ListNode(x)
+        curr = curr.next
+    return dummy.next
+
+def __from_linked_list(node):
+    res = []
+    visited = set() # Avoid infinite loops
+    while node and id(node) not in visited:
+        visited.add(id(node))
+        res.append(node.val)
+        node = node.next
+    return res
 
 def parse_value(s):
     s = s.strip()
@@ -529,47 +641,61 @@ parsed_inputs = [parse_value(line) for line in input_lines]
 try:
     from solution import *
     
-    # Strategy 1: class Solution with methods
-    if 'Solution' in dir():
-        sol = Solution()
-        methods = [m for m in dir(sol) if not m.startswith('_') and callable(getattr(sol, m))]
-        if methods:
-            method = getattr(sol, methods[0])
-            if len(parsed_inputs) == 1:
-                result = method(parsed_inputs[0])
-            else:
-                result = method(*parsed_inputs)
-            if result is not None:
-                if isinstance(result, bool):
-                    print(str(result).lower())
-                elif isinstance(result, (list, dict)):
-                    print(json.dumps(result))
-                else:
-                    print(result)
-    # Strategy 2: standalone 'solve' function
-    elif 'solve' in dir():
-        if len(parsed_inputs) == 1:
-            result = solve(parsed_inputs[0])
-        else:
-            result = solve(*parsed_inputs)
-        if result is not None:
-            if isinstance(result, bool):
-                print(str(result).lower())
-            elif isinstance(result, (list, dict)):
-                print(json.dumps(result))
-            else:
-                print(result)
+    __captured_out = sys.stdout.getvalue()
+    if __captured_out.strip():
+        # User already printed something via top-level code
+        pass
     else:
-        # Strategy 3: find the first callable that isn't a builtin
-        import types
-        user_funcs = [name for name in dir() if not name.startswith('_') and isinstance(eval(name), types.FunctionType) and name not in ('parse_value',)]
-        if user_funcs:
-            fn = eval(user_funcs[0])
-            if len(parsed_inputs) == 1:
-                result = fn(parsed_inputs[0])
-            else:
-                result = fn(*parsed_inputs)
-            if result is not None:
+        # Strategy 1: class Solution with methods
+        if 'Solution' in dir():
+            sol = Solution()
+            methods = [m for m in dir(sol) if not m.startswith('_') and callable(getattr(sol, m))]
+            if methods:
+                method_name = methods[0]
+                method = getattr(sol, method_name)
+                
+                # Auto-convert to Linked List if naming suggests it
+                import inspect
+                sig = inspect.signature(method)
+                params = list(sig.parameters.keys())
+                
+                final_args = []
+                for i, val in enumerate(parsed_inputs):
+                    if i < len(params) and (params[i] == 'head' or params[i] == 'node' or params[i] == 'l1' or params[i] == 'l2') and isinstance(val, list):
+                        final_args.append(__to_linked_list(val))
+                    else:
+                        final_args.append(val)
+                
+                result = method(*final_args)
+                
+                # Auto-convert back from Linked List
+                if isinstance(result, ListNode):
+                    result = __from_linked_list(result)
+                
+                if result is not None:
+                    if isinstance(result, bool):
+                        print(str(result).lower())
+                    elif isinstance(result, (list, dict)):
+                        print(json.dumps(result))
+                    else:
+                        print(result)
+        # Strategy 2: standalone 'solve' function
+        elif 'solve' in dir():
+            final_args = []
+            for i, val in enumerate(parsed_inputs):
+                # Common names for linked list heads
+                if isinstance(val, list) and len(parsed_inputs) <= 2: 
+                    final_args.append(__to_linked_list(val))
+                else:
+                    final_args.append(val)
+            
+            result = solve(*final_args)
+            if isinstance(result, ListNode) or result is None:
+                result = __from_linked_list(result)
+                
+            if result is not None or (isinstance(final_args[0], ListNode) if final_args else False):
+                # If result is None but input was a head, we likely want []
+                if result is None: result = []
                 if isinstance(result, bool):
                     print(str(result).lower())
                 elif isinstance(result, (list, dict)):
@@ -577,16 +703,38 @@ try:
                 else:
                     print(result)
         else:
-            print("ERROR: No callable function found in your code")
+            # Strategy 3: find the first callable that isn't a builtin
+            import types
+            user_funcs = [name for name in dir() if not name.startswith('_') and isinstance(eval(name), types.FunctionType) and name not in ('parse_value', '__to_linked_list', '__from_linked_list', 'ListNode')]
+            if user_funcs:
+                fn = eval(user_funcs[0])
+                result = fn(*parsed_inputs)
+                if result is not None:
+                    if isinstance(result, bool):
+                        print(str(result).lower())
+                    elif isinstance(result, (list, dict)):
+                        print(json.dumps(result))
+                    else:
+                        print(result)
+except EOFError:
+    # Silent fail for EOF during input() in top-level code if provided via runner
+    pass
 except Exception as e:
+    import traceback
+    sys.stdout = sys.__stdout__
     print(f"ERROR: {str(e)}")
+    # print(traceback.format_exc()) # Uncomment for deep debug
+
+# IMPORTANT: Print all captured output to real stdout at the end
+sys.__stdout__.write(sys.stdout.getvalue())
 `;
         fs.writeFileSync(runnerFile, runnerCode);
 
         const output = execSync(`python "${runnerFile}"`, {
             encoding: 'utf8',
             timeout: 10000,
-            cwd: tmpDir
+            cwd: tmpDir,
+            input: input
         });
         return output.trim();
     } catch (err) {

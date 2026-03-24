@@ -36,17 +36,23 @@ const parseAndSeedCsv = (filePath, companyId, roundNumber, overrideRoundType) =>
                 };
 
                 const roundTypeRaw = overrideRoundType || findKey(['roundType', 'round_type', 'round']) || 'APTITUDE';
-                let questionTypeRaw = findKey(['questionType', 'question_type', 'type']) || 'MCQ';
                 const finalRoundType = roundTypeRaw.toUpperCase().trim();
+                
+                let questionTypeRaw = findKey(['questionType', 'question_type', 'type']);
                 
                 // Auto-fix questionType based on roundType
                 if (finalRoundType === 'CODING') questionTypeRaw = 'CODING';
                 else if (finalRoundType === 'SQL') questionTypeRaw = 'SQL';
+                else if (finalRoundType === 'TECHNICAL_INTERVIEW' || finalRoundType === 'HR_INTERVIEW' || finalRoundType === 'AI_INTERVIEW') {
+                    questionTypeRaw = 'SHORT_ANSWER';
+                } else if (!questionTypeRaw) {
+                    questionTypeRaw = 'MCQ';
+                }
                 
                 const questionType = questionTypeRaw.toUpperCase().trim();
 
-                // Support CODING, SQL and MCQ (restoring MCQ for internal company rounds)
-                if (!['CODING', 'SQL', 'MCQ'].includes(questionType)) {
+                // Support CODING, SQL, MCQ and SHORT_ANSWER
+                if (!['CODING', 'SQL', 'MCQ', 'SHORT_ANSWER'].includes(questionType)) {
                     fs.appendFileSync(logFile, `CSV: Row skipped - Unsupported type: ${questionType}\n`);
                     return;
                 }
@@ -109,7 +115,7 @@ const parseAndSeedCsv = (filePath, companyId, roundNumber, overrideRoundType) =>
                 }
 
 
-                if (questionDoc.question && (questionDoc.correctAnswer || questionDoc.solution)) {
+                if (questionDoc.question && (questionType === 'SHORT_ANSWER' || questionDoc.correctAnswer || questionDoc.solution)) {
                     fs.appendFileSync(logFile, `CSV: Row accepted - ${questionDoc.roundType}\n`);
                     results.push(questionDoc);
                 } else {

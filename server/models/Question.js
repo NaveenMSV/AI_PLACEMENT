@@ -18,7 +18,7 @@ const questionSchema = new mongoose.Schema({
     questionType: {
         type: String,
         required: true,
-        enum: ['MCQ', 'CODING', 'SQL']
+        enum: ['MCQ', 'CODING', 'SQL', 'SHORT_ANSWER']
     },
     // the text describing the problem
     question: {

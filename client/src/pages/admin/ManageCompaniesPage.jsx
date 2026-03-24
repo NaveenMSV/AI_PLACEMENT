@@ -41,15 +41,10 @@ export default function ManageCompaniesPage() {
             console.error('Error fetching companies:', error);
         }
     };
-
-    const filteredCompanies = companies.filter(company => {
-        // Hide system-level practice tracks from the main management list
-        const isPracticeTrack = ['Coding Practice', 'SQL Practice'].includes(company.name);
-        if (isPracticeTrack) return false;
-
-        return company.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-               company.description.toLowerCase().includes(searchQuery.toLowerCase());
-    });
+    const filteredCompanies = companies.filter(company => 
+        company.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        company.description.toLowerCase().includes(searchQuery.toLowerCase())
+    );
 
     const handleAddCompany = async (e) => {
         e.preventDefault();

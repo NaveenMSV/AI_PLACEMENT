@@ -10,7 +10,7 @@ import { cn } from '../../lib/utils';
 
 
 const ROUND_TYPES = ['CODING', 'SQL', 'TECHNICAL_INTERVIEW', 'HR_INTERVIEW', 'APTITUDE'];
-const QUESTION_TYPES = ['CODING', 'SQL', 'MCQ'];
+const QUESTION_TYPES = ['CODING', 'SQL', 'MCQ', 'SHORT_ANSWER'];
 
 
 export default function ManageQuestionsPage() {
@@ -60,23 +60,40 @@ export default function ManageQuestionsPage() {
             const found = data.find(c => c._id === companyId);
             setCompany(found);
 
-            // Initialize per-round upload state if it's not already initialized or if company changed
+            // Initialize per-round upload state
             if (found && roundUploads.length === 0) {
-            const numRounds = found.numberOfRounds || 1;
-            const uploads = [];
-            for (let i = 0; i < numRounds; i++) {
-                const rType = i < found.numberOfRounds ? (found.interviewRounds?.[i]?.roundType || 'CODING') : 'CODING';
-                uploads.push({
-                    file: null,
-                    isUploading: false,
-                    uploadStatus: null,
-                    setAsDailyChallenge: false,
-                    roundType: rType,
-                    tableFile: null, // Simplified to one file
-                    questionsFile: null
-                });
-            }
-            setRoundUploads(uploads);
+                const numRounds = found.numberOfRounds || 1;
+                
+                // Fetch blueprint to get correct round types
+                let blueprints = [];
+                try {
+                    const blueprintRes = await fetch(`/api/admin/company/${companyId}/interview-blueprint`, {
+                        headers: { 'Authorization': `Bearer ${token}` }
+                    });
+                    if (blueprintRes.ok) {
+                        const bData = await blueprintRes.json();
+                        blueprints = bData.rounds || [];
+                    }
+                } catch (e) {
+                    console.error('Error fetching blueprint:', e);
+                }
+
+                const uploads = [];
+                for (let i = 0; i < numRounds; i++) {
+                    const blueprintRound = blueprints.find(r => r.roundNumber === i + 1);
+                    const rType = blueprintRound ? blueprintRound.roundType : 'CODING';
+                    
+                    uploads.push({
+                        file: null,
+                        isUploading: false,
+                        uploadStatus: null,
+                        setAsDailyChallenge: false,
+                        roundType: rType,
+                        tableFile: null,
+                        questionsFile: null
+                    });
+                }
+                setRoundUploads(uploads);
             }
         } catch (error) {
             console.error('Error fetching company details:', error);
@@ -647,6 +664,20 @@ export default function ManageQuestionsPage() {
                                 </div>
 
                                 <div>
+                                    <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Question Type</label>
+                                    <select 
+                                        name="questionType"
+                                        value={manualQuestion.questionType}
+                                        onChange={handleManualChange}
+                                        className="w-full bg-slate-50 border-none rounded-xl p-3 text-sm focus:ring-2 focus:ring-blue-100 font-bold text-slate-800"
+                                    >
+                                        {QUESTION_TYPES.map(type => (
+                                            <option key={type} value={type}>{type}</option>
+                                        ))}
+                                    </select>
+                                </div>
+
+                                <div>
                                     <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-2">Question Description</label>
                                     <textarea 
                                         name="question"
@@ -658,140 +689,142 @@ export default function ManageQuestionsPage() {
                                     />
                                 </div>
 
-                                <div>
-                                    <div className="flex justify-between items-center mb-4">
-                                        <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest">
-                                            {manualQuestion.questionType === 'SQL' ? 'Database Tables' : 'Test Cases'}
-                                        </label>
-                                        <button 
-                                            onClick={manualQuestion.questionType === 'SQL' ? addSqlTable : addTestCase} 
-                                            className="text-blue-600 text-xs font-bold flex items-center gap-1 hover:underline"
-                                        >
-                                            <PlusIcon size={14} /> Add {manualQuestion.questionType === 'SQL' ? 'Table' : 'Test Case'}
-                                        </button>
-                                    </div>
+                                {manualQuestion.questionType !== 'SHORT_ANSWER' && (
+                                    <>
+                                        <div className="flex justify-between items-center mb-4">
+                                            <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest">
+                                                {manualQuestion.questionType === 'SQL' ? 'Database Tables' : 'Test Cases'}
+                                            </label>
+                                            <button 
+                                                onClick={manualQuestion.questionType === 'SQL' ? addSqlTable : addTestCase} 
+                                                className="text-blue-600 text-xs font-bold flex items-center gap-1 hover:underline"
+                                            >
+                                                <PlusIcon size={14} /> Add {manualQuestion.questionType === 'SQL' ? 'Table' : 'Test Case'}
+                                            </button>
+                                        </div>
 
-                                    {manualQuestion.questionType === 'SQL' ? (
-                                        <div className="space-y-6">
-                                            {manualQuestion.sqlTables.map((table, i) => (
-                                                <div key={i} className="p-6 bg-slate-50 rounded-2xl relative border border-slate-100">
-                                                    <div className="flex justify-between items-center mb-4">
-                                                        <h5 className="text-[10px] font-bold text-slate-400 uppercase">Table #{i+1}</h5>
-                                                        {manualQuestion.sqlTables.length > 1 && (
-                                                            <button onClick={() => removeSqlTable(i)} className="text-red-400 hover:text-red-600 text-[10px] font-bold uppercase transition-colors">
-                                                                Remove Table
-                                                            </button>
-                                                        )}
-                                                    </div>
-                                                    <div className="space-y-4">
-                                                        <div>
-                                                            <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Table Name</label>
-                                                            <input 
-                                                                placeholder="e.g. Users"
-                                                                value={table.tableName}
-                                                                onChange={(e) => handleSqlTableChange(i, 'tableName', e.target.value)}
-                                                                className="w-full bg-white border-none rounded-xl p-3 text-xs font-bold text-slate-700 focus:ring-1 focus:ring-blue-100"
-                                                            />
+                                        {manualQuestion.questionType === 'SQL' ? (
+                                            <div className="space-y-6">
+                                                {manualQuestion.sqlTables.map((table, i) => (
+                                                    <div key={i} className="p-6 bg-slate-50 rounded-2xl relative border border-slate-100">
+                                                        <div className="flex justify-between items-center mb-4">
+                                                            <h5 className="text-[10px] font-bold text-slate-400 uppercase">Table #{i+1}</h5>
+                                                            {manualQuestion.sqlTables.length > 1 && (
+                                                                <button onClick={() => removeSqlTable(i)} className="text-red-400 hover:text-red-600 text-[10px] font-bold uppercase transition-colors">
+                                                                    Remove Table
+                                                                </button>
+                                                            )}
                                                         </div>
+                                                        <div className="space-y-4">
+                                                            <div>
+                                                                <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Table Name</label>
+                                                                <input 
+                                                                    placeholder="e.g. Users"
+                                                                    value={table.tableName}
+                                                                    onChange={(e) => handleSqlTableChange(i, 'tableName', e.target.value)}
+                                                                    className="w-full bg-white border-none rounded-xl p-3 text-xs font-bold text-slate-700 focus:ring-1 focus:ring-blue-100"
+                                                                />
+                                                            </div>
+                                                            <div className="grid grid-cols-2 gap-4">
+                                                                <div>
+                                                                    <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Schema (CREATE TABLE)</label>
+                                                                    <textarea 
+                                                                        placeholder="CREATE TABLE Users (id INT, name TEXT);"
+                                                                        value={table.schema}
+                                                                        onChange={(e) => handleSqlTableChange(i, 'schema', e.target.value)}
+                                                                        className="w-full bg-white border-none rounded-xl p-3 text-[10px] font-mono focus:ring-1 focus:ring-blue-100 h-24"
+                                                                    />
+                                                                </div>
+                                                                <div>
+                                                                    <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Sample Data (INSERT INTO)</label>
+                                                                    <textarea 
+                                                                        placeholder="INSERT INTO Users VALUES (1, 'John');"
+                                                                        value={table.data}
+                                                                        onChange={(e) => handleSqlTableChange(i, 'data', e.target.value)}
+                                                                        className="w-full bg-white border-none rounded-xl p-3 text-[10px] font-mono focus:ring-1 focus:ring-blue-100 h-24"
+                                                                    />
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ))}
+                                                <div className="p-4 bg-blue-50/50 rounded-xl border border-blue-100">
+                                                    <p className="text-[10px] text-blue-600 leading-relaxed font-medium">
+                                                        <strong>Pro Tip:</strong> All tables defined above will be automatically created in a temporary SQLite database during evaluation. The query results will be compared against your <strong>Correct Query</strong> results.
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            <div className="space-y-4">
+                                                {manualQuestion.testCases.map((tc, i) => (
+                                                    <div key={i} className="p-4 bg-slate-50 rounded-xl relative group">
                                                         <div className="grid grid-cols-2 gap-4">
                                                             <div>
-                                                                <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Schema (CREATE TABLE)</label>
-                                                                <textarea 
-                                                                    placeholder="CREATE TABLE Users (id INT, name TEXT);"
-                                                                    value={table.schema}
-                                                                    onChange={(e) => handleSqlTableChange(i, 'schema', e.target.value)}
-                                                                    className="w-full bg-white border-none rounded-xl p-3 text-[10px] font-mono focus:ring-1 focus:ring-blue-100 h-24"
+                                                                <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Input</label>
+                                                                <input 
+                                                                    value={tc.input}
+                                                                    onChange={(e) => handleTestCaseChange(i, 'input', e.target.value)}
+                                                                    className="w-full bg-white border-none rounded-lg p-2 text-xs focus:ring-1 focus:ring-blue-100"
                                                                 />
                                                             </div>
                                                             <div>
-                                                                <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Sample Data (INSERT INTO)</label>
-                                                                <textarea 
-                                                                    placeholder="INSERT INTO Users VALUES (1, 'John');"
-                                                                    value={table.data}
-                                                                    onChange={(e) => handleSqlTableChange(i, 'data', e.target.value)}
-                                                                    className="w-full bg-white border-none rounded-xl p-3 text-[10px] font-mono focus:ring-1 focus:ring-blue-100 h-24"
+                                                                <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Expected Output</label>
+                                                                <input 
+                                                                    value={tc.expectedOutput}
+                                                                    onChange={(e) => handleTestCaseChange(i, 'expectedOutput', e.target.value)}
+                                                                    className="w-full bg-white border-none rounded-lg p-2 text-xs focus:ring-1 focus:ring-blue-100"
                                                                 />
                                                             </div>
                                                         </div>
+                                                        <div className="mt-3 flex items-center justify-between">
+                                                            <label className="flex items-center gap-2 cursor-pointer">
+                                                                <input 
+                                                                    type="checkbox"
+                                                                    checked={tc.isHidden}
+                                                                    onChange={(e) => handleTestCaseChange(i, 'isHidden', e.target.checked)}
+                                                                    className="rounded border-slate-300 text-blue-600 focus:ring-blue-500"
+                                                                />
+                                                                <span className="text-[10px] font-bold text-slate-500 uppercase">Hidden Test Case</span>
+                                                            </label>
+                                                            {manualQuestion.testCases.length > 1 && (
+                                                                <button onClick={() => removeTestCase(i)} className="text-red-400 hover:text-red-600 text-[10px] font-bold uppercase">
+                                                                    Remove
+                                                                </button>
+                                                            )}
+                                                        </div>
                                                     </div>
-                                                </div>
-                                            ))}
-                                            <div className="p-4 bg-blue-50/50 rounded-xl border border-blue-100">
-                                                <p className="text-[10px] text-blue-600 leading-relaxed font-medium">
-                                                    <strong>Pro Tip:</strong> All tables defined above will be automatically created in a temporary SQLite database during evaluation. The query results will be compared against your <strong>Correct Query</strong> results.
-                                                </p>
+                                                ))}
                                             </div>
-                                        </div>
-                                    ) : (
-                                        <div className="space-y-4">
-                                            {manualQuestion.testCases.map((tc, i) => (
-                                                <div key={i} className="p-4 bg-slate-50 rounded-xl relative group">
-                                                    <div className="grid grid-cols-2 gap-4">
-                                                        <div>
-                                                            <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Input</label>
-                                                            <input 
-                                                                value={tc.input}
-                                                                onChange={(e) => handleTestCaseChange(i, 'input', e.target.value)}
-                                                                className="w-full bg-white border-none rounded-lg p-2 text-xs focus:ring-1 focus:ring-blue-100"
-                                                            />
-                                                        </div>
-                                                        <div>
-                                                            <label className="block text-[10px] font-bold text-slate-400 uppercase mb-1">Expected Output</label>
-                                                            <input 
-                                                                value={tc.expectedOutput}
-                                                                onChange={(e) => handleTestCaseChange(i, 'expectedOutput', e.target.value)}
-                                                                className="w-full bg-white border-none rounded-lg p-2 text-xs focus:ring-1 focus:ring-blue-100"
-                                                            />
-                                                        </div>
-                                                    </div>
-                                                    <div className="mt-3 flex items-center justify-between">
-                                                        <label className="flex items-center gap-2 cursor-pointer">
-                                                            <input 
-                                                                type="checkbox"
-                                                                checked={tc.isHidden}
-                                                                onChange={(e) => handleTestCaseChange(i, 'isHidden', e.target.checked)}
-                                                                className="rounded border-slate-300 text-blue-600 focus:ring-blue-500"
-                                                            />
-                                                            <span className="text-[10px] font-bold text-slate-500 uppercase">Hidden Test Case</span>
-                                                        </label>
-                                                        {manualQuestion.testCases.length > 1 && (
-                                                            <button onClick={() => removeTestCase(i)} className="text-red-400 hover:text-red-600 text-[10px] font-bold uppercase">
-                                                                Remove
-                                                            </button>
-                                                        )}
-                                                    </div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    )}
-                                </div>
+                                        )}
 
-                                <div>
-                                    <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Code Boilerplates (LeetCode Style)</label>
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                        {['JavaScript', 'Python', 'Java', 'C++'].map(lang => (
-                                            <div key={lang}>
-                                                <label className="block text-[10px] font-bold text-slate-400 uppercase mb-2">{lang} Template</label>
-                                                <textarea 
-                                                    value={manualQuestion.boilerplates[lang] || ''}
-                                                    onChange={(e) => {
-                                                        const newVal = e.target.value;
-                                                        setManualQuestion(prev => ({
-                                                            ...prev,
-                                                            boilerplates: {
-                                                                ...prev.boilerplates,
-                                                                [lang]: newVal
-                                                            }
-                                                        }));
-                                                    }}
-                                                    placeholder={`Enter ${lang} starter code...`}
-                                                    rows={5}
-                                                    className="w-full bg-slate-50 border-none rounded-xl p-3 text-[11px] font-mono focus:ring-1 focus:ring-blue-100 resize-none h-40"
-                                                />
+                                        <div>
+                                            <label className="block text-xs font-bold text-slate-500 uppercase tracking-widest mb-4">Code Boilerplates (LeetCode Style)</label>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                                {['JavaScript', 'Python', 'Java', 'C++'].map(lang => (
+                                                    <div key={lang}>
+                                                        <label className="block text-[10px] font-bold text-slate-400 uppercase mb-2">{lang} Template</label>
+                                                        <textarea 
+                                                            value={manualQuestion.boilerplates[lang] || ''}
+                                                            onChange={(e) => {
+                                                                const newVal = e.target.value;
+                                                                setManualQuestion(prev => ({
+                                                                    ...prev,
+                                                                    boilerplates: {
+                                                                        ...prev.boilerplates,
+                                                                        [lang]: newVal
+                                                                    }
+                                                                }));
+                                                            }}
+                                                            placeholder={`Enter ${lang} starter code...`}
+                                                            rows={5}
+                                                            className="w-full bg-slate-50 border-none rounded-xl p-3 text-[11px] font-mono focus:ring-1 focus:ring-blue-100 resize-none h-40"
+                                                        />
+                                                    </div>
+                                                ))}
                                             </div>
-                                        ))}
-                                    </div>
-                                </div>
+                                        </div>
+                                    </>
+                                )}
 
                                 <div className="pt-6 border-t border-slate-100 flex items-center justify-between">
                                     <div className="flex items-center gap-3">
