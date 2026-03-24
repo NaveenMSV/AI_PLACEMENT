@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const Company = require('../models/Company');
 const InterviewBlueprint = require('../models/InterviewBlueprint');
 const User = require('../models/User');
@@ -478,7 +479,7 @@ const getQuestionsByCompany = async (req, res) => {
 const getTestAttemptById = async (req, res) => {
     try {
         const attempt = await TestAttempt.findById(req.params.id)
-            .populate('userId', 'name email')
+            .populate('studentId', 'name email')
             .populate('companyId', 'name');
 
         if (!attempt) return res.status(404).json({ message: 'Attempt not found' });
@@ -487,9 +488,32 @@ const getTestAttemptById = async (req, res) => {
 
         // Populate questions for each round to show the text
         const enrichedRounds = await Promise.all(roundAttempts.map(async (ra) => {
-            const questionIds = Object.keys(ra.answers || {});
-            const questions = await Question.find({ _id: { $in: questionIds } }).lean();
-            return { ...ra, questions };
+            const answerMap = ra.answers || {};
+            const questionIds = Object.keys(answerMap);
+            const dbQuestions = await Question.find({ _id: { $in: questionIds.filter(id => mongoose.Types.ObjectId.isValid(id) || id === 'default') } }).lean();
+            
+            // Map db questions for easy lookup
+            const dbQMap = {};
+            dbQuestions.forEach(q => dbQMap[q._id.toString()] = q);
+
+            // Synthesize questions for all answers to ensure they are visible
+            const allQuestions = questionIds.map(id => {
+                if (dbQMap[id]) return dbQMap[id];
+                return {
+                    _id: id,
+                    question: id === 'default' ? "General/Introductory Question" : `Question (ID: ${id})`,
+                    roundType: ra.roundType,
+                    isVirtual: true
+                };
+            });
+
+            // If no answers but round is an interview, and there are questions in DB for this round, show them too
+            if (allQuestions.length === 0 && (ra.roundType === 'TECHNICAL_INTERVIEW' || ra.roundType === 'HR_INTERVIEW')) {
+                const fallbackQuestions = await Question.find({ companyId: attempt.companyId, roundType: ra.roundType }).lean();
+                return { ...ra, questions: fallbackQuestions };
+            }
+
+            return { ...ra, questions: allQuestions };
         }));
 
         res.json({ attempt, roundAttempts: enrichedRounds });

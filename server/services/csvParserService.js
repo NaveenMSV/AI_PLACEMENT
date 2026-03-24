@@ -79,8 +79,8 @@ const parseAndSeedCsv = (filePath, companyId, roundNumber, overrideRoundType) =>
                     questionType: questionType,
                     question: findKey(['question', 'question_text', 'text', 'problem', 'problem_statement', 'desc', 'description', 'name', 'title', 'nameque', 'namequestion']),
                     options: options,
-                    correctAnswer: findKey(['correctAnswer', 'correct_ans', 'correct', 'answer', 'solution', 'query', 'sql', 'correct_query', 'sql_query', 'ans', 'answer_query', 'sql_ans', 'expected', 'expected_output', 'output', 'sqlanswer']),
-                    solution: findKey(['solution', 'correct_code', 'correct_query', 'query', 'sql', 'sql_query', 'answer_query', 'sql_ans', 'expected', 'sqlanswer']),
+                    correctAnswer: findKey(['correctAnswer', 'correct_ans', 'correct', 'answer', 'solution', 'query', 'sql', 'correct_query', 'sql_query', 'ans', 'answer_query', 'sql_ans', 'expected', 'expected_output', 'output', 'sqlanswer', 'test_case_expected_output', 'expected_result', 'result']),
+                    solution: findKey(['solution', 'correct_code', 'correct_query', 'query', 'sql', 'sql_query', 'answer_query', 'sql_ans', 'expected', 'sqlanswer', 'test_case_expected_output', 'correct_solution']),
                     difficulty: (findKey(['difficulty', 'level']) || 'Medium').charAt(0).toUpperCase() + (findKey(['difficulty', 'level']) || 'Medium').slice(1).toLowerCase().trim(),
                     testCases: []
                 };
@@ -100,9 +100,12 @@ const parseAndSeedCsv = (filePath, companyId, roundNumber, overrideRoundType) =>
                         }];
                     }
                 } else {
-                    // Parse Test Cases for CODING (e.g. "input1:output1|input2:output2")
-                    const rawTestCases = findKey(['testCases', 'test_cases', 'test_case', 'tests']);
-                    if (rawTestCases) {
+                    // Parse Test Cases for CODING (e.g. "input1:output1|input2:output2" or single columns)
+                    const rawTestCases = findKey(['testCases', 'test_cases', 'test_case', 'tests', 'input', 'test_input']);
+                    const rawExpected = findKey(['testCaseExpectedOutput', 'test_case_expected_output', 'expected_output', 'output', 'expected']);
+                    
+                    if (rawTestCases && rawTestCases.includes('|')) {
+                        // Multi-test case format
                         questionDoc.testCases = rawTestCases.split('|').map(tc => {
                             const parts = tc.split(':');
                             return { 
@@ -111,6 +114,13 @@ const parseAndSeedCsv = (filePath, companyId, roundNumber, overrideRoundType) =>
                                 isHidden: false 
                             };
                         });
+                    } else if (rawTestCases || rawExpected) {
+                        // Single test case from separate columns
+                        questionDoc.testCases = [{
+                            input: rawTestCases?.trim() || '',
+                            expectedOutput: rawExpected?.trim() || '',
+                            isHidden: false
+                        }];
                     }
                 }
 

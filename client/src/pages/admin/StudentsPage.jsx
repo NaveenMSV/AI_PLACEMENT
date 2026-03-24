@@ -1,13 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { DashboardLayout } from '../../components/layout/DashboardLayout';
 import { Card, CardHeader, CardTitle, CardContent } from '../../components/ui/Card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '../../components/ui/Table';
+import { Button } from '../../components/ui/Button';
 import { Badge } from '../../components/ui/Badge';
 import { cn } from '../../lib/utils';
 import { Search, User, Calendar, CheckCircle, AlertCircle, XCircle } from 'lucide-react';
 import { SearchContext } from '../../context/SearchContext';
 
 export default function StudentsPage() {
+    const navigate = useNavigate();
     const { searchQuery } = useContext(SearchContext);
     const [students, setStudents] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -129,7 +132,7 @@ export default function StudentsPage() {
                                                             <TableCell className="py-3">
                                                                 <div className="flex items-center gap-3">
                                                                     {getStatusBadge(test.status)}
-                                                                    {test.status === 'COMPLETED' && (
+                                                                    {(test.status === 'COMPLETED' || test.status === 'IN_PROGRESS' || test.status === 'MALPRACTICE') && (
                                                                         <Button 
                                                                             variant="ghost" 
                                                                             size="sm" 

@@ -110,8 +110,8 @@ export default function ReviewAttemptPage() {
                                     <UserIcon size={32} />
                                 </div>
                                 <div>
-                                    <h1 className="text-2xl font-black text-slate-900">{attempt?.userId?.name}</h1>
-                                    <p className="text-slate-500 font-medium">{attempt?.userId?.email}</p>
+                                    <h1 className="text-2xl font-black text-slate-900">{attempt?.studentId?.name}</h1>
+                                    <p className="text-slate-500 font-medium">{attempt?.studentId?.email}</p>
                                     <div className="flex gap-2 mt-2">
                                         <Badge variant="secondary" className="bg-blue-50 text-blue-600 border-blue-100">
                                             {attempt?.companyId?.name} Assessment

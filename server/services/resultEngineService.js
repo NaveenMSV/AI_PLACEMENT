@@ -152,12 +152,6 @@ const finalizeTestAttempt = async (attemptId, models) => {
             return null;
         }
 
-        // If already completed, just return it
-        if (currentAttempt.status === 'COMPLETED') {
-            console.log(`finalizeTestAttempt: Attempt ${attemptId} already COMPLETED.`);
-            return currentAttempt;
-        }
-
         const roundAttempts = await RoundAttempt.find({ attemptId });
 
         let totalScore = 0;

@@ -1,26 +1,33 @@
 const mongoose = require('mongoose');
-const Company = require('./models/Company');
 const InterviewBlueprint = require('./models/InterviewBlueprint');
-const Question = require('./models/Question');
 require('dotenv').config();
 
 async function checkBlueprints() {
     try {
-        await mongoose.connect(process.env.MONGODB_URI || process.env.MONGO_URI);
-        console.log('Connected to DB');
+        await mongoose.connect(process.env.MONGO_URI || 'mongodb://127.0.0.1:27017/placement_simulator');
+        console.log('Connected to MongoDB');
 
-        const companies = await Company.find({});
-        console.log(`\nCompanies (${companies.length}):`);
-        for (const company of companies) {
-            const blueprint = await InterviewBlueprint.findOne({ companyId: company._id });
-            const sqlCount = await Question.countDocuments({ companyId: company._id, roundType: 'SQL' });
-            console.log(`- ${company.name} (${company._id}): Rounds: ${blueprint ? blueprint.rounds.map(r => r.roundType).join(', ') : 'None'}, SQL Questions: ${sqlCount}`);
+        const blueprints = await InterviewBlueprint.find().populate('companyId', 'name');
+        console.log(`Found ${blueprints.length} blueprints:`);
+
+        for (const bp of blueprints) {
+            if (!bp.companyId) {
+                console.log(`Blueprint ${bp._id} has no associated company.`);
+                continue;
+            }
+            console.log(`Company: ${bp.companyId.name} (${bp.companyId._id})`);
+            if (bp.rounds && bp.rounds.length > 0) {
+                bp.rounds.forEach(r => {
+                    console.log(`  - Round ${r.roundNumber}: ${r.roundType} (${r.totalQuestions} questions)`);
+                });
+            } else {
+                console.log('  No rounds defined in blueprint.');
+            }
         }
 
-        process.exit(0);
+        await mongoose.disconnect();
     } catch (err) {
-        console.error(err);
-        process.exit(1);
+        console.error('Error in checkBlueprints:', err);
     }
 }
 
